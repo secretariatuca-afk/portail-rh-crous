@@ -39,7 +39,7 @@ body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text);background:var
 .login-hint{text-align:center;font-size:11px;color:var(--muted);margin-top:14px}
 
 /* ── APP SHELL ── */
-#app{display:none;height:100vh;display:none;flex-direction:column}
+#app{height:100vh;flex-direction:column}
 .topbar{background:var(--blue-dark);color:#fff;padding:6px 24px;display:flex;align-items:center;justify-content:space-between;font-size:11px}
 .topbar-left{opacity:.65;display:flex;align-items:center;gap:6px}
 .topbar-right{display:flex;gap:16px}
@@ -318,7 +318,7 @@ const USERS = [
   {id:3,email:'agent@crous-lille.fr',pwd:'agent123',role:'employee',nom:'Saliba',prenom:'Somiya',poste:'Assistante RH',dept:'RH',avatar:'SS'},
 ];
 
-function ls(k,def){try{return JSON.parse(localStorage.getItem('rh_'+k))||def}catch{return def}}
+function ls(k,def){try{return JSON.parse(localStorage.getItem('rh_'+k))||def}catch{return def}
 function lsSet(k,v){localStorage.setItem('rh_'+k,JSON.stringify(v))}
 
 let employees = ls('employees',[
@@ -636,7 +636,7 @@ function renderProfil(){
     <div>
       <div class="profile-name">${u.prenom} ${u.nom}</div>
       <div class="profile-role">${u.poste} · ${u.dept}</div>
-      <div style="margin-top:8px"><span class="badge badge-blue">${{'admin':'Administrateur','manager':'Responsable','employee':'Agent'}[u.role]}</span></div>
+      <div style="margin-top:8px"><span class="badge badge-blue">${'admin':'Administrateur','manager':'Responsable','employee':'Agent'}[u.role]}</span></div>
     </div>
   </div>
   <div class="profile-grid">
@@ -653,7 +653,7 @@ function renderProfil(){
       <div class="info-row"><span class="ik">Établissement</span><span class="iv">CROUS de Lille</span></div>
       <div class="info-row"><span class="ik">Unité</span><span class="iv">UCA & Cafétérias</span></div>
       <div class="info-row"><span class="ik">Adresse</span><span class="iv">Bd Paul Langevin, 59650</span></div>
-      <div class="info-row"><span class="ik">Rôle système</span><span class="iv">${{'admin':'Administrateur','manager':'Responsable','employee':'Agent'}[u.role]}</span></div>
+      <div class="info-row"><span class="ik">Rôle système</span><span class="iv">${'admin':'Administrateur','manager':'Responsable','employee':'Agent'}[u.role]}</span></div>
     </div>
   </div>`;
 }
