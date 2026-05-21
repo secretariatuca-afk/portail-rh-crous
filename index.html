@@ -150,13 +150,204 @@ tr:hover td{background:#fafbff}
 .sc .v{font-size:24px;font-weight:800;line-height:1;margin-bottom:2px}
 .sc .l{font-size:11px;color:var(--muted)}
 @media(max-width:700px){.nav-items{display:none}.fr{grid-template-columns:1fr}.info-grid{grid-template-columns:1fr}.topbar{display:none}}
+
+/* ── HOME PUBLIC ── */
+#home-screen{display:block}
+.pub-topbar{background:var(--blue-dark);color:#fff;padding:6px 32px;display:flex;align-items:center;justify-content:space-between;font-size:11px}
+.pub-topbar span{opacity:.65}
+.pub-topbar a{color:rgba(255,255,255,.5);text-decoration:none}
+.pub-topbar a:hover{color:#fff}
+.pub-nav{background:#fff;border-bottom:3px solid var(--blue);padding:0 32px;display:flex;align-items:stretch;justify-content:space-between}
+.pub-nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;padding:12px 0}
+.pub-links{display:flex;align-items:stretch;gap:2px}
+.pub-link{padding:0 14px;font-size:12px;font-weight:600;color:var(--muted);display:flex;align-items:center;gap:5px;border-bottom:2px solid transparent;margin-bottom:-3px;text-decoration:none;transition:color .15s,border-color .15s}
+.pub-link:hover,.pub-link.on{color:var(--blue);border-bottom-color:var(--red)}
+.pub-connect-btn{background:var(--blue);color:#fff;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:700;border:none;cursor:pointer;display:flex;align-items:center;gap:7px;align-self:center;font-family:inherit;transition:background .15s}
+.pub-connect-btn:hover{background:var(--blue-mid)}
+.hero{background:var(--blue);color:#fff;padding:56px 32px 0;display:grid;grid-template-columns:1fr 260px;gap:40px;align-items:end;overflow:hidden}
+.hero-chip{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:100px;padding:4px 14px;font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;margin-bottom:18px}
+.hero h1{font-size:clamp(26px,4vw,44px);font-weight:800;line-height:1.08;margin-bottom:10px}
+.hero h1 span{color:#93bbf8}
+.hero-meta-row{display:flex;align-items:center;gap:7px;font-size:13px;color:rgba(255,255,255,.65);margin-bottom:4px}
+.hero-meta-row i{color:#93bbf8;font-size:14px}
+.hero-desc{font-size:14px;opacity:.75;line-height:1.75;max-width:500px;margin:14px 0 28px}
+.hero-btns{display:flex;gap:10px;flex-wrap:wrap;padding-bottom:52px}
+.btn-hw{background:#fff;color:var(--blue);padding:11px 22px;border-radius:9px;font-size:13px;font-weight:700;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:7px;font-family:inherit;transition:background .15s}
+.btn-hw:hover{background:#e8edf7}
+.btn-ho{background:transparent;color:#fff;padding:11px 22px;border-radius:9px;font-size:13px;font-weight:600;border:1.5px solid rgba(255,255,255,.35);cursor:pointer;display:inline-flex;align-items:center;gap:7px;font-family:inherit}
+.hero-stats{background:rgba(255,255,255,.1);border-radius:12px 12px 0 0;padding:20px 18px;align-self:end}
+.hs-row{padding:9px 0;border-bottom:1px solid rgba(255,255,255,.1);display:flex;align-items:baseline;gap:8px}
+.hs-row:last-child{border:none;padding-bottom:0}
+.hs-num{font-size:22px;font-weight:800;color:#93bbf8}
+.hs-lbl{font-size:11px;opacity:.6}
+.home-sec{padding:48px 32px}
+.home-sec.alt{background:var(--surface)}
+.home-eye{font-size:11px;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px}
+.home-title{font-size:clamp(20px,3vw,28px);font-weight:800;margin-bottom:10px}
+.home-sub{font-size:13px;color:var(--muted);line-height:1.75;margin-bottom:28px;max-width:540px}
+.mod-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:12px}
+.mod-card{border-radius:14px;padding:22px 18px;border:1px solid transparent;transition:transform .15s}
+.mod-card:hover{transform:translateY(-2px)}
+.mod-icon{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:12px;font-size:20px}
+.pub-footer{background:var(--blue-dark);color:#fff;padding:28px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.pf-links a{font-size:12px;color:rgba(255,255,255,.4);text-decoration:none;margin-left:18px}
+.pf-links a:hover{color:#fff}
+@media(max-width:768px){.hero{grid-template-columns:1fr}.hero-stats{display:none}.pub-links{display:none}.pub-topbar{display:none}}
+
 </style>
 </head>
 <body>
 
+<!-- ══ PAGE D'ACCUEIL PUBLIQUE ══ -->
+<div id="home-screen">
+  <div class="pub-topbar">
+    <span><i class="ti ti-building-community"></i> Crous de Lille Nord Pas-de-Calais — Service public étudiant</span>
+    <span><a href="https://www.crous-lille.fr" target="_blank">crous-lille.fr</a> &nbsp;·&nbsp; <a href="https://etudiant.gouv.fr" target="_blank">etudiant.gouv.fr</a></span>
+  </div>
+  <nav class="pub-nav">
+    <a class="pub-nav-logo" href="#">
+      <div class="logo-box"><i class="ti ti-users"></i></div>
+      <div><div class="logo-main">Portail RH · CROUS de Lille</div><div class="logo-sub">Unité Centrale d'Assemblage et Cafétérias</div></div>
+    </a>
+    <div class="pub-links">
+      <a class="pub-link on" href="#">Accueil</a>
+      <a class="pub-link" href="#home-modules">Modules</a>
+      <a class="pub-link" href="#home-acces">Accès</a>
+    </div>
+    <button class="pub-connect-btn" onclick="showLogin()"><i class="ti ti-login"></i> Se connecter</button>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div>
+      <div class="hero-chip"><i class="ti ti-bolt" style="font-size:11px"></i> SIRH · Système d'Information RH</div>
+      <h1>Portail RH<br><span>CROUS de Lille</span></h1>
+      <div class="hero-meta-row"><i class="ti ti-building-factory-2"></i> Unité Centrale d'Assemblage et Cafétérias</div>
+      <div class="hero-meta-row"><i class="ti ti-map-pin"></i> Boulevard Paul Langevin · 59650 Villeneuve d'Ascq</div>
+      <p class="hero-desc">Gérez vos agents, contrats, absences et plannings depuis une plateforme sécurisée. Conçue pour les gestionnaires RH, responsables et agents du CROUS de Lille.</p>
+      <div class="hero-btns">
+        <button class="btn-hw" onclick="showLogin()"><i class="ti ti-login"></i> Accéder au portail</button>
+        <a class="btn-ho" href="#home-modules"><i class="ti ti-apps"></i> Découvrir les modules</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div style="font-size:10px;opacity:.5;text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px">En chiffres</div>
+      <div class="hs-row"><span class="hs-num">41</span><span class="hs-lbl">agents répertoriés</span></div>
+      <div class="hs-row"><span class="hs-num">9</span><span class="hs-lbl">modules actifs</span></div>
+      <div class="hs-row"><span class="hs-num">3</span><span class="hs-lbl">rôles utilisateurs</span></div>
+      <div class="hs-row"><span class="hs-num">100%</span><span class="hs-lbl">sans serveur</span></div>
+    </div>
+  </div>
+
+  <!-- BREADCRUMB -->
+  <div style="background:#fff;padding:9px 32px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted)">
+    <a href="https://www.crous-lille.fr" style="color:var(--blue);text-decoration:none">Crous de Lille</a>
+    <i class="ti ti-chevron-right" style="font-size:11px;opacity:.4"></i>
+    <span>Portail RH</span>
+  </div>
+
+  <!-- ALERT -->
+  <div style="margin:18px 32px 0;background:var(--blue-p2);border:1px solid var(--blue-p);padding:12px 16px;border-radius:8px;display:flex;align-items:center;gap:10px">
+    <i class="ti ti-shield-check" style="color:var(--blue);font-size:18px;flex-shrink:0"></i>
+    <div>
+      <div style="font-weight:700;font-size:12px;color:var(--blue-dark)">Accès sécurisé</div>
+      <div style="font-size:11px;color:var(--blue-mid)">Connectez-vous avec vos identifiants CROUS pour accéder à votre espace personnalisé selon votre rôle.</div>
+    </div>
+  </div>
+
+  <!-- MODULES -->
+  <div class="home-sec" id="home-modules">
+    <div class="home-eye">Fonctionnalités</div>
+    <div class="home-title">Modules du portail RH</div>
+    <div class="home-sub">Un SIRH complet — gestion des agents, absences, contrats, planning et rapports mensuels.</div>
+    <div class="mod-grid">
+      <div class="mod-card" style="background:var(--teal-p);border-color:#b2e8e4">
+        <div class="mod-icon" style="background:#b2e8e4"><i class="ti ti-users" style="color:var(--teal)"></i></div>
+        <div style="font-size:14px;font-weight:700;color:#054340;margin-bottom:5px">Gestion des agents</div>
+        <div style="font-size:12px;color:#054340;opacity:.7;line-height:1.6">Agents &amp; étudiants · Fiches · Dossiers par année</div>
+      </div>
+      <div class="mod-card" style="background:var(--green-p);border-color:#a8e8cc">
+        <div class="mod-icon" style="background:#a8e8cc"><i class="ti ti-address-book" style="color:var(--green)"></i></div>
+        <div style="font-size:14px;font-weight:700;color:#0a3d20;margin-bottom:5px">Annuaire</div>
+        <div style="font-size:12px;color:#0a3d20;opacity:.7;line-height:1.6">Mail pro · Mail perso · Téléphone · Adresse</div>
+      </div>
+      <div class="mod-card" style="background:var(--red-p);border-color:#f9c0c5">
+        <div class="mod-icon" style="background:#f9c0c5"><i class="ti ti-calendar-off" style="color:var(--red)"></i></div>
+        <div style="font-size:14px;font-weight:700;color:#7a0008;margin-bottom:5px">Absences &amp; Congés</div>
+        <div style="font-size:12px;color:#7a0008;opacity:.7;line-height:1.6">Calendrier · Tous types · Mail RH · Google Calendar</div>
+      </div>
+      <div class="mod-card" style="background:var(--blue-p2);border-color:var(--blue-p)">
+        <div class="mod-icon" style="background:var(--blue-p)"><i class="ti ti-clock" style="color:var(--blue)"></i></div>
+        <div style="font-size:14px;font-weight:700;color:var(--blue-dark);margin-bottom:5px">Suivi des heures</div>
+        <div style="font-size:12px;color:var(--blue-dark);opacity:.7;line-height:1.6">App dédiée · Fiches heures · Demandes · Soldes</div>
+      </div>
+      <div class="mod-card" style="background:var(--amber-p);border-color:#f5dfa0">
+        <div class="mod-icon" style="background:#f5dfa0"><i class="ti ti-clipboard-check" style="color:var(--amber)"></i></div>
+        <div style="font-size:14px;font-weight:700;color:#5a3600;margin-bottom:5px">PRESENCE</div>
+        <div style="font-size:12px;color:#5a3600;opacity:.7;line-height:1.6">Rapport mensuel · Export CSV · Transmission RH</div>
+      </div>
+      <div class="mod-card" style="background:var(--violet-p);border-color:#cfc6f5">
+        <div class="mod-icon" style="background:#cfc6f5"><i class="ti ti-file-text" style="color:var(--violet)"></i></div>
+        <div style="font-size:14px;font-weight:700;color:#2d1a7a;margin-bottom:5px">Contrats</div>
+        <div style="font-size:12px;color:#2d1a7a;opacity:.7;line-height:1.6">CDI · CDD · Vacataire · Historique</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ACCES -->
+  <div class="home-sec alt" id="home-acces">
+    <div class="home-eye">Accès &amp; rôles</div>
+    <div class="home-title">Qui peut se connecter ?</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px">
+      <div style="background:#fff;border:1.5px solid var(--blue-p);border-radius:12px;padding:20px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+          <div style="width:38px;height:38px;background:var(--blue-p);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:18px"><i class="ti ti-shield-check" style="color:var(--blue)"></i></div>
+          <span style="font-weight:700;font-size:14px;color:var(--blue)">Administrateur</span>
+        </div>
+        <div style="font-size:12px;color:var(--muted);line-height:1.9">✅ Accès complet<br>✅ Gestion des agents<br>✅ Module PRESENCE<br>✅ Tous les modules</div>
+      </div>
+      <div style="background:#fff;border:1.5px solid #b2e4de;border-radius:12px;padding:20px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+          <div style="width:38px;height:38px;background:var(--teal-p);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:18px"><i class="ti ti-briefcase" style="color:var(--teal)"></i></div>
+          <span style="font-weight:700;font-size:14px;color:var(--teal)">Responsable</span>
+        </div>
+        <div style="font-size:12px;color:var(--muted);line-height:1.9">✅ Gestion des agents<br>✅ Approbation congés<br>✅ Module PRESENCE<br>❌ Sans tableau de bord</div>
+      </div>
+      <div style="background:#fff;border:1.5px solid #cfc6f5;border-radius:12px;padding:20px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+          <div style="width:38px;height:38px;background:var(--violet-p);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:18px"><i class="ti ti-user" style="color:var(--violet)"></i></div>
+          <span style="font-weight:700;font-size:14px;color:var(--violet)">Agent / Étudiant</span>
+        </div>
+        <div style="font-size:12px;color:var(--muted);line-height:1.9">✅ Mes congés<br>✅ Annuaire<br>✅ Mon profil<br>✅ Suivi heures</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div style="background:var(--blue);color:#fff;padding:56px 32px;text-align:center">
+    <h2 style="font-size:clamp(22px,4vw,34px);font-weight:800;margin-bottom:12px">Prêt à accéder au portail ?</h2>
+    <p style="opacity:.7;font-size:14px;margin-bottom:28px;max-width:440px;margin-left:auto;margin-right:auto;line-height:1.75">Connectez-vous avec vos identifiants CROUS pour accéder à votre espace personnel.</p>
+    <button onclick="showLogin()" style="background:#fff;color:var(--blue);padding:12px 28px;border-radius:9px;font-size:14px;font-weight:700;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;font-family:inherit"><i class="ti ti-login"></i> Se connecter</button>
+  </div>
+
+  <div class="pub-footer">
+    <div style="display:flex;align-items:center;gap:10px">
+      <div class="logo-box"><i class="ti ti-users"></i></div>
+      <div><div style="font-weight:700;font-size:13px">CROUS de Lille · UCA &amp; Cafétérias</div><div style="font-size:10px;opacity:.4;margin-top:1px">Boulevard Paul Langevin · 59650 Villeneuve d'Ascq</div></div>
+    </div>
+    <div class="pf-links">
+      <a href="#">Documentation</a>
+      <a href="https://www.crous-lille.fr" target="_blank">crous-lille.fr</a>
+    </div>
+  </div>
+</div>
+
 <!-- LOGIN -->
-<div id="login-screen">
-  <div class="topbar"><span>CROUS de Lille · UCA &amp; Cafétérias</span></div>
+<div id="login-screen" style="display:none">
+  <div class="topbar" style="display:flex;align-items:center;justify-content:space-between;padding:7px 28px;background:var(--blue-dark);color:#fff;font-size:11px">
+    <span style="opacity:.65">CROUS de Lille · UCA &amp; Cafétérias</span>
+    <button onclick="showHome()" style="background:none;border:none;color:rgba(255,255,255,.6);cursor:pointer;font-size:11px;font-family:inherit;display:flex;align-items:center;gap:5px"><i class="ti ti-arrow-left"></i> Retour à l'accueil</button>
+  </div>
   <div class="login-bg">
     <div class="login-card">
       <div class="login-logo"><i class="ti ti-users"></i></div>
@@ -337,6 +528,17 @@ function initials(a){return (a.prenom?a.prenom[0]:'')+(a.nom?a.nom[0]:'')}
 function color(i){return COLORS[i%COLORS.length]}
 
 // ── AUTH
+function showHome(){
+  document.getElementById('home-screen').style.display='block';
+  document.getElementById('login-screen').style.display='none';
+  document.getElementById('app').style.display='none';
+}
+function showLogin(){
+  document.getElementById('home-screen').style.display='none';
+  document.getElementById('login-screen').style.display='block';
+  document.getElementById('app').style.display='none';
+  setTimeout(()=>{const el=document.getElementById('lemail');if(el)el.focus()},100);
+}
 function doLogin(){
   const email=document.getElementById('lemail').value.trim();
   const pwd=document.getElementById('lpwd').value;
@@ -354,7 +556,7 @@ function doLogin(){
 }
 document.getElementById('lpwd').addEventListener('keydown',e=>{if(e.key==='Enter')doLogin()});
 document.getElementById('lemail').addEventListener('keydown',e=>{if(e.key==='Enter')doLogin()});
-function doLogout(){currentUser=null;document.getElementById('app').style.display='none';document.getElementById('login-screen').style.display='block'}
+function doLogout(){currentUser=null;document.getElementById('app').style.display='none';document.getElementById('login-screen').style.display='none';document.getElementById('home-screen').style.display='block'}
 function buildNav(){
   document.getElementById('nav-items').innerHTML=NAV.filter(n=>n.roles.includes(currentUser.role)).map(n=>`<button class="nb" data-page="${n.id}" onclick="navigate('${n.id}')"><i class="ti ${n.icon}"></i>${n.label}</button>`).join('');
 }
