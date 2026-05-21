@@ -338,6 +338,12 @@ tr:hover td{background:#fafbff}
         <div class="mod-desc" style="color:#6b2e00">Intégration calendrier absences visuel.</div>
         <span class="mod-tag" style="color:var(--orange)"><i class="ti ti-link"></i> Intégré</span>
       </div>
+      <div class="mod-card" style="background:var(--teal-p);border-color:#b2e4de">
+        <div class="mod-icon" style="background:#b2e8e4"><i class="ti ti-clock" style="color:var(--teal)"></i></div>
+        <div class="mod-title" style="color:#054340">Suivi des heures</div>
+        <div class="mod-desc" style="color:#054340">App dédiée · Fiches agents · Demandes heures sup / prises.</div>
+        <span class="mod-tag" style="color:var(--teal)"><i class="ti ti-external-link"></i> Lié</span>
+      </div>
     </div>
   </div>
 
@@ -567,6 +573,7 @@ const NAV=[
   {id:'absences',label:'Absences',icon:'ti-calendar-off',roles:['admin','manager']},
   {id:'mes-conges',label:'Mes congés',icon:'ti-beach',roles:['admin','manager','employee']},
   {id:'presence',label:'PRESENCE',icon:'ti-clipboard-check',roles:['admin','manager']},
+  {id:'heures',label:'Suivi Heures',icon:'ti-clock',roles:['admin','manager','employee']},
   {id:'contrats',label:'Contrats',icon:'ti-file-text',roles:['admin','manager','employee']},
   {id:'annuaire',label:'Annuaire',icon:'ti-address-book',roles:['admin','manager','employee']},
   {id:'notifs',label:'Notifications',icon:'ti-bell',roles:['admin','manager','employee']},
@@ -652,7 +659,7 @@ function navigate(pg){
   document.getElementById('content').innerHTML=renderPage(pg);
 }
 function renderPage(pg){
-  const m={dashboard:renderDash,employes:renderEmps,absences:renderAbsences,'mes-conges':renderMesConges,presence:renderPresence,contrats:renderContrats,annuaire:renderAnnuaire,notifs:renderNotifs,profil:renderProfil};
+  const m={dashboard:renderDash,employes:renderEmps,absences:renderAbsences,'mes-conges':renderMesConges,presence:renderPresence,heures:renderHeures,contrats:renderContrats,annuaire:renderAnnuaire,notifs:renderNotifs,profil:renderProfil};
   return (m[pg]||renderDash)();
 }
 
@@ -669,6 +676,12 @@ function renderDash(){
     <div class="sc"><div class="v" style="color:var(--amber)">${pending}</div><div class="l">Demandes en attente</div></div>
     <div class="sc"><div class="v" style="color:var(--green)">${cdis}</div><div class="l">CDI actifs</div></div>
     <div class="sc"><div class="v" style="color:var(--violet)">${notifs.filter(n=>!n.lu).length}</div><div class="l">Notifications</div></div>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;margin-bottom:16px">
+    <button onclick="navigate('absences')" style="background:var(--red-p);border:1px solid #f9c0c5;border-radius:10px;padding:12px;cursor:pointer;display:flex;align-items:center;gap:8px;font-family:inherit;text-align:left"><i class="ti ti-calendar-off" style="font-size:18px;color:var(--red)"></i><div><div style="font-size:12px;font-weight:700;color:#7a0008">Absences</div><div style="font-size:10px;color:var(--muted)">Voir le calendrier</div></div></button>
+    <button onclick="navigate('heures')" style="background:var(--teal-p);border:1px solid #b2e4de;border-radius:10px;padding:12px;cursor:pointer;display:flex;align-items:center;gap:8px;font-family:inherit;text-align:left"><i class="ti ti-clock" style="font-size:18px;color:var(--teal)"></i><div><div style="font-size:12px;font-weight:700;color:#054340">Suivi Heures</div><div style="font-size:10px;color:var(--muted)">App + Fiches agents</div></div></button>
+    <button onclick="navigate('presence')" style="background:var(--amber-p);border:1px solid #f5dfa0;border-radius:10px;padding:12px;cursor:pointer;display:flex;align-items:center;gap:8px;font-family:inherit;text-align:left"><i class="ti ti-clipboard-check" style="font-size:18px;color:var(--amber)"></i><div><div style="font-size:12px;font-weight:700;color:#5a3600">PRESENCE</div><div style="font-size:10px;color:var(--muted)">Rapport mensuel</div></div></button>
+    <button onclick="window.open('https://calendar.google.com/calendar/u/0/r','_blank')" style="background:var(--orange-p);border:1px solid #ffd4b0;border-radius:10px;padding:12px;cursor:pointer;display:flex;align-items:center;gap:8px;font-family:inherit;text-align:left"><i class="ti ti-brand-google" style="font-size:18px;color:var(--orange)"></i><div><div style="font-size:12px;font-weight:700;color:#6b2e00">Calendar</div><div style="font-size:10px;color:var(--muted)">Planning Google</div></div></button>
   </div>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
     <div class="card"><div class="ch"><div class="ct"><i class="ti ti-calendar-off" style="color:var(--red)"></i>Absents aujourd'hui</div><button class="btn btn-b btn-sm" onclick="navigate('absences')">Voir tout</button></div>
@@ -929,6 +942,119 @@ function renderEmps(){
   <div class="card"><div class="ch"><div class="ct"><i class="ti ti-list"></i>Liste</div>
   <input class="si" placeholder="🔍 Rechercher..." oninput="filterTbl(this,'etbl')"></div>
   <table id="etbl"><thead><tr><th>Nom</th><th>Poste</th><th>Département</th><th>Téléphone</th><th>Statut</th><th>Entrée</th><th>Actions</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+}
+
+
+function renderHeures(){
+  const SUIVI_URL='https://secretariatuca-afk.github.io/suivi-heures/';
+  const GCAL_URL='https://calendar.google.com/calendar/u/0/r';
+  return `<div class="ph">
+    <div><div class="pt"><i class="ti ti-clock" style="color:var(--teal)"></i>Suivi des heures</div>
+    <div class="ps">Gestion des heures · Fiches agents · Demandes · Plannings</div></div>
+  </div>
+
+  <!-- ACCES RAPIDES -->
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:20px">
+
+    <div onclick="window.open('${SUIVI_URL}','_blank')" style="background:var(--blue);border-radius:14px;padding:20px;cursor:pointer;transition:opacity .15s" onmouseover="this.style.opacity='.9'" onmouseout="this.style.opacity='1'">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+        <div style="width:40px;height:40px;background:rgba(255,255,255,.15);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px"><i class="ti ti-external-link" style="color:#fff"></i></div>
+        <div style="color:#fff;font-weight:800;font-size:14px">Ouvrir l'application</div>
+      </div>
+      <div style="color:rgba(255,255,255,.7);font-size:12px;line-height:1.5">Accéder au logiciel complet de suivi des heures · Demandes · Validations</div>
+      <div style="margin-top:12px;background:rgba(255,255,255,.15);border-radius:7px;padding:6px 10px;font-size:11px;color:#fff;font-weight:700;display:inline-flex;align-items:center;gap:5px"><i class="ti ti-arrow-right"></i> suivi-heures →</div>
+    </div>
+
+    <div onclick="window.open('${SUIVI_URL}','_blank')" style="background:var(--teal-p);border:1.5px solid #b2e4de;border-radius:14px;padding:20px;cursor:pointer" onmouseover="this.style.background='#c8f0eb'" onmouseout="this.style.background='var(--teal-p)'">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+        <div style="width:40px;height:40px;background:#b2e8e4;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px"><i class="ti ti-users" style="color:var(--teal)"></i></div>
+        <div style="color:#054340;font-weight:800;font-size:14px">Fiches agents</div>
+      </div>
+      <div style="color:var(--muted);font-size:12px;line-height:1.5">Consulter et gérer les fiches personnelles de chaque agent</div>
+      <div style="margin-top:12px;background:#b2e8e4;border-radius:7px;padding:6px 10px;font-size:11px;color:var(--teal);font-weight:700;display:inline-flex;align-items:center;gap:5px"><i class="ti ti-id-badge"></i> Voir les fiches</div>
+    </div>
+
+    <div onclick="window.open('${SUIVI_URL}','_blank')" style="background:var(--amber-p);border:1.5px solid #f5dfa0;border-radius:14px;padding:20px;cursor:pointer" onmouseover="this.style.background='#f5e6c0'" onmouseout="this.style.background='var(--amber-p)'">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+        <div style="width:40px;height:40px;background:#f5dfa0;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px"><i class="ti ti-file-text" style="color:var(--amber)"></i></div>
+        <div style="color:#5a3600;font-weight:800;font-size:14px">Nouvelle demande</div>
+      </div>
+      <div style="color:var(--muted);font-size:12px;line-height:1.5">Saisir heures prises ou supplémentaires · Demande de modification</div>
+      <div style="margin-top:12px;background:#f5dfa0;border-radius:7px;padding:6px 10px;font-size:11px;color:var(--amber);font-weight:700;display:inline-flex;align-items:center;gap:5px"><i class="ti ti-plus"></i> Créer demande</div>
+    </div>
+
+    <div onclick="window.open('${SUIVI_URL}','_blank')" style="background:var(--violet-p);border:1.5px solid #cfc6f5;border-radius:14px;padding:20px;cursor:pointer" onmouseover="this.style.background='#ddd6f8'" onmouseout="this.style.background='var(--violet-p)'">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+        <div style="width:40px;height:40px;background:#cfc6f5;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px"><i class="ti ti-check" style="color:var(--violet)"></i></div>
+        <div style="color:#2d1a7a;font-weight:800;font-size:14px">Validation</div>
+      </div>
+      <div style="color:var(--muted);font-size:12px;line-height:1.5">Valider ou refuser les demandes des agents · Suivi global</div>
+      <div style="margin-top:12px;background:#cfc6f5;border-radius:7px;padding:6px 10px;font-size:11px;color:var(--violet);font-weight:700;display:inline-flex;align-items:center;gap:5px"><i class="ti ti-shield-check"></i> Gérer</div>
+    </div>
+
+    <div onclick="window.open('${GCAL_URL}','_blank')" style="background:var(--orange-p);border:1.5px solid #ffd4b0;border-radius:14px;padding:20px;cursor:pointer" onmouseover="this.style.background='#ffe4cc'" onmouseout="this.style.background='var(--orange-p)'">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+        <div style="width:40px;height:40px;background:#ffd4b0;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px"><i class="ti ti-brand-google" style="color:var(--orange)"></i></div>
+        <div style="color:#6b2e00;font-weight:800;font-size:14px">Google Calendar</div>
+      </div>
+      <div style="color:var(--muted);font-size:12px;line-height:1.5">Visualiser le planning · Absences · Congés sur le calendrier partagé</div>
+      <div style="margin-top:12px;background:#ffd4b0;border-radius:7px;padding:6px 10px;font-size:11px;color:var(--orange);font-weight:700;display:inline-flex;align-items:center;gap:5px"><i class="ti ti-calendar"></i> Ouvrir Calendar</div>
+    </div>
+
+    <div onclick="window.open('${SUIVI_URL}','_blank')" style="background:var(--green-p);border:1.5px solid #a8e8cc;border-radius:14px;padding:20px;cursor:pointer" onmouseover="this.style.background='#c0f0d8'" onmouseout="this.style.background='var(--green-p)'">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+        <div style="width:40px;height:40px;background:#a8e8cc;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px"><i class="ti ti-coin" style="color:var(--green)"></i></div>
+        <div style="color:#0a3d20;font-weight:800;font-size:14px">Soldes des agents</div>
+      </div>
+      <div style="color:var(--muted);font-size:12px;line-height:1.5">Consulter les soldes d'heures · Ajustements · Historique</div>
+      <div style="margin-top:12px;background:#a8e8cc;border-radius:7px;padding:6px 10px;font-size:11px;color:var(--green);font-weight:700;display:inline-flex;align-items:center;gap:5px"><i class="ti ti-chart-bar"></i> Voir soldes</div>
+    </div>
+
+  </div>
+
+  <!-- LISTE AGENTS RAPIDE -->
+  <div class="card">
+    <div class="ch">
+      <div class="ct"><i class="ti ti-users" style="color:var(--blue)"></i>Agents — Accès rapide fiche individuelle</div>
+      <input class="si" placeholder="🔍 Rechercher un agent..." oninput="filterAgentCards(this)">
+    </div>
+    <div style="padding:12px;display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px" id="agent-cards">
+      ${emps.filter(e=>e.statut==='actif').map((e,i)=>{
+        const col=['#003189','#0e7a70','#a0327a','#b97000','#5a3abf','#e1000f','#c25400'];
+        const c=col[i%col.length];
+        const absEmp=conges.filter(c2=>c2.empId===e.id&&c2.statut==='approuvé'&&c2.debut<=new Date().toISOString().split('T')[0]&&c2.fin>=new Date().toISOString().split('T')[0]);
+        const absent=absEmp.length>0;
+        const t=absent?(ABS_TYPES[absEmp[0].type]||{label:absEmp[0].type,color:'#e1000f',bg:'#fde8ea'}):null;
+        return `<div onclick="window.open('${SUIVI_URL}','_blank')" style="background:#fff;border:1.5px solid ${absent?'#f9c0c5':e.dept==='Restauration'?'#b2e8e4':'var(--border)'};border-radius:10px;padding:12px 14px;cursor:pointer;display:flex;align-items:center;gap:10px;transition:box-shadow .15s" onmouseover="this.style.boxShadow='0 3px 12px rgba(0,0,0,.1)'" onmouseout="this.style.boxShadow='none'">
+          <div style="width:38px;height:38px;border-radius:50%;background:${c};display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff;flex-shrink:0">${e.prenom[0]}${e.nom[0]}</div>
+          <div style="min-width:0;flex:1">
+            <div style="font-size:12px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${e.prenom} ${e.nom}</div>
+            <div style="font-size:10px;color:var(--muted)">${e.dept}</div>
+            ${absent?`<div style="background:${t.bg};color:${t.color};padding:1px 6px;border-radius:100px;font-size:9px;font-weight:700;margin-top:3px;display:inline-block">${t.label}</div>`:''}
+          </div>
+          <i class="ti ti-chevron-right" style="font-size:14px;color:var(--muted);flex-shrink:0"></i>
+        </div>`;
+      }).join('')}
+    </div>
+  </div>
+
+  <!-- FRAME INTEGREE -->
+  <div class="card" style="margin-top:4px">
+    <div class="ch">
+      <div class="ct"><i class="ti ti-layout-dashboard" style="color:var(--blue)"></i>Application Suivi Heures — intégrée</div>
+      <div style="display:flex;gap:8px">
+        <button class="btn btn-b btn-sm" onclick="document.getElementById('suivi-frame').src='${SUIVI_URL}'"><i class="ti ti-refresh"></i> Recharger</button>
+        <button class="btn btn-gh btn-sm" onclick="window.open('${SUIVI_URL}','_blank')"><i class="ti ti-external-link"></i> Plein écran</button>
+      </div>
+    </div>
+    <div style="padding:0">
+      <iframe id="suivi-frame" src="${SUIVI_URL}" style="width:100%;height:600px;border:none;display:block" loading="lazy" title="Suivi des heures CROUS"></iframe>
+    </div>
+  </div>`;
+}
+function filterAgentCards(inp){
+  const v=inp.value.toLowerCase();
+  document.querySelectorAll('#agent-cards > div').forEach(c=>{c.style.display=c.textContent.toLowerCase().includes(v)?'':'none'});
 }
 
 function renderContrats(){
