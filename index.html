@@ -21,115 +21,39 @@
   --text:#18202f;--muted:#64748b;--surface:#f8fafc;--border:#e2e8f0;
 }
 html,body{height:100%;font-family:'Plus Jakarta Sans',system-ui,sans-serif;font-size:14px;background:var(--surface);color:var(--text)}
-
-/* ═══ TOPBAR ═══ */
-.topbar{background:var(--blue-dark);color:#fff;padding:5px 32px;display:flex;align-items:center;justify-content:space-between;font-size:11px}
+/* ── BASE ── */
+.topbar{background:var(--blue-dark);color:#fff;padding:5px 28px;display:flex;align-items:center;justify-content:space-between;font-size:11px}
 .topbar span{opacity:.65}
 .topbar a{color:rgba(255,255,255,.55);text-decoration:none;font-size:11px}
-.topbar a:hover{color:#fff}
-
-/* ═══ NAV PUBLIQUE ═══ */
-.pub-nav{background:#fff;border-bottom:3px solid var(--blue);padding:0 32px;display:flex;align-items:stretch;justify-content:space-between}
-.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;padding:12px 0}
-.logo-box{background:var(--blue);color:#fff;width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:17px}
-.logo-main{font-size:13px;font-weight:700;color:var(--blue);line-height:1.2}
-.logo-sub{font-size:10px;color:var(--muted)}
-.pub-links{display:flex;align-items:stretch}
-.pl{padding:0 12px;font-size:12px;font-weight:600;color:var(--muted);display:flex;align-items:center;gap:5px;border-bottom:2px solid transparent;margin-bottom:-3px;cursor:pointer;text-decoration:none;transition:color .15s}
-.pl:hover,.pl.on{color:var(--blue);border-bottom-color:var(--red)}
-.btn-connect{background:var(--blue);color:#fff;padding:8px 16px;border-radius:8px;font-size:12px;font-weight:700;border:none;cursor:pointer;display:flex;align-items:center;gap:6px;align-self:center;font-family:inherit}
-
-/* ═══ HERO ACCUEIL ═══ */
-.hero{background:var(--blue);color:#fff;padding:56px 32px 0;display:grid;grid-template-columns:1fr 280px;gap:40px;align-items:end}
-.hero-chip{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:100px;padding:4px 14px;font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;margin-bottom:18px}
-.hero h1{font-size:clamp(26px,4vw,42px);font-weight:800;line-height:1.08;margin-bottom:10px}
-.hero h1 span{color:#93bbf8}
-.hero-meta{display:flex;flex-direction:column;gap:4px;margin-bottom:18px}
-.hero-meta-row{display:flex;align-items:center;gap:7px;font-size:13px;color:rgba(255,255,255,.65)}
-.hero-meta-row i{color:#93bbf8;font-size:14px}
-.hero-desc{font-size:14px;opacity:.75;line-height:1.75;max-width:500px;margin-bottom:28px}
-.hero-btns{display:flex;gap:10px;flex-wrap:wrap;padding-bottom:52px}
-.btn-hw{background:#fff;color:var(--blue);padding:10px 20px;border-radius:8px;font-size:13px;font-weight:700;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:6px;font-family:inherit}
-.btn-ho{background:transparent;color:#fff;padding:10px 20px;border-radius:8px;font-size:13px;font-weight:600;border:1.5px solid rgba(255,255,255,.35);cursor:pointer;display:inline-flex;align-items:center;gap:6px;font-family:inherit}
-.hero-stats{background:rgba(255,255,255,.1);border-radius:12px 12px 0 0;padding:20px 18px;align-self:end}
-.hs-label{font-size:10px;opacity:.5;text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px}
-.hs-row{padding:8px 0;border-bottom:1px solid rgba(255,255,255,.1);display:flex;align-items:baseline;gap:8px}
-.hs-row:last-child{border:none;padding-bottom:0}
-.hs-num{font-size:22px;font-weight:800;color:#93bbf8}
-.hs-lbl{font-size:11px;opacity:.6}
-
-/* ═══ MODULES HOME ═══ */
-.home-section{padding:48px 32px}
-.home-section.alt{background:var(--surface);padding:48px 32px}
-.hs-title{font-size:22px;font-weight:800;color:var(--text);margin-bottom:8px}
-.hs-sub{font-size:13px;color:var(--muted);margin-bottom:28px;max-width:540px;line-height:1.7}
-.hs-eye{font-size:11px;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px}
-.mod-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:12px}
-.mod-card{border-radius:14px;padding:24px 20px;border:1px solid transparent;transition:transform .15s;cursor:default}
-.mod-card:hover{transform:translateY(-2px)}
-.mod-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:14px;font-size:20px}
-.mod-title{font-size:14px;font-weight:700;margin-bottom:5px;line-height:1.3}
-.mod-desc{font-size:12px;line-height:1.6;opacity:.72}
-.mod-tag{display:inline-flex;align-items:center;gap:4px;margin-top:10px;font-size:11px;font-weight:600;padding:2px 8px;border-radius:100px;background:rgba(255,255,255,.5)}
-.breadcrumb{background:#fff;padding:9px 32px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted)}
-.breadcrumb a{color:var(--blue);text-decoration:none}
-.alert-band{margin:18px 32px 0;background:var(--blue-p2);border:1px solid var(--blue-p);padding:11px 16px;border-radius:8px;display:flex;align-items:center;gap:10px}
-.alert-band i{color:var(--blue);font-size:18px;flex-shrink:0}
-.alert-band .at{font-weight:700;font-size:12px;color:var(--blue-dark)}
-.alert-band .ad{font-size:11px;color:var(--blue-mid)}
-
-/* ═══ FOOTER PUBLIC ═══ */
-.pub-footer{background:var(--blue-dark);color:#fff;padding:28px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
-.pf-brand{display:flex;align-items:center;gap:10px}
-.pf-logo{background:rgba(255,255,255,.1);border-radius:8px;width:32px;height:32px;display:flex;align-items:center;justify-content:center;font-size:16px}
-.pf-name{font-weight:700;font-size:13px}
-.pf-ver{font-size:10px;opacity:.4;margin-top:1px}
-.pf-links{display:flex;gap:18px}
-.pf-links a{font-size:12px;color:rgba(255,255,255,.45);text-decoration:none}
-
-/* ═══ LOGIN ═══ */
-.login-bg{min-height:100vh;background:#f0f2f7;background-image:radial-gradient(#c8d4f0 1px,transparent 1px);background-size:24px 24px;display:flex;align-items:center;justify-content:center;padding:20px}
-.login-card{background:#fff;border-radius:20px;padding:36px 32px;width:100%;max-width:380px;border:1px solid var(--border);box-shadow:0 8px 40px rgba(0,49,137,.1)}
-.login-logo{width:48px;height:48px;background:var(--blue);border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:22px;color:#fff}
-.login-card h2{text-align:center;font-size:18px;font-weight:800;margin-bottom:4px}
-.login-sub{text-align:center;font-size:12px;color:var(--muted);margin-bottom:24px}
-.fg{margin-bottom:14px}
-.fg label{display:block;font-size:11px;font-weight:700;color:var(--muted);margin-bottom:5px;text-transform:uppercase;letter-spacing:.04em}
-.fg input,.fg select,.fg textarea{width:100%;padding:9px 12px;border:1.5px solid var(--border);border-radius:7px;font-size:13px;font-family:inherit;outline:none;transition:border-color .15s}
-.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--blue)}
-.err-box{background:var(--red-p);color:var(--red);font-size:12px;padding:8px 12px;border-radius:7px;margin-bottom:12px;display:none;align-items:center;gap:6px}
-.btn-login{width:100%;background:var(--blue);color:#fff;padding:11px;border-radius:7px;font-size:14px;font-weight:700;border:none;cursor:pointer;font-family:inherit}
-.hint{text-align:center;font-size:11px;color:var(--muted);margin-top:14px;line-height:1.8}
-
-/* ═══ APP ═══ */
+/* ── NAV APP ── */
 #app{display:none;flex-direction:column;min-height:100vh}
 .app-nav{background:#fff;border-bottom:2px solid var(--blue);display:flex;align-items:stretch;justify-content:space-between;padding:0 20px;position:sticky;top:0;z-index:50}
+.nav-logo{display:flex;align-items:center;gap:9px;padding:9px 0}
+.logo-box{background:var(--blue);color:#fff;width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px}
+.logo-main{font-size:12px;font-weight:700;color:var(--blue);line-height:1.2}
+.logo-sub{font-size:10px;color:var(--muted)}
 .nav-items{display:flex;align-items:stretch;flex-wrap:wrap}
-.nb{padding:0 9px;font-size:11px;font-weight:600;color:var(--muted);display:flex;align-items:center;gap:4px;border-bottom:2px solid transparent;margin-bottom:-2px;background:none;border-top:none;border-left:none;border-right:none;cursor:pointer;font-family:inherit;transition:color .15s}
+.nb{padding:0 8px;font-size:11px;font-weight:600;color:var(--muted);display:flex;align-items:center;gap:4px;border-bottom:2px solid transparent;margin-bottom:-2px;background:none;border-top:none;border-left:none;border-right:none;cursor:pointer;font-family:inherit;transition:color .15s;white-space:nowrap}
 .nb:hover,.nb.on{color:var(--blue);border-bottom-color:var(--blue)}
-.nav-user{display:flex;align-items:center;gap:7px;padding:8px 0}
+.nav-user{display:flex;align-items:center;gap:7px;padding:7px 0}
 .av{width:28px;height:28px;border-radius:50%;background:var(--blue-p);color:var(--blue);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0}
-.un{font-size:11px;font-weight:600}
-.ur{font-size:10px;color:var(--muted)}
 .btn-out{background:none;border:1px solid var(--border);border-radius:6px;padding:4px 8px;font-size:11px;font-weight:600;color:var(--muted);cursor:pointer;font-family:inherit}
-.content{flex:1;padding:20px 24px;overflow-y:auto}
-.ph{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:10px}
+/* ── CONTENT ── */
+.content{flex:1;padding:18px 22px;overflow-y:auto}
+.ph{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:10px}
 .pt{font-size:17px;font-weight:800;display:flex;align-items:center;gap:7px}
 .ps{font-size:12px;color:var(--muted);margin-top:2px}
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-bottom:16px}
-.sc{background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px}
-.sc .v{font-size:24px;font-weight:800;line-height:1;margin-bottom:2px}
-.sc .l{font-size:11px;color:var(--muted)}
+/* ── CARDS / TABLE ── */
 .card{background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:12px}
 .ch{padding:11px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
 .ct{font-size:13px;font-weight:700;display:flex;align-items:center;gap:6px}
-.si{padding:6px 10px;border:1px solid var(--border);border-radius:6px;font-size:12px;font-family:inherit;outline:none;width:170px}
+.si{padding:6px 10px;border:1px solid var(--border);border-radius:6px;font-size:12px;font-family:inherit;outline:none;min-width:160px}
 table{width:100%;border-collapse:collapse}
-th{background:var(--surface);padding:8px 12px;text-align:left;font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;border-bottom:1px solid var(--border)}
-td{padding:8px 12px;border-bottom:1px solid var(--border);font-size:12px;vertical-align:middle}
+th{background:var(--surface);padding:8px 10px;text-align:left;font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;border-bottom:1px solid var(--border)}
+td{padding:8px 10px;border-bottom:1px solid var(--border);font-size:12px;vertical-align:middle}
 tr:last-child td{border:none}
 tr:hover td{background:#fafbff}
-.badge{display:inline-flex;align-items:center;padding:2px 8px;border-radius:100px;font-size:10px;font-weight:700}
+.badge{display:inline-flex;align-items:center;padding:2px 7px;border-radius:100px;font-size:10px;font-weight:700}
 .bg{background:var(--green-p);color:var(--green)}
 .br{background:var(--red-p);color:var(--red)}
 .ba{background:var(--amber-p);color:var(--amber)}
@@ -137,55 +61,82 @@ tr:hover td{background:#fafbff}
 .bv{background:var(--violet-p);color:var(--violet)}
 .bgr{background:var(--surface);color:var(--muted);border:1px solid var(--border)}
 .bo{background:var(--orange-p);color:var(--orange)}
+/* ── BUTTONS ── */
 .btn{padding:6px 12px;border-radius:7px;font-size:12px;font-weight:700;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:5px;font-family:inherit}
-.btn-b{background:var(--blue);color:#fff}
+.btn-b{background:var(--blue);color:#fff}.btn-b:hover{background:var(--blue-mid)}
 .btn-g{background:var(--green);color:#fff}
 .btn-r{background:var(--red);color:#fff}
-.btn-gh{background:none;border:1px solid var(--border);color:var(--muted)}
+.btn-gh{background:none;border:1px solid var(--border);color:var(--muted)}.btn-gh:hover{border-color:var(--blue);color:var(--blue)}
 .btn-sm{padding:3px 8px;font-size:11px}
-.btn-orange{background:var(--orange);color:#fff}
-
-/* ═══ ABSENCES ═══ */
-.abs-legend{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
-.abs-leg-item{display:flex;align-items:center;gap:5px;font-size:11px;font-weight:600}
-.abs-dot{width:10px;height:10px;border-radius:50%}
-.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;margin-bottom:16px}
-.cal-day-head{text-align:center;font-size:10px;font-weight:700;color:var(--muted);padding:4px;text-transform:uppercase}
-.cal-day{background:#fff;border:1px solid var(--border);border-radius:6px;min-height:70px;padding:4px 5px;cursor:default;transition:background .15s;position:relative}
-.cal-day:hover{background:var(--surface)}
-.cal-day.today{border-color:var(--blue);background:var(--blue-p2)}
-.cal-day.other-month{opacity:.35}
-.cal-day-num{font-size:11px;font-weight:700;color:var(--muted);margin-bottom:3px}
-.cal-day.today .cal-day-num{color:var(--blue)}
-.cal-event{font-size:9px;font-weight:700;padding:1px 4px;border-radius:3px;margin-bottom:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;cursor:pointer}
-.abs-list{display:flex;flex-direction:column;gap:8px}
-.abs-item{background:#fff;border:1px solid var(--border);border-radius:10px;padding:12px 14px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.abs-avatar{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff;flex-shrink:0}
-.abs-info{flex:1;min-width:0}
-.abs-name{font-size:13px;font-weight:700;margin-bottom:2px}
-.abs-detail{font-size:11px;color:var(--muted)}
-.abs-actions{display:flex;gap:6px;flex-wrap:wrap}
-
-/* ═══ PRESENCE ═══ */
-.presence-header{background:linear-gradient(135deg,var(--blue-dark),var(--blue));color:#fff;border-radius:12px;padding:20px 22px;margin-bottom:16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
-.presence-title{font-size:16px;font-weight:800}
-.presence-sub{font-size:12px;opacity:.7;margin-top:2px}
-.presence-actions{display:flex;gap:8px}
-.btn-presence{background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.3);padding:8px 14px;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:6px;font-family:inherit;transition:background .15s}
-.btn-presence:hover{background:rgba(255,255,255,.25)}
-.btn-presence.primary{background:#fff;color:var(--blue)}
-.presence-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-bottom:16px}
-.presc{background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center}
-.presc .pv{font-size:26px;font-weight:800;line-height:1;margin-bottom:2px}
-.presc .pl{font-size:11px;color:var(--muted)}
-.month-selector{display:flex;align-items:center;gap:10px;margin-bottom:16px}
-.month-selector select{padding:7px 12px;border:1px solid var(--border);border-radius:7px;font-size:13px;font-family:inherit;outline:none}
-.presence-table{background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden}
-.pt-header{padding:12px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
-.pt-title{font-size:13px;font-weight:700}
-.pt-actions{display:flex;gap:8px}
-
-/* ═══ MODAL ═══ */
+.btn-teal{background:var(--teal);color:#fff}
+.btn-violet{background:var(--violet);color:#fff}
+/* ── TABS ── */
+.tabs{display:flex;gap:4px;margin-bottom:14px;flex-wrap:wrap}
+.tab{padding:6px 14px;border-radius:7px;font-size:12px;font-weight:600;border:1.5px solid var(--border);cursor:pointer;background:#fff;transition:all .15s;font-family:inherit;color:var(--muted)}
+.tab.on{background:var(--blue);color:#fff;border-color:var(--blue)}
+.tab.on-teal{background:var(--teal);color:#fff;border-color:var(--teal)}
+/* ── AGENT CARD ── */
+.agent-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.ac{background:#fff;border:1px solid var(--border);border-radius:12px;padding:16px;transition:box-shadow .15s}
+.ac:hover{box-shadow:0 4px 16px rgba(0,0,0,.08)}
+.ac-head{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.ac-av{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;color:#fff;flex-shrink:0}
+.ac-name{font-size:14px;font-weight:700;line-height:1.2}
+.ac-dept{font-size:11px;color:var(--muted);margin-top:2px}
+.ac-rows{display:flex;flex-direction:column;gap:5px}
+.ac-row{display:flex;align-items:center;gap:7px;font-size:11px}
+.ac-row i{font-size:13px;color:var(--muted);flex-shrink:0;width:14px}
+.ac-row a{color:var(--blue);text-decoration:none}
+.ac-row a:hover{text-decoration:underline}
+.ac-actions{display:flex;gap:6px;margin-top:12px;padding-top:10px;border-top:1px solid var(--border);flex-wrap:wrap}
+/* ── FICHE AGENT (MODAL LARGE) ── */
+.fiche-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:300;display:flex;align-items:flex-start;justify-content:center;padding:20px;overflow-y:auto}
+.fiche-modal{background:#fff;border-radius:16px;width:100%;max-width:800px;margin:auto}
+.fiche-header{background:var(--blue);color:#fff;padding:20px 24px;border-radius:16px 16px 0 0;display:flex;align-items:center;justify-content:space-between}
+.fiche-av{width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800;flex-shrink:0}
+.fiche-body{padding:20px 24px}
+.fiche-tabs{display:flex;gap:4px;margin-bottom:18px;border-bottom:1px solid var(--border);padding-bottom:12px;flex-wrap:wrap}
+.ftab{padding:5px 14px;border-radius:7px;font-size:12px;font-weight:600;cursor:pointer;background:none;border:1.5px solid var(--border);color:var(--muted);font-family:inherit}
+.ftab.on{background:var(--blue);color:#fff;border-color:var(--blue)}
+.fiche-section{display:none}.fiche-section.on{display:block}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px 20px}
+.info-row{padding:7px 0;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;font-size:12px}
+.info-row:last-child{border:none}
+.ik{color:var(--muted);flex-shrink:0;margin-right:8px}
+.iv{font-weight:600;text-align:right}
+/* ── DOSSIER DOCS ── */
+.doc-years{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
+.doc-year-tab{padding:4px 12px;border-radius:6px;font-size:12px;font-weight:600;border:1.5px solid var(--border);cursor:pointer;background:#fff;color:var(--muted);font-family:inherit}
+.doc-year-tab.on{background:var(--blue);color:#fff;border-color:var(--blue)}
+.doc-types{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin-bottom:14px}
+.doc-type{background:var(--surface);border:2px dashed var(--border);border-radius:10px;padding:14px;text-align:center;cursor:pointer;transition:all .15s}
+.doc-type:hover{border-color:var(--blue);background:var(--blue-p2)}
+.doc-type i{font-size:22px;color:var(--muted);display:block;margin-bottom:6px}
+.doc-type.has-doc{border-style:solid;border-color:var(--green);background:var(--green-p)}
+.doc-type.has-doc i{color:var(--green)}
+.doc-type .dt-label{font-size:11px;font-weight:700;color:var(--text)}
+.doc-type .dt-date{font-size:10px;color:var(--muted);margin-top:2px}
+/* ── ANNUAIRE ── */
+.ann-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px}
+.ann-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px;display:flex;align-items:flex-start;gap:12px}
+.ann-av{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff;flex-shrink:0}
+.ann-info .an{font-size:13px;font-weight:700;margin-bottom:3px}
+.ann-info .ap{font-size:11px;color:var(--blue);font-weight:600}
+.ann-contact{margin-top:6px;display:flex;flex-direction:column;gap:3px}
+.ann-contact a{font-size:11px;color:var(--muted);text-decoration:none;display:flex;align-items:center;gap:4px}
+.ann-contact a:hover{color:var(--blue)}
+/* ── LOGIN ── */
+.login-bg{min-height:100vh;background:#f0f2f7;background-image:radial-gradient(#c8d4f0 1px,transparent 1px);background-size:24px 24px;display:flex;align-items:center;justify-content:center;padding:20px}
+.login-card{background:#fff;border-radius:20px;padding:36px 32px;width:100%;max-width:380px;border:1px solid var(--border);box-shadow:0 8px 40px rgba(0,49,137,.1)}
+.login-logo{width:48px;height:48px;background:var(--blue);border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:22px;color:#fff}
+.fg{margin-bottom:14px}
+.fg label{display:block;font-size:11px;font-weight:700;color:var(--muted);margin-bottom:5px;text-transform:uppercase;letter-spacing:.04em}
+.fg input,.fg select,.fg textarea{width:100%;padding:9px 12px;border:1.5px solid var(--border);border-radius:7px;font-size:13px;font-family:inherit;outline:none;transition:border-color .15s}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--blue)}
+.err-box{background:var(--red-p);color:var(--red);font-size:12px;padding:8px 12px;border-radius:7px;margin-bottom:12px;display:none;align-items:center;gap:6px}
+.btn-login{width:100%;background:var(--blue);color:#fff;padding:11px;border-radius:7px;font-size:14px;font-weight:700;border:none;cursor:pointer;font-family:inherit}
+.hint{text-align:center;font-size:11px;color:var(--muted);margin-top:14px;line-height:1.8}
+/* ── MODAL ── */
 .modal-wrap{position:fixed;inset:0;background:rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;z-index:200;padding:20px}
 .modal{background:#fff;border-radius:14px;padding:24px;width:100%;max-width:460px;max-height:90vh;overflow-y:auto}
 .mh{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
@@ -193,369 +144,114 @@ tr:hover td{background:#fafbff}
 .mx{background:none;border:none;cursor:pointer;color:var(--muted);font-size:18px;padding:2px}
 .fr{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .mf{display:flex;gap:8px;justify-content:flex-end;margin-top:16px;padding-top:14px;border-top:1px solid var(--border)}
-
-/* PROFILE */
-.phero{background:var(--blue);color:#fff;border-radius:12px;padding:20px;display:flex;align-items:center;gap:14px;margin-bottom:14px}
-.pav{width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;flex-shrink:0}
-.pgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.ic{background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px}
-.ic-label{font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:8px}
-.ir{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--border);font-size:12px}
-.ir:last-child{border:none}
-.ik{color:var(--muted)}.iv{font-weight:600}
-/* CONGES */
-.csol{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:10px;margin-bottom:14px}
-.cscard{border-radius:10px;padding:14px;text-align:center}
-.csv{font-size:26px;font-weight:800;line-height:1}
-.csl{font-size:11px;font-weight:600;margin-top:3px;opacity:.75}
-/* ANNUAIRE */
-.agrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:10px}
-.acard{background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center}
-.aav{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;margin:0 auto 8px;color:#fff}
-/* NOTIFS */
-.nlist{display:flex;flex-direction:column;gap:8px}
-.ni{background:#fff;border:1px solid var(--border);border-radius:10px;padding:12px 14px;display:flex;align-items:flex-start;gap:10px}
-.ni.unread{border-color:var(--blue-p);background:var(--blue-p2)}
-.nico{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
-@media(max-width:768px){.hero{grid-template-columns:1fr}.hero-stats{display:none}.fr{grid-template-columns:1fr}.pgrid{grid-template-columns:1fr}.cal-grid{grid-template-columns:repeat(4,1fr)}.topbar{display:none}.pub-links{display:none}}
+/* ── STATS ── */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-bottom:16px}
+.sc{background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px}
+.sc .v{font-size:24px;font-weight:800;line-height:1;margin-bottom:2px}
+.sc .l{font-size:11px;color:var(--muted)}
+@media(max-width:700px){.nav-items{display:none}.fr{grid-template-columns:1fr}.info-grid{grid-template-columns:1fr}.topbar{display:none}}
 </style>
 </head>
 <body>
 
-<!-- ══════════════════════════════════
-     PAGE D'ACCUEIL PUBLIQUE
-════════════════════════════════════ -->
-<div id="home-screen">
-  <div class="topbar">
-    <span><i class="ti ti-building-community"></i> Crous de Lille Nord Pas-de-Calais — Service public étudiant</span>
-    <span><a href="https://www.crous-lille.fr" target="_blank">crous-lille.fr</a> &nbsp;·&nbsp; <a href="https://etudiant.gouv.fr" target="_blank">etudiant.gouv.fr</a></span>
-  </div>
-  <nav class="pub-nav">
-    <a class="nav-logo" href="#">
-      <div class="logo-box"><i class="ti ti-users"></i></div>
-      <div><div class="logo-main">Portail RH · CROUS de Lille</div><div class="logo-sub">Unité Centrale d'Assemblage et Cafétérias</div></div>
-    </a>
-    <div class="pub-links">
-      <a class="pl on" href="#">Accueil</a>
-      <a class="pl" href="#modules-section">Modules</a>
-      <a class="pl" href="#acces-section">Accès &amp; rôles</a>
-      <a class="pl" href="#tech-section">Architecture</a>
-    </div>
-    <button class="btn-connect" onclick="showLogin()"><i class="ti ti-login"></i> Se connecter</button>
-  </nav>
-
-  <!-- HERO -->
-  <div class="hero">
-    <div>
-      <div class="hero-chip"><i class="ti ti-bolt" style="font-size:11px"></i> SIRH · Système d'information RH</div>
-      <h1>Portail RH<br><span>CROUS de Lille</span></h1>
-      <div class="hero-meta">
-        <div class="hero-meta-row"><i class="ti ti-building-factory-2"></i> Unité Centrale d'Assemblage et Cafétérias</div>
-        <div class="hero-meta-row"><i class="ti ti-map-pin"></i> Boulevard Paul Langevin · 59650 Villeneuve d'Ascq</div>
-      </div>
-      <p class="hero-desc">Gérez vos employés, contrats, congés et absences depuis une plateforme sécurisée. Conçue pour les gestionnaires RH, responsables et agents du CROUS de Lille.</p>
-      <div class="hero-btns">
-        <button class="btn-hw" onclick="showLogin()"><i class="ti ti-rocket"></i> Accéder au portail</button>
-        <a class="btn-ho" href="#modules-section"><i class="ti ti-apps"></i> Découvrir les modules</a>
-      </div>
-    </div>
-    <div class="hero-stats">
-      <div class="hs-label">Vue d'ensemble</div>
-      <div class="hs-row"><span class="hs-num">9</span><span class="hs-lbl">modules actifs</span></div>
-      <div class="hs-row"><span class="hs-num">3</span><span class="hs-lbl">rôles utilisateurs</span></div>
-      <div class="hs-row"><span class="hs-num">3</span><span class="hs-lbl">types de contrats</span></div>
-      <div class="hs-row"><span class="hs-num">100%</span><span class="hs-lbl">sans serveur</span></div>
-    </div>
-  </div>
-
-  <div class="breadcrumb">
-    <a href="https://www.crous-lille.fr">Crous de Lille</a>
-    <i class="ti ti-chevron-right" style="font-size:11px;opacity:.4"></i>
-    <a href="#">Ressources humaines</a>
-    <i class="ti ti-chevron-right" style="font-size:11px;opacity:.4"></i>
-    <span>Portail RH</span>
-  </div>
-
-  <div class="alert-band">
-    <i class="ti ti-info-circle"></i>
-    <div>
-      <div class="at">Accès sécurisé</div>
-      <div class="ad">Connectez-vous avec vos identifiants CROUS pour accéder à votre espace personnalisé selon votre rôle.</div>
-    </div>
-  </div>
-
-  <!-- MODULES -->
-  <div class="home-section" id="modules-section">
-    <div class="hs-eye">Fonctionnalités</div>
-    <div class="hs-title">Modules du portail RH</div>
-    <div class="hs-sub">Un SIRH complet avec des accès adaptés selon votre profil dans l'organisation.</div>
-    <div class="mod-grid">
-      <div class="mod-card" style="background:var(--blue-p2);border-color:var(--blue-p)">
-        <div class="mod-icon" style="background:var(--blue-p)"><i class="ti ti-chart-bar" style="color:var(--blue)"></i></div>
-        <div class="mod-title" style="color:var(--blue-dark)">Tableau de bord</div>
-        <div class="mod-desc" style="color:var(--blue-dark)">Statistiques RH globales en temps réel.</div>
-        <span class="mod-tag" style="color:var(--blue)"><i class="ti ti-shield"></i> Admin</span>
-      </div>
-      <div class="mod-card" style="background:var(--teal-p);border-color:#b2e8e4">
-        <div class="mod-icon" style="background:#b2e8e4"><i class="ti ti-users" style="color:var(--teal)"></i></div>
-        <div class="mod-title" style="color:#054340">Gestion des employés</div>
-        <div class="mod-desc" style="color:#054340">CRUD complet, recherche, filtres.</div>
-        <span class="mod-tag" style="color:var(--teal)"><i class="ti ti-briefcase"></i> Admin · Responsable</span>
-      </div>
-      <div class="mod-card" style="background:var(--red-p);border-color:#f9c0c5">
-        <div class="mod-icon" style="background:#f9c0c5"><i class="ti ti-calendar-off" style="color:var(--red)"></i></div>
-        <div class="mod-title" style="color:#7a0008">Absences &amp; Congés</div>
-        <div class="mod-desc" style="color:#7a0008">Calendrier, suivi, approbation, types multiples.</div>
-        <span class="mod-tag" style="color:var(--red)"><i class="ti ti-users"></i> Tous</span>
-      </div>
-      <div class="mod-card" style="background:var(--amber-p);border-color:#f5dfa0">
-        <div class="mod-icon" style="background:#f5dfa0"><i class="ti ti-clipboard-check" style="color:var(--amber)"></i></div>
-        <div class="mod-title" style="color:#5a3600">Logiciel PRESENCE</div>
-        <div class="mod-desc" style="color:#5a3600">Rapport mensuel RH, export, transmission.</div>
-        <span class="mod-tag" style="color:var(--amber)"><i class="ti ti-send"></i> Admin · Responsable</span>
-      </div>
-      <div class="mod-card" style="background:var(--violet-p);border-color:#cfc6f5">
-        <div class="mod-icon" style="background:#cfc6f5"><i class="ti ti-file-text" style="color:var(--violet)"></i></div>
-        <div class="mod-title" style="color:#2d1a7a">Contrats</div>
-        <div class="mod-desc" style="color:#2d1a7a">CDI, CDD, Vacataire — historique complet.</div>
-        <span class="mod-tag" style="color:var(--violet)"><i class="ti ti-users"></i> Tous</span>
-      </div>
-      <div class="mod-card" style="background:var(--green-p);border-color:#a8e8cc">
-        <div class="mod-icon" style="background:#a8e8cc"><i class="ti ti-address-book" style="color:var(--green)"></i></div>
-        <div class="mod-title" style="color:#0a3d20">Annuaire</div>
-        <div class="mod-desc" style="color:#0a3d20">Répertoire complet du personnel.</div>
-        <span class="mod-tag" style="color:var(--green)"><i class="ti ti-users"></i> Tous</span>
-      </div>
-      <div class="mod-card" style="background:var(--pink-p);border-color:#f5b8e0">
-        <div class="mod-icon" style="background:#f5b8e0"><i class="ti ti-bell" style="color:var(--pink)"></i></div>
-        <div class="mod-title" style="color:#561040">Notifications</div>
-        <div class="mod-desc" style="color:#561040">Alertes temps réel pour congés et contrats.</div>
-        <span class="mod-tag" style="color:var(--pink)"><i class="ti ti-users"></i> Tous</span>
-      </div>
-      <div class="mod-card" style="background:var(--orange-p);border-color:#ffd4b0">
-        <div class="mod-icon" style="background:#ffd4b0"><i class="ti ti-calendar" style="color:var(--orange)"></i></div>
-        <div class="mod-title" style="color:#6b2e00">Google Calendar</div>
-        <div class="mod-desc" style="color:#6b2e00">Intégration calendrier absences visuel.</div>
-        <span class="mod-tag" style="color:var(--orange)"><i class="ti ti-link"></i> Intégré</span>
-      </div>
-      <div class="mod-card" style="background:var(--teal-p);border-color:#b2e4de">
-        <div class="mod-icon" style="background:#b2e8e4"><i class="ti ti-clock" style="color:var(--teal)"></i></div>
-        <div class="mod-title" style="color:#054340">Suivi des heures</div>
-        <div class="mod-desc" style="color:#054340">App dédiée · Fiches agents · Demandes heures sup / prises.</div>
-        <span class="mod-tag" style="color:var(--teal)"><i class="ti ti-external-link"></i> Lié</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- ACCES -->
-  <div class="home-section alt" id="acces-section">
-    <div class="hs-eye">Contrôle d'accès · RBAC</div>
-    <div class="hs-title">Droits par profil utilisateur</div>
-    <div class="hs-sub">Les droits sont gérés automatiquement selon votre rôle dans l'organisation.</div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px">
-      <div class="card" style="background:var(--blue-p2);border-color:var(--blue-p)">
-        <div class="ch" style="border-color:var(--blue-p)"><div class="ct"><i class="ti ti-shield-check" style="color:var(--blue)"></i><span class="badge bb">Administrateur</span></div></div>
-        <div style="padding:12px 16px">
-          <div style="font-size:12px;color:var(--blue-dark);line-height:1.8">✅ Tableau de bord<br>✅ Gestion employés<br>✅ Approbation congés<br>✅ Création contrats<br>✅ Module PRESENCE<br>✅ Accès complet</div>
-        </div>
-      </div>
-      <div class="card" style="background:var(--teal-p);border-color:#b2e4de">
-        <div class="ch" style="border-color:#b2e4de"><div class="ct"><i class="ti ti-briefcase" style="color:var(--teal)"></i><span class="badge" style="background:#b2e4de;color:var(--teal)">Responsable</span></div></div>
-        <div style="padding:12px 16px">
-          <div style="font-size:12px;color:#054340;line-height:1.8">❌ Tableau de bord<br>✅ Gestion employés<br>✅ Approbation congés<br>✅ Module PRESENCE<br>✅ Consultation contrats<br>✅ Annuaire + Notifs</div>
-        </div>
-      </div>
-      <div class="card" style="background:var(--violet-p);border-color:#cfc6f5">
-        <div class="ch" style="border-color:#cfc6f5"><div class="ct"><i class="ti ti-user" style="color:var(--violet)"></i><span class="badge bv">Employé / Agent</span></div></div>
-        <div style="padding:12px 16px">
-          <div style="font-size:12px;color:#2d1a7a;line-height:1.8">❌ Tableau de bord<br>❌ Gestion employés<br>✅ Mes congés<br>❌ Module PRESENCE<br>✅ Mon profil<br>✅ Annuaire + Notifs</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- TECH -->
-  <div class="home-section" id="tech-section">
-    <div class="hs-eye">Architecture</div>
-    <div class="hs-title">Stack technique</div>
-    <div class="hs-sub">Application 100% statique, sans serveur, déployée sur GitHub Pages.</div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px">
-      ${[['ti-brand-react','var(--blue-p)','var(--blue)','React 19','Frontend'],['ti-code','var(--teal-p)','var(--teal)','JavaScript ES6+','Logique'],['ti-database','var(--red-p)','var(--red)','localStorage','Données'],['ti-lock','var(--violet-p)','var(--violet)','Auth locale','Sécurité'],['ti-brand-github','var(--surface)','var(--text)','GitHub Pages','Hébergement'],['ti-calendar','var(--orange-p)','var(--orange)','Google Calendar','Intégration']].map(([ic,bg,c,n,l])=>`
-      <div class="card" style="border-radius:10px;overflow:hidden"><div style="padding:12px 14px;display:flex;align-items:center;gap:10px">
-        <div style="width:34px;height:34px;border-radius:8px;background:${bg};display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0"><i class="ti ${ic}" style="color:${c}"></i></div>
-        <div><div style="font-size:12px;font-weight:700">${n}</div><div style="font-size:11px;color:var(--muted)">${l}</div></div>
-      </div></div>`).join('')}
-    </div>
-  </div>
-
-  <!-- CTA -->
-  <div style="background:var(--blue);color:#fff;padding:56px 32px;text-align:center">
-    <h2 style="font-size:28px;font-weight:800;margin-bottom:12px">Accéder au Portail RH</h2>
-    <p style="opacity:.72;font-size:14px;margin-bottom:28px;max-width:440px;margin-left:auto;margin-right:auto;line-height:1.75">Connectez-vous pour accéder à votre espace personnalisé selon votre rôle dans l'organisation.</p>
-    <button onclick="showLogin()" style="background:#fff;color:var(--blue);padding:12px 24px;border-radius:8px;font-size:14px;font-weight:700;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;font-family:inherit"><i class="ti ti-login"></i> Se connecter au portail</button>
-  </div>
-
-  <div class="pub-footer">
-    <div class="pf-brand">
-      <div class="pf-logo"><i class="ti ti-users"></i></div>
-      <div><div class="pf-name">CROUS de Lille · Unité Centrale d'Assemblage et Cafétérias</div><div class="pf-ver">Boulevard Paul Langevin · 59650 Villeneuve d'Ascq</div></div>
-    </div>
-    <div class="pf-links">
-      <a href="#">Documentation</a>
-      <a href="#">Support</a>
-      <a href="https://www.crous-lille.fr" target="_blank">crous-lille.fr</a>
-    </div>
-  </div>
-</div>
-
-<!-- ══════════════════════════════════
-     PAGE LOGIN
-════════════════════════════════════ -->
-<div id="login-screen" style="display:none">
-  <div class="topbar">
-    <span>Crous de Lille · UCA &amp; Cafétérias</span>
-    <span><a href="#" onclick="showHome()" style="color:rgba(255,255,255,.6)"><i class="ti ti-arrow-left"></i> Retour à l'accueil</a></span>
-  </div>
+<!-- LOGIN -->
+<div id="login-screen">
+  <div class="topbar"><span>CROUS de Lille · UCA &amp; Cafétérias</span></div>
   <div class="login-bg">
     <div class="login-card">
       <div class="login-logo"><i class="ti ti-users"></i></div>
-      <h2>Connexion</h2>
-      <p class="login-sub">Portail RH · CROUS de Lille</p>
+      <h2 style="text-align:center;font-size:18px;font-weight:800;margin-bottom:4px">Portail RH</h2>
+      <p style="text-align:center;font-size:12px;color:var(--muted);margin-bottom:24px">CROUS de Lille · UCA &amp; Cafétérias</p>
       <div class="err-box" id="lerr"><i class="ti ti-alert-circle"></i> Identifiants incorrects</div>
       <div class="fg"><label>Adresse e-mail</label><input id="lemail" type="email" placeholder="prenom.nom@crous-lille.fr"></div>
       <div class="fg"><label>Mot de passe</label><input id="lpwd" type="password" placeholder="••••••••"></div>
       <button class="btn-login" onclick="doLogin()">Se connecter</button>
-      <p class="hint">Comptes disponibles :<br>
-        <b>admin@crous-lille.fr</b> / admin123<br>
-        <b>manager@crous-lille.fr</b> / manager123<br>
-        <b>agent@crous-lille.fr</b> / agent123
-      </p>
+      <p class="hint"><b>admin@crous-lille.fr</b> / admin123<br><b>manager@crous-lille.fr</b> / manager123<br><b>agent@crous-lille.fr</b> / agent123</p>
     </div>
   </div>
 </div>
 
-<!-- ══════════════════════════════════
-     APP
-════════════════════════════════════ -->
+<!-- APP -->
 <div id="app">
   <div class="topbar">
-    <span>Crous de Lille Nord Pas-de-Calais</span>
-    <span>Boulevard Paul Langevin · 59650 Villeneuve d'Ascq</span>
+    <span>CROUS de Lille · UCA &amp; Cafétérias · Bd Paul Langevin 59650 Villeneuve d'Ascq</span>
+    <span id="topbar-date"></span>
   </div>
   <nav class="app-nav">
-    <div class="nav-logo" style="padding:9px 0">
+    <div class="nav-logo">
       <div class="logo-box"><i class="ti ti-users"></i></div>
       <div><div class="logo-main">Portail RH · CROUS de Lille</div><div class="logo-sub">Unité Centrale d'Assemblage et Cafétérias</div></div>
     </div>
     <div class="nav-items" id="nav-items"></div>
     <div class="nav-user">
       <div class="av" id="uav"></div>
-      <div><div class="un" id="uname"></div><div class="ur" id="urole"></div></div>
-      <button class="btn-out" onclick="doLogout()"><i class="ti ti-logout"></i> Déconnexion</button>
+      <div><div style="font-size:11px;font-weight:600" id="uname"></div><div style="font-size:10px;color:var(--muted)" id="urole"></div></div>
+      <button class="btn-out" onclick="doLogout()"><i class="ti ti-logout"></i></button>
     </div>
   </nav>
   <div class="content" id="content"></div>
 </div>
 
-<!-- MODALS -->
+<!-- MODAL AGENT EDIT -->
 <div class="modal-wrap" id="memp" style="display:none">
-  <div class="modal">
-    <div class="mh"><div class="mt" id="memp-title">Nouvel employé</div><button class="mx" onclick="closeModal('memp')"><i class="ti ti-x"></i></button></div>
+  <div class="modal" style="max-width:540px">
+    <div class="mh"><div class="mt" id="memp-title">Nouvel agent</div><button class="mx" onclick="closeModal('memp')"><i class="ti ti-x"></i></button></div>
     <div class="fr">
-      <div class="fg"><label>Prénom</label><input id="ep"></div>
-      <div class="fg"><label>Nom</label><input id="en"></div>
+      <div class="fg"><label>Nom</label><input id="ep-nom"></div>
+      <div class="fg"><label>Prénom</label><input id="ep-prenom"></div>
     </div>
     <div class="fr">
-      <div class="fg"><label>Email</label><input id="ee" type="email"></div>
-      <div class="fg"><label>Téléphone</label><input id="et"></div>
-    </div>
-    <div class="fr">
-      <div class="fg"><label>Poste</label><input id="epo"></div>
-      <div class="fg"><label>Département</label>
-        <select id="ed"><option>Restauration</option><option>Cafétéria</option><option>Production</option><option>Logistique</option><option>Administration</option><option>RH</option></select>
+      <div class="fg"><label>Catégorie</label><select id="ep-cat"><option value="agent">Agent</option><option value="etudiant">Étudiant</option></select></div>
+      <div class="fg"><label>Affectation</label>
+        <select id="ep-dept"><option>UCA</option><option>UCA Production</option><option>UCA Cafétéria</option><option>UCA Approvisionnement</option><option>UCA Cafétéria IUTB</option></select>
       </div>
     </div>
     <div class="fr">
-      <div class="fg"><label>Statut</label><select id="es"><option value="actif">Actif</option><option value="inactif">Inactif</option></select></div>
-      <div class="fg"><label>Date d'entrée</label><input type="date" id="edate"></div>
+      <div class="fg"><label>Email pro (CROUS)</label><input id="ep-emailpro" placeholder="prenom.nom@crous-lille.fr"></div>
+      <div class="fg"><label>Email personnel</label><input id="ep-emailperso" placeholder="email@gmail.com"></div>
+    </div>
+    <div class="fr">
+      <div class="fg"><label>Téléphone</label><input id="ep-tel" placeholder="06 XX XX XX XX"></div>
+      <div class="fg"><label>Statut</label><select id="ep-statut"><option value="actif">Actif</option><option value="inactif">Inactif</option></select></div>
+    </div>
+    <div class="fg"><label>Adresse</label><input id="ep-adresse"></div>
+    <div class="fr">
+      <div class="fg"><label>Code postal</label><input id="ep-cp"></div>
+      <div class="fg"><label>Ville</label><input id="ep-ville"></div>
     </div>
     <div class="mf">
       <button class="btn btn-gh" onclick="closeModal('memp')">Annuler</button>
-      <button class="btn btn-b" onclick="saveEmp()"><i class="ti ti-check"></i> Enregistrer</button>
+      <button class="btn btn-b" onclick="saveAgent()"><i class="ti ti-check"></i> Enregistrer</button>
     </div>
   </div>
 </div>
 
-<div class="modal-wrap" id="mconge" style="display:none">
-  <div class="modal">
-    <div class="mh"><div class="mt">Demande d'absence / congé</div><button class="mx" onclick="closeModal('mconge')"><i class="ti ti-x"></i></button></div>
-    <div class="fg"><label>Type d'absence</label>
-      <select id="ctype">
-        <option value="annuel">Congé annuel</option>
-        <option value="maladie">Arrêt maladie</option>
-        <option value="rtt">RTT</option>
-        <option value="maternité">Congé maternité</option>
-        <option value="paternité">Congé paternité</option>
-        <option value="mariage">Congé mariage</option>
-        <option value="formation">Formation</option>
-        <option value="exceptionnel">Congé exceptionnel</option>
-        <option value="sans-solde">Congé sans solde</option>
-      </select>
-    </div>
-    <div class="fg"><label>Employé concerné</label><select id="cempsel"></select></div>
-    <div class="fr">
-      <div class="fg"><label>Début</label><input type="date" id="cdeb"></div>
-      <div class="fg"><label>Fin</label><input type="date" id="cfin"></div>
-    </div>
-    <div class="fg"><label>Motif (optionnel)</label><input id="cmotif" placeholder="Précisez si nécessaire..."></div>
-    <div class="mf">
-      <button class="btn btn-gh" onclick="closeModal('mconge')">Annuler</button>
-      <button class="btn btn-b" onclick="saveConge()"><i class="ti ti-send"></i> Envoyer</button>
-    </div>
-  </div>
-</div>
-
-<div class="modal-wrap" id="mcontrat" style="display:none">
-  <div class="modal">
-    <div class="mh"><div class="mt">Nouveau contrat</div><button class="mx" onclick="closeModal('mcontrat')"><i class="ti ti-x"></i></button></div>
-    <div class="fg"><label>Employé</label><select id="cemp"></select></div>
-    <div class="fr">
-      <div class="fg"><label>Type</label><select id="ctype2"><option>CDI</option><option>CDD</option><option>Vacataire</option></select></div>
-      <div class="fg"><label>Salaire brut (€)</label><input type="number" id="csal" placeholder="1800"></div>
-    </div>
-    <div class="fr">
-      <div class="fg"><label>Début</label><input type="date" id="cdeb2"></div>
-      <div class="fg"><label>Fin (optionnel)</label><input type="date" id="cfin2"></div>
-    </div>
-    <div class="mf">
-      <button class="btn btn-gh" onclick="closeModal('mcontrat')">Annuler</button>
-      <button class="btn btn-b" onclick="saveContrat()"><i class="ti ti-check"></i> Enregistrer</button>
-    </div>
-  </div>
-</div>
-
-<div class="modal-wrap" id="mmail" style="display:none">
-  <div class="modal">
-    <div class="mh"><div class="mt"><i class="ti ti-mail" style="color:var(--blue)"></i> Transmission RH</div><button class="mx" onclick="closeModal('mmail')"><i class="ti ti-x"></i></button></div>
-    <div style="background:var(--blue-p2);border-radius:8px;padding:14px;margin-bottom:16px;font-size:12px;color:var(--blue-dark);line-height:1.7" id="mail-preview"></div>
-    <div class="fg"><label>Destinataire RH</label><input id="mail-to" value="rh@crous-lille.fr"></div>
-    <div class="fg"><label>Objet</label><input id="mail-subj"></div>
-    <div class="fg"><label>Message</label><textarea id="mail-body" rows="5"></textarea></div>
-    <div class="mf">
-      <button class="btn btn-gh" onclick="closeModal('mmail')">Annuler</button>
-      <button class="btn btn-b" onclick="sendMail()"><i class="ti ti-send"></i> Envoyer par e-mail</button>
-    </div>
-  </div>
+<!-- FICHE AGENT (overlay plein) -->
+<div id="fiche-overlay" style="display:none" class="fiche-overlay">
+  <div class="fiche-modal" id="fiche-modal"></div>
 </div>
 
 <script>
 const USERS=[
-  {id:1,email:'admin@crous-lille.fr',pwd:'admin123',role:'admin',nom:'Dupont',prenom:'Marie',poste:'Gestionnaire RH',dept:'RH',av:'MD'},
-  {id:2,email:'manager@crous-lille.fr',pwd:'manager123',role:'manager',nom:'Bernard',prenom:'Thomas',poste:'Responsable Restauration',dept:'Restauration',av:'TB'},
-  {id:3,email:'agent@crous-lille.fr',pwd:'agent123',role:'employee',nom:'Saliba',prenom:'Somiya',poste:'Assistante RH',dept:'RH',av:'SS'},
+  {id:1,email:'admin@crous-lille.fr',pwd:'admin123',role:'admin',nom:'Dupont',prenom:'Marie',av:'MD'},
+  {id:2,email:'manager@crous-lille.fr',pwd:'manager123',role:'manager',nom:'Bernard',prenom:'Thomas',av:'TB'},
+  {id:3,email:'agent@crous-lille.fr',pwd:'agent123',role:'employee',nom:'Saliba',prenom:'Somiya',av:'SS'},
 ];
 const ROLE_LABELS={admin:'Administrateur',manager:'Responsable',employee:'Agent'};
-const COLORS=['#003189','#0e7a70','#a0327a','#b97000','#5a3abf','#e1000f','#c25400'];
+const COLORS=['#003189','#0e7a70','#a0327a','#b97000','#5a3abf','#e1000f','#c25400','#0e4a7a','#7a4e00','#1a7a50'];
+const DOC_TYPES=['CNI','Contrat','Planning','Attestation','Diplôme','Visite médicale','Arrêt maladie','Fiche de paie','RIB','Autre'];
+const NAV=[
+  {id:'dashboard',label:'Accueil',icon:'ti-home',roles:['admin','manager','employee']},
+  {id:'agents',label:'Gestion des agents',icon:'ti-users',roles:['admin','manager']},
+  {id:'annuaire',label:'Annuaire',icon:'ti-address-book',roles:['admin','manager','employee']},
+  {id:'absences',label:'Absences',icon:'ti-calendar-off',roles:['admin','manager']},
+  {id:'mes-conges',label:'Mes congés',icon:'ti-beach',roles:['admin','manager','employee']},
+  {id:'heures',label:'Suivi Heures',icon:'ti-clock',roles:['admin','manager','employee']},
+  {id:'presence',label:'PRESENCE',icon:'ti-clipboard-check',roles:['admin','manager']},
+  {id:'contrats',label:'Contrats',icon:'ti-file-text',roles:['admin','manager','employee']},
+  {id:'notifs',label:'Notifs',icon:'ti-bell',roles:['admin','manager','employee']},
+  {id:'profil',label:'Profil',icon:'ti-user-circle',roles:['admin','manager','employee']},
+];
 const ABS_TYPES={
   'annuel':{label:'Congé annuel',color:'#1a7a50',bg:'#e2f5ed'},
   'maladie':{label:'Maladie',color:'#e1000f',bg:'#fde8ea'},
@@ -567,90 +263,100 @@ const ABS_TYPES={
   'exceptionnel':{label:'Exceptionnel',color:'#c25400',bg:'#fff0e6'},
   'sans-solde':{label:'Sans solde',color:'#64748b',bg:'#f8fafc'},
 };
-const NAV=[
-  {id:'dashboard',label:'Tableau de bord',icon:'ti-chart-bar',roles:['admin']},
-  {id:'employes',label:'Employés',icon:'ti-users',roles:['admin','manager']},
-  {id:'absences',label:'Absences',icon:'ti-calendar-off',roles:['admin','manager']},
-  {id:'mes-conges',label:'Mes congés',icon:'ti-beach',roles:['admin','manager','employee']},
-  {id:'presence',label:'PRESENCE',icon:'ti-clipboard-check',roles:['admin','manager']},
-  {id:'heures',label:'Suivi Heures',icon:'ti-clock',roles:['admin','manager','employee']},
-  {id:'contrats',label:'Contrats',icon:'ti-file-text',roles:['admin','manager','employee']},
-  {id:'annuaire',label:'Annuaire',icon:'ti-address-book',roles:['admin','manager','employee']},
-  {id:'notifs',label:'Notifications',icon:'ti-bell',roles:['admin','manager','employee']},
-  {id:'profil',label:'Mon profil',icon:'ti-user-circle',roles:['admin','manager','employee']},
-];
 
 function ls(k,d){try{return JSON.parse(localStorage.getItem('rh_'+k))||d}catch{return d}}
 function lss(k,v){try{localStorage.setItem('rh_'+k,JSON.stringify(v))}catch{}}
 
-let emps=ls('emps',[
-  {id:1,prenom:'Jean',nom:'Martin',email:'j.martin@crous-lille.fr',tel:'06 12 34 56 78',poste:'Chef cuisinier',dept:'Restauration',statut:'actif',date:'2019-03-01'},
-  {id:2,prenom:'Amina',nom:'Benali',email:'a.benali@crous-lille.fr',tel:'06 23 45 67 89',poste:'Cuisinière',dept:'Restauration',statut:'actif',date:'2021-06-15'},
-  {id:3,prenom:'Paul',nom:'Leroy',email:'p.leroy@crous-lille.fr',tel:'06 34 56 78 90',poste:'Barista',dept:'Cafétéria',statut:'actif',date:'2022-01-10'},
-  {id:4,prenom:'Lucie',nom:'Dupuis',email:'l.dupuis@crous-lille.fr',tel:'06 45 67 89 01',poste:'Hôtesse de caisse',dept:'Cafétéria',statut:'actif',date:'2020-09-01'},
-  {id:5,prenom:'Omar',nom:'Khalid',email:'o.khalid@crous-lille.fr',tel:'06 56 78 90 12',poste:'Magasinier',dept:'Logistique',statut:'inactif',date:'2018-11-20'},
-  {id:6,prenom:'Sophie',nom:'Mercier',email:'s.mercier@crous-lille.fr',tel:'06 67 89 01 23',poste:'Assistante administrative',dept:'Administration',statut:'actif',date:'2023-02-14'},
+// ── DONNÉES AGENTS (pré-chargées depuis liste officielle)
+const AGENTS_DEFAULT = [
+  {id:1,nom:'Saliba Somiya',prenom:'Somiya',nomUsage:'Saliba',dept:'UCA',affectation:'UCA',tel:'0650515647',emailPerso:'saliba.somiya@hotmail.fr',emailPro:'somiya.saliba@crous-lille.fr',adresse:'37 rue d\'erquinghem',cp:'59280',ville:'ARMENTIERES',statut:'actif',categorie:'agent',date:'2020-01-01',docs:{}},
+  {id:2,nom:'Tambwe Ngalula',prenom:'Ngalula',nomUsage:'Tambwe Ngalula',dept:'UCA Production',affectation:'UCA Production',tel:'0614352355',emailPerso:'ngaluladieng@yahoo.fr',emailPro:'ngalula.tambwe@crous-lille.fr',adresse:'62 rue sainte Hélène appt 344',cp:'59350',ville:'SAINT ANDRE LEZ LILLE',statut:'actif',categorie:'agent',date:'2020-01-01',docs:{}},
+  {id:3,nom:'Dumez Marjorie',prenom:'MARJORIE',nomUsage:'DUMEZ',dept:'UCA Production',affectation:'UCA Production',tel:'0685620096',emailPerso:'tortubidon5907@gmail.com',emailPro:'marjorie.dumez@crous-lille.fr',adresse:'22/55 rue des vergers',cp:'59650',ville:'Villeneuve-d\'ascq',statut:'actif',categorie:'agent',date:'2020-01-01',docs:{}},
+  {id:4,nom:'Dubois Laurence',prenom:'Laurence',nomUsage:'Dubois Laurence',dept:'UCA Cafétéria',affectation:'UCA Cafétéria',tel:'0633702554',emailPerso:'laulau59320@laposte.net',emailPro:'laurence.dubois@crous-lille.fr',adresse:'13 rue jules vernne',cp:'59320',ville:'Emmerin',statut:'actif',categorie:'agent',date:'2020-01-01',docs:{}},
+  {id:5,nom:'Vandeputte Frederique',prenom:'Frederique',nomUsage:'Vandeputte Frederique',dept:'UCA Cafétéria',affectation:'UCA Cafétéria',tel:'0640129364',emailPerso:'vfred775@gmail.com',emailPro:'frederique.vandeputte@crous-lille.fr',adresse:'157 route d arras',cp:'59155',ville:'Faches-Thumesnil',statut:'actif',categorie:'agent',date:'2020-01-01',docs:{}},
+  {id:6,nom:'Durand Suzanne',prenom:'Suzanne',nomUsage:'Durand Suzanne',dept:'UCA Cafétéria',affectation:'UCA Cafétéria',tel:'0683362473',emailPerso:'durand.suzanne@outlook.fr',emailPro:'suzanne.durand@crous-lille.fr',adresse:'93 rue Édouard Vaillant',cp:'59178',ville:'Hasnon',statut:'actif',categorie:'agent',date:'2020-01-01',docs:{}},
+  {id:7,nom:'Tihy Julien',prenom:'Julien',nomUsage:'Tihy Julien',dept:'UCA',affectation:'UCA',tel:'0683908005',emailPerso:'tihy.julien@gmail.com',emailPro:'julien.tihy@crous-lille.fr',adresse:'65 rue du maréchal Foch',cp:'59890',ville:'Quesnoy sur deule',statut:'actif',categorie:'agent',date:'2020-01-01',docs:{}},
+  {id:8,nom:'Bossaert Wendy',prenom:'Wendy',nomUsage:'Bossaert',dept:'UCA Cafétéria',affectation:'UCA Cafétéria',tel:'0763326824',emailPerso:'minibouin@gmail.com',emailPro:'wendy.bossaert@crous-lille.fr',adresse:'9 Avenue De Flandre, Appt 10',cp:'59150',ville:'Wattrelos',statut:'actif',categorie:'agent',date:'2020-01-01',docs:{}},
+  {id:9,nom:'Ameye Ophelie',prenom:'Ophelie',nomUsage:'Ophelie Ameye',dept:'UCA Cafétéria',affectation:'UCA Cafétéria',tel:'0642409394',emailPerso:'ophelieameye@gmail.com',emailPro:'ophelie.ameye@crous-lille.fr',adresse:'1/8 allee beranger',cp:'59170',ville:'CROIX',statut:'actif',categorie:'agent',date:'2020-01-01',docs:{}},
+  {id:10,nom:'Rosseel Jocalaz Wendy',prenom:'Wendy',nomUsage:'Rosseel Jocalaz',dept:'UCA Production',affectation:'UCA Production',tel:'0698163785',emailPerso:'rosseel.wendy@gmail.com',emailPro:'wendy.rosseel@crous-lille.fr',adresse:'25 rue Simone veil',cp:'59850',ville:'NIEPPE',statut:'actif',categorie:'agent',date:'2020-01-01',docs:{}},
+  {id:11,nom:'Vitoux Emilie',prenom:'Emilie',nomUsage:'Emilie Vitoux',dept:'UCA Cafétéria',affectation:'UCA Cafétéria',tel:'0677275627',emailPerso:'emimel2120@gmail.com',emailPro:'emilie.vitoux@crous-lille.fr',adresse:'8 Rue des Déportés',cp:'59800',ville:'Lille',statut:'actif',categorie:'agent',date:'2020-01-01',docs:{}},
+  {id:12,nom:'Regolle Virginie',prenom:'Virginie',nomUsage:'Regolle Virginie',dept:'UCA Cafétéria',affectation:'UCA Cafétéria',tel:'0651196297',emailPerso:'virginie.regolle59@gmail.com',emailPro:'virginie.regolle@crous-lille.fr',adresse:'Rue Paul kimpe',cp:'59260',ville:'Hellemmes',statut:'actif',categorie:'agent',date:'2020-01-01',docs:{}},
+  {id:13,nom:'Martin Peggy',prenom:'Peggy',nomUsage:'Martin Peggy',dept:'UCA Cafétéria',affectation:'UCA Cafétéria',tel:'0625281798',emailPerso:'peg-david2010@hotmail.fr',emailPro:'peggy.martin@crous-lille.fr',adresse:'51 bis rue edmond simon',cp:'59490',ville:'Somain',statut:'actif',categorie:'agent',date:'2020-01-01',docs:{}},
+  {id:14,nom:'Brillard Olivier',prenom:'olivier',nomUsage:'Brillard Olivier',dept:'UCA',affectation:'UCA',tel:'0698934752',emailPerso:'gtoslide@gmail.com',emailPro:'olivier.brillard@crous-lille.fr',adresse:'29 G 113, rue Eugène Jacquet',cp:'59800',ville:'Lille',statut:'actif',categorie:'agent',date:'2020-01-01',docs:{}},
+  {id:15,nom:'Culerier Guillaume',prenom:'Guillaume',nomUsage:'Guillaume Culerier',dept:'UCA Production',affectation:'UCA Production',tel:'0767962893',emailPerso:'culerierg@gmail.com',emailPro:'guillaume.culerier@crous-lille.fr',adresse:'1028 Rue Paul Allegot',cp:'59310',ville:'Aix-En-Pévèle',statut:'actif',categorie:'agent',date:'2020-01-01',docs:{}},
+  {id:16,nom:'Thong Sahra',prenom:'Sahra',nomUsage:'Thong',dept:'UCA Cafétéria',affectation:'UCA Cafétéria',tel:'0609087153',emailPerso:'kaing95@hotmail.fr',emailPro:'sahra.thong@crous-lille.fr',adresse:'119 rue de bouvines',cp:'59200',ville:'Tourcoing',statut:'actif',categorie:'agent',date:'2020-01-01',docs:{}},
+  {id:17,nom:'Tourneur Johane',prenom:'Johane',nomUsage:'Tourneur Johane',dept:'UCA Cafétéria',affectation:'UCA Cafétéria',tel:'0675941741',emailPerso:'johane.tourneur@crous-lille.fr',emailPro:'johane.tourneur@crous-lille.fr',adresse:'6/25 place rosette de mey',cp:'59000',ville:'Lille',statut:'actif',categorie:'agent',date:'2020-01-01',docs:{}},
+  {id:18,nom:'Rouche Benoit',prenom:'Benoit',nomUsage:'Rouché',dept:'UCA Production',affectation:'UCA Production',tel:'0663352468',emailPerso:'rouche.benoit@gmail.com',emailPro:'benoit.rouche@crous-lille.fr',adresse:'161 rue de Montereau',cp:'59500',ville:'Douai',statut:'actif',categorie:'agent',date:'2020-01-01',docs:{}},
+  {id:19,nom:'Plancke Celine',prenom:'CELINE',nomUsage:'Plancke Celine',dept:'UCA Cafétéria',affectation:'UCA Cafétéria',tel:'0637184912',emailPerso:'celine.tierssoone@gmail.com',emailPro:'celine.plancke@crous-lille.fr',adresse:'96 RUE SAINT EXUPERY',cp:'59139',ville:'WATTIGNIES',statut:'actif',categorie:'agent',date:'2020-01-01',docs:{}},
+  {id:20,nom:'Souesme Benjamin',prenom:'Benjamin',nomUsage:'Souesme Benjamin',dept:'UCA Production',affectation:'UCA Production',tel:'0685249436',emailPerso:'benjamin.souesme@hotmail.fr',emailPro:'benjamin.souesme@crous-lille.fr',adresse:'3 rue victor crepin',cp:'59160',ville:'Lomme',statut:'actif',categorie:'agent',date:'2020-01-01',docs:{}},
+  {id:21,nom:'Van Daele Frederic',prenom:'Frédéric',nomUsage:'Van Daele Frederic',dept:'UCA Production',affectation:'UCA Production',tel:'0601062909',emailPerso:'fredissimev@sfr.fr',emailPro:'frederic.van@crous-lille.fr',adresse:'1 rue reine elizabeth',cp:'7730',ville:'Leers nord Belgique',statut:'actif',categorie:'agent',date:'2020-01-01',docs:{}},
+  {id:22,nom:'Six Juliana',prenom:'Juliana',nomUsage:'Six Juliana',dept:'UCA Production',affectation:'UCA Production',tel:'0651868207',emailPerso:'julianasix19@gmail.com',emailPro:'juliana.six@crous-lille.fr',adresse:'25 rue Danton Prolongée',cp:'59260',ville:'Hellemmes Lille',statut:'actif',categorie:'agent',date:'2020-01-01',docs:{}},
+  {id:23,nom:'DESCAMPS Mikael',prenom:'François-Louis',nomUsage:'DESCAMPS Mikael',dept:'UCA Approvisionnement',affectation:'UCA Approvisionnement',tel:'0677514809',emailPerso:'descampsmikael@hotmail.com',emailPro:'mikael.descamps@crous-lille.fr',adresse:'3 rue de la linière',cp:'59118',ville:'Wambrechies',statut:'actif',categorie:'agent',date:'2020-01-01',docs:{}},
+  {id:24,nom:'Dubois Mireille',prenom:'Mireille',nomUsage:'Dubois Mireille',dept:'UCA Cafétéria',affectation:'UCA Cafétéria',tel:'0782592364',emailPerso:'mimidubdub@gmail.com',emailPro:'mireille.dubois@crous-lille.fr',adresse:'21 rue Albert Dancoisne',cp:'59310',ville:'Orchies',statut:'actif',categorie:'agent',date:'2020-01-01',docs:{}},
+  {id:25,nom:'Boukhemla Yassine',prenom:'Yassine',nomUsage:'Boukhamla Yassine',dept:'UCA Production',affectation:'UCA Production',tel:'0629990650',emailPerso:'yassine.boukhamla@laposte.net',emailPro:'yassine.boukhemla@crous-lille.fr',adresse:'155 avenue de Dunkerque apt B02',cp:'59000',ville:'Lille',statut:'actif',categorie:'agent',date:'2020-01-01',docs:{}},
+  {id:26,nom:'Collier Chantal',prenom:'Chantal',nomUsage:'Chantal Collier',dept:'UCA Cafétéria',affectation:'UCA Cafétéria',tel:'0614363938',emailPerso:'Collierchantal37@gmail.com',emailPro:'chantal.collier@crous-lille.fr',adresse:'Rue boileau bâtiment 4',cp:'59139',ville:'Wattignies',statut:'actif',categorie:'agent',date:'2020-01-01',docs:{}},
+  {id:27,nom:'Bedu Kimberley',prenom:'Kimberley',nomUsage:'Bedu Kimberley',dept:'UCA Cafétéria',affectation:'UCA Cafétéria',tel:'0602718256',emailPerso:'kimberleybedu7@gmail.com',emailPro:'kimberley.bedu@crous-lille.fr',adresse:'94 bis rue du dronckaert appt D04',cp:'59223',ville:'Roncq',statut:'actif',categorie:'agent',date:'2020-01-01',docs:{}},
+  {id:28,nom:'Boulares Lamia',prenom:'Lamia',nomUsage:'Boulares Lamia',dept:'UCA Cafétéria',affectation:'UCA Cafétéria IUTB',tel:'0767900443',emailPerso:'lboulares07@gmail.com',emailPro:'lamia.boulares@crous-lille.fr',adresse:'84 Rue Franklin Roosevelt',cp:'59200',ville:'Tourcoing',statut:'actif',categorie:'agent',date:'2020-01-01',docs:{}},
+  {id:29,nom:'Badaoui Nacera',prenom:'Nacera',nomUsage:'Badaoui',dept:'UCA Cafétéria',affectation:'UCA Cafétéria',tel:'0650689980',emailPerso:'nacera.bad78@gmail.com',emailPro:'nacera.badaoui@crous-lille.fr',adresse:'2 Avenue des platanes',cp:'59810',ville:'Lesquin',statut:'actif',categorie:'agent',date:'2020-01-01',docs:{}},
+  {id:30,nom:'Huis Isaura',prenom:'Isaura',nomUsage:'Huis',dept:'UCA Cafétéria',affectation:'UCA Cafétéria',tel:'0612397325',emailPerso:'isaurahuisdubois@outlook.fr',emailPro:'isaura.huis@crous-lille.fr',adresse:'20/21 Rue de la Fraternité',cp:'59320',ville:'Haubourdin',statut:'actif',categorie:'agent',date:'2020-01-01',docs:{}},
+  {id:31,nom:'Rabineau Dubois Sabine',prenom:'Sabine',nomUsage:'Rabineau Sabine',dept:'UCA Cafétéria',affectation:'UCA Cafétéria',tel:'0766338990',emailPerso:'sabine.rabineau@hotmail.fr',emailPro:'sabine.rabineau@crous-lille.fr',adresse:'716 Rue Guy Moquet',cp:'59120',ville:'Loos',statut:'actif',categorie:'agent',date:'2020-01-01',docs:{}},
+  {id:32,nom:'Le Maguer Pierre',prenom:'Pierre',nomUsage:'Le Maguer Pierre',dept:'UCA Cafétéria',affectation:'UCA Cafétéria',tel:'0684166091',emailPerso:'lemaguer.pierre@gmail.com',emailPro:'pierre.le@crous-lille.fr',adresse:'210 rue Jean Jaurès',cp:'59155',ville:'Faches Thumesnil',statut:'actif',categorie:'agent',date:'2020-01-01',docs:{}},
+  {id:33,nom:'Bonnemains Isabelle',prenom:'Isabelle',nomUsage:'Bonnemains Isabelle',dept:'UCA Cafétéria',affectation:'UCA Cafétéria',tel:'0631505240',emailPerso:'bonnemainsisa@gmail.com',emailPro:'isabelle.bonnemains@crous-lille.fr',adresse:'44 rue raoul briquet',cp:'62970',ville:'Courcelles les lens',statut:'actif',categorie:'agent',date:'2020-01-01',docs:{}},
+  {id:34,nom:'Fortes David',prenom:'david',nomUsage:'Fortes David',dept:'UCA Production',affectation:'UCA Production',tel:'0623012157',emailPerso:'fortesdavid59@hotmail.com',emailPro:'david.fortes@crous-lille.fr',adresse:'55 rue d\'àguesseau',cp:'59800',ville:'Lille',statut:'actif',categorie:'agent',date:'2020-01-01',docs:{}},
+  {id:35,nom:'Defosse Alexis',prenom:'Alexis',nomUsage:'Defosse Alexis',dept:'UCA Approvisionnement',affectation:'UCA Approvisionnement',tel:'0650554671',emailPerso:'defosse.alexis2@gmail.com',emailPro:'alexis.defosse@crous-lille.fr',adresse:'25 Square Colonel Arnaud Beltrame',cp:'59139',ville:'Wattignies',statut:'actif',categorie:'agent',date:'2020-01-01',docs:{}},
+  {id:36,nom:'Thomas Alexia',prenom:'Alexia',nomUsage:'Thomas',dept:'UCA Cafétéria',affectation:'UCA Cafétéria',tel:'0668959237',emailPerso:'alexia.thomas@crous-lille.fr',emailPro:'alexia.thomas@crous-lille.fr',adresse:'70 rue Paul Willai',cp:'59230',ville:'Nivelle',statut:'actif',categorie:'agent',date:'2020-01-01',docs:{}},
+  {id:37,nom:'Hage Damien',prenom:'Damien',nomUsage:'Hage Damien',dept:'UCA Approvisionnement',affectation:'UCA Approvisionnement',tel:'0612822783',emailPerso:'damien.hage@crous-lille.fr',emailPro:'damien.hage@crous-lille.fr',adresse:'70 rue Paul willai',cp:'59230',ville:'Nivelle',statut:'actif',categorie:'agent',date:'2020-01-01',docs:{}},
+  {id:38,nom:'Waeghe Melanie',prenom:'Melanie',nomUsage:'Waeghe Melanie',dept:'UCA Cafétéria',affectation:'UCA Cafétéria',tel:'0614634301',emailPerso:'melaniee1606@gmail.com',emailPro:'melanie.waeghe@crous-lille.fr',adresse:'25 rue louise de bettignies',cp:'19116',ville:'Houplines',statut:'actif',categorie:'agent',date:'2020-01-01',docs:{}},
+  {id:39,nom:'Dewyse Catherine',prenom:'Catherine',nomUsage:'Dewyse Catherine',dept:'UCA Cafétéria',affectation:'UCA Cafétéria',tel:'0650207354',emailPerso:'catherine.dewyse@crous-lille.fr',emailPro:'catherine.dewyse@crous-lille.fr',adresse:'124 allée de la couronne',cp:'59650',ville:'Villeneuve d’Ascq',statut:'actif',categorie:'agent',date:'2020-01-01',docs:{}},
+  {id:40,nom:'De Bruyne Guillaume',prenom:'Guillaume',nomUsage:'De Bruyne Guillaume',dept:'UCA Cafétéria',affectation:'UCA Cafétéria',tel:'0664154064',emailPerso:'lambert.sonia@laposte.net',emailPro:'guillaume.de@crous-lille.fr',adresse:'70 rue roger salengro',cp:'62640',ville:'Montigny-en-Gohelle',statut:'actif',categorie:'agent',date:'2020-01-01',docs:{}},
+  {id:41,nom:'Rouché Benoit',prenom:'Benoit',nomUsage:'Rouché Benoit',dept:'UCA Production',affectation:'UCA Production',tel:'0663352468',emailPerso:'rouche.benoit@gmail.com',emailPro:'benoit.rouché@crous-lille.fr',adresse:'161 rue de Montereau',cp:'59500',ville:'Douai',statut:'actif',categorie:'agent',date:'2020-01-01',docs:{}}
+];
+
+let agents=ls('agents',AGENTS_DEFAULT);
+let conges=ls('conges',[
+  {id:1,empId:1,type:'annuel',debut:'2025-07-01',fin:'2025-07-10',motif:'',statut:'approuvé',nb:8},
+  {id:2,empId:2,type:'maladie',debut:'2025-05-15',fin:'2025-05-22',motif:'Arrêt médical',statut:'approuvé',nb:6},
+  {id:3,empId:17,type:'formation',debut:'2025-06-02',fin:'2025-06-04',motif:'Formation HACCP',statut:'approuvé',nb:3},
+  {id:4,empId:4,type:'mariage',debut:'2025-06-20',fin:'2025-06-24',motif:'',statut:'en attente',nb:5},
 ]);
 let contrats=ls('contrats',[
   {id:1,empId:1,type:'CDI',salaire:2200,debut:'2019-03-01',fin:'',statut:'actif'},
   {id:2,empId:2,type:'CDD',salaire:1800,debut:'2021-06-15',fin:'2025-06-14',statut:'actif'},
-  {id:3,empId:3,type:'CDI',salaire:1600,debut:'2022-01-10',fin:'',statut:'actif'},
-  {id:4,empId:4,type:'Vacataire',salaire:1400,debut:'2020-09-01',fin:'2025-08-31',statut:'actif'},
-  {id:5,empId:5,type:'CDD',salaire:1700,debut:'2018-11-20',fin:'2023-11-19',statut:'expiré'},
-]);
-let conges=ls('conges',[
-  {id:1,empId:1,type:'annuel',debut:'2025-07-01',fin:'2025-07-10',motif:'',statut:'approuvé',nb:8},
-  {id:2,empId:2,type:'maladie',debut:'2025-05-15',fin:'2025-05-22',motif:'Arrêt médical',statut:'approuvé',nb:6},
-  {id:3,empId:3,type:'formation',debut:'2025-06-02',fin:'2025-06-04',motif:'Formation HACCP',statut:'approuvé',nb:3},
-  {id:4,empId:4,type:'mariage',debut:'2025-06-20',fin:'2025-06-24',motif:'',statut:'en attente',nb:5},
-  {id:5,empId:6,type:'maternité',debut:'2025-05-01',fin:'2025-10-31',motif:'',statut:'approuvé',nb:130},
 ]);
 let notifs=ls('notifs',[
-  {id:1,titre:'Demande congé mariage',desc:'Lucie Dupuis — 20 au 24 juin.',type:'conge',lu:false,date:'il y a 2h'},
-  {id:2,titre:'Congé maternité en cours',desc:'Sophie Mercier — jusqu\'au 31 oct.',type:'alerte',lu:false,date:'il y a 1 jour'},
-  {id:3,titre:'Formation planifiée',desc:'Paul Leroy — HACCP 2-4 juin.',type:'employe',lu:true,date:'il y a 3 jours'},
+  {id:1,titre:'Demande congé mariage',desc:'Dubois Laurence — 20 au 24 juin.',type:'conge',lu:false,date:'il y a 2h'},
+  {id:2,titre:'Formation planifiée',desc:'Tihy Julien — HACCP 2-4 juin.',type:'employe',lu:true,date:'il y a 3 jours'},
 ]);
+let presenceMois=new Date().getMonth(), presenceAnnee=new Date().getFullYear();
 
-let currentUser=null, currentPage='dashboard', editEmpId=null, presenceMois=new Date().getMonth(), presenceAnnee=new Date().getFullYear();
+let currentUser=null, currentPage='dashboard', editAgentId=null, ficheAgentId=null, ficheTab='infos', ficheYear=new Date().getFullYear().toString();
 
-function save(){lss('emps',emps);lss('contrats',contrats);lss('conges',conges);lss('notifs',notifs)}
-function getEmp(id){return emps.find(e=>e.id===id)||{prenom:'?',nom:'',dept:''}}
+function save(){lss('agents',agents);lss('conges',conges);lss('contrats',contrats);lss('notifs',notifs)}
+function getAgent(id){return agents.find(e=>e.id===id)||{nom:'?',prenom:'',dept:''}}
+function initials(a){return (a.prenom?a.prenom[0]:'')+(a.nom?a.nom[0]:'')}
+function color(i){return COLORS[i%COLORS.length]}
 
-// ── NAVIGATION SCREENS
-function showHome(){
-  document.getElementById('home-screen').style.display='block';
-  document.getElementById('login-screen').style.display='none';
-  document.getElementById('app').style.display='none';
-}
-function showLogin(){
-  document.getElementById('home-screen').style.display='none';
-  document.getElementById('login-screen').style.display='block';
-  document.getElementById('app').style.display='none';
-}
+// ── AUTH
 function doLogin(){
   const email=document.getElementById('lemail').value.trim();
   const pwd=document.getElementById('lpwd').value;
   const found=USERS.find(u=>u.email===email&&u.pwd===pwd);
-  const errEl=document.getElementById('lerr');
-  if(!found){errEl.style.display='flex';return}
-  errEl.style.display='none';
+  if(!found){document.getElementById('lerr').style.display='flex';return}
+  document.getElementById('lerr').style.display='none';
   currentUser=found;
-  document.getElementById('home-screen').style.display='none';
   document.getElementById('login-screen').style.display='none';
-  const app=document.getElementById('app');
-  app.style.display='flex';
+  document.getElementById('app').style.display='flex';
   document.getElementById('uav').textContent=found.av;
   document.getElementById('uname').textContent=found.prenom+' '+found.nom;
   document.getElementById('urole').textContent=ROLE_LABELS[found.role];
-  buildNav();
-  navigate('dashboard');
+  document.getElementById('topbar-date').textContent=new Date().toLocaleDateString('fr-FR',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+  buildNav(); navigate('dashboard');
 }
 document.getElementById('lpwd').addEventListener('keydown',e=>{if(e.key==='Enter')doLogin()});
 document.getElementById('lemail').addEventListener('keydown',e=>{if(e.key==='Enter')doLogin()});
-function doLogout(){currentUser=null;showHome()}
+function doLogout(){currentUser=null;document.getElementById('app').style.display='none';document.getElementById('login-screen').style.display='block'}
 function buildNav(){
-  document.getElementById('nav-items').innerHTML=NAV.filter(n=>n.roles.includes(currentUser.role)).map(n=>`
-    <button class="nb" data-page="${n.id}" onclick="navigate('${n.id}')"><i class="ti ${n.icon}"></i>${n.label}</button>`).join('');
+  document.getElementById('nav-items').innerHTML=NAV.filter(n=>n.roles.includes(currentUser.role)).map(n=>`<button class="nb" data-page="${n.id}" onclick="navigate('${n.id}')"><i class="ti ${n.icon}"></i>${n.label}</button>`).join('');
 }
 function navigate(pg){
   currentPage=pg;
@@ -659,538 +365,627 @@ function navigate(pg){
   document.getElementById('content').innerHTML=renderPage(pg);
 }
 function renderPage(pg){
-  const m={dashboard:renderDash,employes:renderEmps,absences:renderAbsences,'mes-conges':renderMesConges,presence:renderPresence,heures:renderHeures,contrats:renderContrats,annuaire:renderAnnuaire,notifs:renderNotifs,profil:renderProfil};
+  const m={dashboard:renderDash,agents:renderAgents,annuaire:renderAnnuaire,absences:renderAbsences,'mes-conges':renderMesConges,heures:renderHeures,presence:renderPresence,contrats:renderContrats,notifs:renderNotifs,profil:renderProfil};
   return (m[pg]||renderDash)();
 }
 
 // ── DASHBOARD
 function renderDash(){
-  const actifs=emps.filter(e=>e.statut==='actif').length;
-  const absAujourd=congesActifs().length;
+  const actifs=agents.filter(e=>e.statut==='actif').length;
+  const agentsCount=agents.filter(e=>e.categorie==='agent'&&e.statut==='actif').length;
+  const etudiantsCount=agents.filter(e=>e.categorie==='etudiant'&&e.statut==='actif').length;
+  const today=new Date().toISOString().split('T')[0];
+  const absAuj=conges.filter(c=>c.statut==='approuvé'&&c.debut<=today&&c.fin>=today).length;
   const pending=conges.filter(c=>c.statut==='en attente').length;
-  const cdis=contrats.filter(c=>c.type==='CDI').length;
-  return `<div class="ph"><div><div class="pt"><i class="ti ti-chart-bar" style="color:var(--blue)"></i>Tableau de bord</div><div class="ps">CROUS de Lille · UCA — ${new Date().toLocaleDateString('fr-FR',{weekday:'long',year:'numeric',month:'long',day:'numeric'})}</div></div></div>
+  return `<div class="ph"><div><div class="pt"><i class="ti ti-home" style="color:var(--blue)"></i>Tableau de bord</div><div class="ps">${new Date().toLocaleDateString('fr-FR',{weekday:'long',year:'numeric',month:'long',day:'numeric'})}</div></div></div>
   <div class="stats">
-    <div class="sc"><div class="v" style="color:var(--blue)">${actifs}</div><div class="l">Employés actifs</div></div>
-    <div class="sc"><div class="v" style="color:var(--red)">${absAujourd}</div><div class="l">Absents aujourd'hui</div></div>
-    <div class="sc"><div class="v" style="color:var(--amber)">${pending}</div><div class="l">Demandes en attente</div></div>
-    <div class="sc"><div class="v" style="color:var(--green)">${cdis}</div><div class="l">CDI actifs</div></div>
-    <div class="sc"><div class="v" style="color:var(--violet)">${notifs.filter(n=>!n.lu).length}</div><div class="l">Notifications</div></div>
+    <div class="sc"><div class="v" style="color:var(--blue)">${actifs}</div><div class="l">Total actifs</div></div>
+    <div class="sc"><div class="v" style="color:var(--teal)">${agentsCount}</div><div class="l">Agents</div></div>
+    <div class="sc"><div class="v" style="color:var(--violet)">${etudiantsCount}</div><div class="l">Étudiants</div></div>
+    <div class="sc"><div class="v" style="color:var(--red)">${absAuj}</div><div class="l">Absents auj.</div></div>
+    <div class="sc"><div class="v" style="color:var(--amber)">${pending}</div><div class="l">En attente</div></div>
   </div>
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;margin-bottom:16px">
-    <button onclick="navigate('absences')" style="background:var(--red-p);border:1px solid #f9c0c5;border-radius:10px;padding:12px;cursor:pointer;display:flex;align-items:center;gap:8px;font-family:inherit;text-align:left"><i class="ti ti-calendar-off" style="font-size:18px;color:var(--red)"></i><div><div style="font-size:12px;font-weight:700;color:#7a0008">Absences</div><div style="font-size:10px;color:var(--muted)">Voir le calendrier</div></div></button>
-    <button onclick="navigate('heures')" style="background:var(--teal-p);border:1px solid #b2e4de;border-radius:10px;padding:12px;cursor:pointer;display:flex;align-items:center;gap:8px;font-family:inherit;text-align:left"><i class="ti ti-clock" style="font-size:18px;color:var(--teal)"></i><div><div style="font-size:12px;font-weight:700;color:#054340">Suivi Heures</div><div style="font-size:10px;color:var(--muted)">App + Fiches agents</div></div></button>
-    <button onclick="navigate('presence')" style="background:var(--amber-p);border:1px solid #f5dfa0;border-radius:10px;padding:12px;cursor:pointer;display:flex;align-items:center;gap:8px;font-family:inherit;text-align:left"><i class="ti ti-clipboard-check" style="font-size:18px;color:var(--amber)"></i><div><div style="font-size:12px;font-weight:700;color:#5a3600">PRESENCE</div><div style="font-size:10px;color:var(--muted)">Rapport mensuel</div></div></button>
-    <button onclick="window.open('https://calendar.google.com/calendar/u/0/r','_blank')" style="background:var(--orange-p);border:1px solid #ffd4b0;border-radius:10px;padding:12px;cursor:pointer;display:flex;align-items:center;gap:8px;font-family:inherit;text-align:left"><i class="ti ti-brand-google" style="font-size:18px;color:var(--orange)"></i><div><div style="font-size:12px;font-weight:700;color:#6b2e00">Calendar</div><div style="font-size:10px;color:var(--muted)">Planning Google</div></div></button>
+    <button onclick="navigate('agents')" style="background:var(--teal-p);border:1.5px solid #b2e4de;border-radius:10px;padding:12px;cursor:pointer;display:flex;align-items:center;gap:8px;font-family:inherit"><i class="ti ti-users" style="font-size:18px;color:var(--teal)"></i><div><div style="font-size:12px;font-weight:700;color:#054340">Gestion agents</div><div style="font-size:10px;color:var(--muted)">Fiches & dossiers</div></div></button>
+    <button onclick="navigate('annuaire')" style="background:var(--green-p);border:1.5px solid #a8e8cc;border-radius:10px;padding:12px;cursor:pointer;display:flex;align-items:center;gap:8px;font-family:inherit"><i class="ti ti-address-book" style="font-size:18px;color:var(--green)"></i><div><div style="font-size:12px;font-weight:700;color:#0a3d20">Annuaire</div><div style="font-size:10px;color:var(--muted)">Contacts</div></div></button>
+    <button onclick="navigate('absences')" style="background:var(--red-p);border:1.5px solid #f9c0c5;border-radius:10px;padding:12px;cursor:pointer;display:flex;align-items:center;gap:8px;font-family:inherit"><i class="ti ti-calendar-off" style="font-size:18px;color:var(--red)"></i><div><div style="font-size:12px;font-weight:700;color:#7a0008">Absences</div><div style="font-size:10px;color:var(--muted)">Calendrier</div></div></button>
+    <button onclick="navigate('heures')" style="background:var(--blue-p2);border:1.5px solid var(--blue-p);border-radius:10px;padding:12px;cursor:pointer;display:flex;align-items:center;gap:8px;font-family:inherit"><i class="ti ti-clock" style="font-size:18px;color:var(--blue)"></i><div><div style="font-size:12px;font-weight:700;color:var(--blue)">Suivi Heures</div><div style="font-size:10px;color:var(--muted)">App + fiches</div></div></button>
+    <button onclick="navigate('presence')" style="background:var(--amber-p);border:1.5px solid #f5dfa0;border-radius:10px;padding:12px;cursor:pointer;display:flex;align-items:center;gap:8px;font-family:inherit"><i class="ti ti-clipboard-check" style="font-size:18px;color:var(--amber)"></i><div><div style="font-size:12px;font-weight:700;color:#5a3600">PRESENCE</div><div style="font-size:10px;color:var(--muted)">Rapport</div></div></button>
+    <button onclick="window.open('https://calendar.google.com/calendar/u/0/r','_blank')" style="background:var(--orange-p);border:1.5px solid #ffd4b0;border-radius:10px;padding:12px;cursor:pointer;display:flex;align-items:center;gap:8px;font-family:inherit"><i class="ti ti-brand-google" style="font-size:18px;color:var(--orange)"></i><div><div style="font-size:12px;font-weight:700;color:#6b2e00">Calendar</div><div style="font-size:10px;color:var(--muted)">Planning</div></div></button>
   </div>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
     <div class="card"><div class="ch"><div class="ct"><i class="ti ti-calendar-off" style="color:var(--red)"></i>Absents aujourd'hui</div><button class="btn btn-b btn-sm" onclick="navigate('absences')">Voir tout</button></div>
-    <table><thead><tr><th>Agent</th><th>Type</th><th>Fin prévue</th></tr></thead><tbody>
-    ${congesActifs().slice(0,4).map(c=>{const e=getEmp(c.empId);const t=ABS_TYPES[c.type]||{label:c.type,color:'#64748b',bg:'#f8fafc'};return `<tr><td><b>${e.prenom} ${e.nom}</b></td><td><span style="background:${t.bg};color:${t.color};padding:2px 7px;border-radius:100px;font-size:10px;font-weight:700">${t.label}</span></td><td style="color:var(--muted)">${c.fin}</td></tr>`;}).join('')||'<tr><td colspan="3" style="text-align:center;color:var(--muted);padding:20px">Aucune absence aujourd\'hui</td></tr>'}
+    <table><thead><tr><th>Agent</th><th>Type</th><th>Fin</th></tr></thead><tbody>
+    ${conges.filter(c=>c.statut==='approuvé'&&c.debut<=today&&c.fin>=today).slice(0,5).map(c=>{const e=getAgent(c.empId);const t=ABS_TYPES[c.type]||{label:c.type,color:'#64748b',bg:'#f8fafc'};return `<tr><td><b>${e.nom}</b></td><td><span style="background:${t.bg};color:${t.color};padding:1px 6px;border-radius:100px;font-size:10px;font-weight:700">${t.label}</span></td><td style="color:var(--muted)">${c.fin}</td></tr>`;})||[`<tr><td colspan="3" style="text-align:center;color:var(--muted);padding:16px">✅ Aucune absence</td></tr>`].join('')}
     </tbody></table></div>
     <div class="card"><div class="ch"><div class="ct"><i class="ti ti-clock" style="color:var(--amber)"></i>Demandes en attente</div></div>
     <table><thead><tr><th>Agent</th><th>Type</th><th>Actions</th></tr></thead><tbody>
-    ${conges.filter(c=>c.statut==='en attente').map(c=>{const e=getEmp(c.empId);return `<tr><td><b>${e.prenom} ${e.nom}</b></td><td style="color:var(--muted)">${c.type}</td><td><button class="btn btn-g btn-sm" onclick="updateConge(${c.id},'approuvé')"><i class="ti ti-check"></i></button> <button class="btn btn-r btn-sm" onclick="updateConge(${c.id},'refusé')"><i class="ti ti-x"></i></button></td></tr>`;}).join('')||'<tr><td colspan="3" style="text-align:center;color:var(--muted);padding:20px">Aucune demande en attente</td></tr>'}
+    ${conges.filter(c=>c.statut==='en attente').map(c=>{const e=getAgent(c.empId);return `<tr><td><b>${e.nom}</b></td><td style="color:var(--muted)">${c.type}</td><td><button class="btn btn-g btn-sm" onclick="updateConge(${c.id},'approuvé')"><i class="ti ti-check"></i></button> <button class="btn btn-r btn-sm" onclick="updateConge(${c.id},'refusé')"><i class="ti ti-x"></i></button></td></tr>`;})||[`<tr><td colspan="3" style="text-align:center;color:var(--muted);padding:16px">✅ Aucune demande</td></tr>`].join('')}
     </tbody></table></div>
   </div>`;
 }
 
-function congesActifs(){
-  const today=new Date().toISOString().split('T')[0];
-  return conges.filter(c=>c.statut==='approuvé'&&c.debut<=today&&c.fin>=today);
+// ── GESTION DES AGENTS
+function renderAgents(){
+  const agentsActifs=agents.filter(e=>e.categorie==='agent');
+  const etudiantsActifs=agents.filter(e=>e.categorie==='etudiant');
+  const tab=window._agentsTab||'agents';
+
+  const renderList=(list)=>list.length?list.map((e,i)=>{
+    const idx=agents.indexOf(e);
+    const c=color(idx);
+    return `<div class="ac">
+      <div class="ac-head">
+        <div class="ac-av" style="background:${c}">${initials(e)}</div>
+        <div>
+          <div class="ac-name">${e.nom}</div>
+          <div class="ac-dept"><span style="background:${e.categorie==='etudiant'?'var(--violet-p)':'var(--teal-p)'};color:${e.categorie==='etudiant'?'var(--violet)':'var(--teal)'};padding:1px 7px;border-radius:100px;font-size:10px;font-weight:700">${e.categorie==='etudiant'?'Étudiant':'Agent'}</span> · ${e.affectation||e.dept}</div>
+        </div>
+        <span class="badge ${e.statut==='actif'?'bg':'bgr'}" style="margin-left:auto">${e.statut}</span>
+      </div>
+      <div class="ac-rows">
+        <div class="ac-row"><i class="ti ti-mail"></i><a href="mailto:${e.emailPro}">${e.emailPro||'—'}</a></div>
+        <div class="ac-row"><i class="ti ti-phone"></i><span>${e.tel||'—'}</span></div>
+        <div class="ac-row"><i class="ti ti-map-pin"></i><span style="color:var(--muted)">${e.cp||''} ${e.ville||''}</span></div>
+      </div>
+      <div class="ac-actions">
+        <button class="btn btn-b btn-sm" onclick="openFiche(${e.id})"><i class="ti ti-id-badge"></i> Fiche</button>
+        ${currentUser.role==='admin'?`<button class="btn btn-gh btn-sm" onclick="openEditAgent(${e.id})"><i class="ti ti-edit"></i> Modifier</button>`:''}
+        ${currentUser.role==='admin'?`<button class="btn btn-r btn-sm" onclick="delAgent(${e.id})"><i class="ti ti-trash"></i></button>`:''}
+      </div>
+    </div>`;
+  }).join(''):`<div style="text-align:center;color:var(--muted);padding:32px;grid-column:1/-1">Aucun élément dans cette catégorie</div>`;
+
+  return `<div class="ph">
+    <div><div class="pt"><i class="ti ti-users" style="color:var(--teal)"></i>Gestion des agents</div>
+    <div class="ps">${agentsActifs.length} agents · ${etudiantsActifs.length} étudiants</div></div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      ${currentUser.role==='admin'?`<button class="btn btn-b" onclick="openNewAgent('agent')"><i class="ti ti-plus"></i>Nouvel agent</button><button class="btn btn-violet" onclick="openNewAgent('etudiant')"><i class="ti ti-plus"></i>Nouvel étudiant</button>`:''}
+    </div>
+  </div>
+  <div style="display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap;align-items:center">
+    <button class="tab ${tab==='agents'?'on':''}" onclick="window._agentsTab='agents';navigate('agents')"><i class="ti ti-users"></i> Agents (${agentsActifs.length})</button>
+    <button class="tab ${tab==='etudiants'?'on':''}" onclick="window._agentsTab='etudiants';navigate('agents')"><i class="ti ti-school"></i> Étudiants (${etudiantsActifs.length})</button>
+    <button class="tab ${tab==='tous'?'on':''}" onclick="window._agentsTab='tous';navigate('agents')">Tous (${agents.length})</button>
+    <input class="si" placeholder="🔍 Rechercher..." style="margin-left:auto" oninput="filterGrid(this,'agent-grid')">
+  </div>
+  <div class="agent-grid" id="agent-grid">
+    ${renderList(tab==='agents'?agentsActifs:tab==='etudiants'?etudiantsActifs:agents)}
+  </div>`;
 }
 
-// ── ABSENCES (module principal)
-function renderAbsences(){
-  const now=new Date();
-  const y=now.getFullYear(), m=now.getMonth();
-  const firstDay=new Date(y,m,1).getDay();
-  const daysInMonth=new Date(y,m+1,0).getDate();
-  const monthName=now.toLocaleDateString('fr-FR',{month:'long',year:'numeric'});
-  const today=now.toISOString().split('T')[0];
-
-  // Build calendar cells
-  let calCells='';
-  const dayNames=['Lun','Mar','Mer','Jeu','Ven','Sam','Dim'];
-  calCells+=dayNames.map(d=>`<div class="cal-day-head">${d}</div>`).join('');
-  const startOffset=(firstDay+6)%7;
-  for(let i=0;i<startOffset;i++) calCells+=`<div class="cal-day other-month"></div>`;
-  for(let d=1;d<=daysInMonth;d++){
-    const dateStr=`${y}-${String(m+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
-    const isToday=dateStr===today;
-    const dayConges=conges.filter(c=>c.statut==='approuvé'&&c.debut<=dateStr&&c.fin>=dateStr);
-    const events=dayConges.slice(0,3).map(c=>{
-      const e=getEmp(c.empId);const t=ABS_TYPES[c.type]||{label:c.type,color:'#64748b',bg:'#f1f5f9'};
-      return `<div class="cal-event" style="background:${t.bg};color:${t.color}" title="${e.prenom} ${e.nom} — ${t.label}">${e.prenom[0]}.${e.nom[0]} ${t.label}</div>`;
-    }).join('');
-    calCells+=`<div class="cal-day ${isToday?'today':''}"><div class="cal-day-num">${d}</div>${events}</div>`;
-  }
-
-  // Absence list
-  const absRows=conges.filter(c=>c.statut!=='refusé').map(c=>{
-    const e=getEmp(c.empId);
-    const t=ABS_TYPES[c.type]||{label:c.type,color:'#64748b',bg:'#f8fafc'};
-    const ci=COLORS[emps.findIndex(x=>x.id===c.empId)%COLORS.length]||'#003189';
-    const statBadge=c.statut==='approuvé'?'bg':'ba';
-    return `<div class="abs-item">
-      <div class="abs-avatar" style="background:${ci}">${e.prenom[0]}${e.nom[0]}</div>
-      <div class="abs-info">
-        <div class="abs-name">${e.prenom} ${e.nom} <span style="font-size:11px;color:var(--muted)">— ${e.dept}</span></div>
-        <div class="abs-detail"><span style="background:${t.bg};color:${t.color};padding:1px 7px;border-radius:100px;font-size:10px;font-weight:700">${t.label}</span> · ${c.debut} → ${c.fin} · <b>${c.nb}j</b>${c.motif?' · '+c.motif:''}</div>
-      </div>
-      <div style="margin-left:auto"><span class="badge ${statBadge}">${c.statut}</span></div>
-      <div class="abs-actions">
-        <button class="btn btn-gh btn-sm" onclick="openMailAbsence(${c.id})" title="Transmettre au service RH"><i class="ti ti-mail"></i> Mail RH</button>
-        <button class="btn btn-orange btn-sm" onclick="openGCal(${c.id})" title="Ajouter au Google Calendar"><i class="ti ti-brand-google"></i> Calendar</button>
-      </div>
+// ── FICHE AGENT
+function openFiche(id){
+  ficheAgentId=id; ficheTab='infos'; ficheYear=new Date().getFullYear().toString();
+  renderFiche();
+  document.getElementById('fiche-overlay').style.display='flex';
+}
+function closeFiche(){document.getElementById('fiche-overlay').style.display='none'}
+function renderFiche(){
+  const e=agents.find(x=>x.id===ficheAgentId);
+  if(!e)return;
+  const idx=agents.indexOf(e);
+  const c=color(idx);
+  const years=[new Date().getFullYear()-1,new Date().getFullYear(),new Date().getFullYear()+1].map(y=>y.toString());
+  
+  // Docs for this agent
+  if(!e.docs)e.docs={};
+  if(!e.docs[ficheYear])e.docs[ficheYear]={};
+  
+  const docsHtml=DOC_TYPES.map(dt=>{
+    const hasDoc=e.docs[ficheYear]&&e.docs[ficheYear][dt];
+    return `<div class="doc-type ${hasDoc?'has-doc':''}" onclick="toggleDoc(${e.id},'${ficheYear}','${dt}')">
+      <i class="ti ${hasDoc?'ti-file-check':'ti-file-plus'}"></i>
+      <div class="dt-label">${dt}</div>
+      ${hasDoc?`<div class="dt-date">✅ ${hasDoc}</div>`:'<div class="dt-date">Cliquez pour marquer</div>'}
     </div>`;
   }).join('');
 
-  // Legend
-  const legend=Object.entries(ABS_TYPES).map(([k,v])=>`
-    <div class="abs-leg-item"><div class="abs-dot" style="background:${v.color}"></div><span style="color:${v.color}">${v.label}</span></div>`).join('');
+  const absEmp=conges.filter(c2=>c2.empId===e.id);
+  const absHtml=absEmp.length?absEmp.map(c2=>{
+    const t=ABS_TYPES[c2.type]||{label:c2.type,color:'#64748b',bg:'#f8fafc'};
+    const b=c2.statut==='approuvé'?'bg':c2.statut==='refusé'?'br':'ba';
+    return `<tr><td><span style="background:${t.bg};color:${t.color};padding:1px 6px;border-radius:100px;font-size:10px;font-weight:700">${t.label}</span></td><td>${c2.debut}</td><td>${c2.fin}</td><td>${c2.nb}j</td><td><span class="badge ${b}">${c2.statut}</span></td></tr>`;
+  }).join(''):`<tr><td colspan="5" style="text-align:center;color:var(--muted);padding:16px">Aucune absence</td></tr>`;
 
-  return `<div class="ph">
-    <div><div class="pt"><i class="ti ti-calendar-off" style="color:var(--red)"></i>Absences &amp; Congés</div>
-    <div class="ps">${congesActifs().length} absence(s) aujourd'hui · ${conges.filter(c=>c.statut==='en attente').length} en attente</div></div>
-    <div style="display:flex;gap:8px;flex-wrap:wrap">
-      <button class="btn btn-b" onclick="openNewConge()"><i class="ti ti-plus"></i> Nouvelle absence</button>
-      <button class="btn btn-gh" onclick="openGCalMain()" title="Ouvrir Google Calendar"><i class="ti ti-brand-google"></i> Google Calendar</button>
-      <button class="btn btn-orange" onclick="openMailRHGeneral()"><i class="ti ti-mail"></i> Mail RH groupé</button>
+  document.getElementById('fiche-modal').innerHTML=`
+    <div class="fiche-header">
+      <div style="display:flex;align-items:center;gap:14px">
+        <div class="fiche-av" style="background:rgba(255,255,255,.2)">${initials(e)}</div>
+        <div>
+          <div style="font-size:18px;font-weight:800">${e.nom}</div>
+          <div style="font-size:12px;opacity:.7;margin-top:2px">${e.affectation||e.dept} · <span style="background:rgba(255,255,255,.2);padding:1px 8px;border-radius:100px;font-size:10px;font-weight:700">${e.categorie==='etudiant'?'Étudiant':'Agent'}</span></div>
+        </div>
+      </div>
+      <div style="display:flex;gap:8px">
+        ${currentUser.role==='admin'?`<button class="btn btn-gh" style="background:rgba(255,255,255,.15);color:#fff;border-color:rgba(255,255,255,.3)" onclick="openEditAgent(${e.id})"><i class="ti ti-edit"></i> Modifier</button>`:''}
+        <button onclick="closeFiche()" style="background:rgba(255,255,255,.15);border:1.5px solid rgba(255,255,255,.3);border-radius:8px;padding:6px 10px;cursor:pointer;color:#fff;font-size:18px;line-height:1"><i class="ti ti-x"></i></button>
+      </div>
     </div>
+    <div class="fiche-body">
+      <div class="fiche-tabs">
+        <button class="ftab ${ficheTab==='infos'?'on':''}" onclick="ficheTab='infos';renderFiche()"><i class="ti ti-id-badge"></i> Informations</button>
+        <button class="ftab ${ficheTab==='contact'?'on':''}" onclick="ficheTab='contact';renderFiche()"><i class="ti ti-phone"></i> Contact</button>
+        <button class="ftab ${ficheTab==='absences'?'on':''}" onclick="ficheTab='absences';renderFiche()"><i class="ti ti-calendar-off"></i> Absences</button>
+        <button class="ftab ${ficheTab==='dossier'?'on':''}" onclick="ficheTab='dossier';renderFiche()"><i class="ti ti-folder"></i> Dossier</button>
+      </div>
+      
+      <div class="fiche-section ${ficheTab==='infos'?'on':''}">
+        <div class="info-grid">
+          <div><div class="info-row"><span class="ik">Nom d'usage</span><span class="iv">${e.nomUsage||e.nom}</span></div>
+          <div class="info-row"><span class="ik">Prénom</span><span class="iv">${e.prenom||'—'}</span></div>
+          <div class="info-row"><span class="ik">Affectation</span><span class="iv">${e.affectation||e.dept}</span></div>
+          <div class="info-row"><span class="ik">Statut</span><span class="iv"><span class="badge ${e.statut==='actif'?'bg':'bgr'}">${e.statut}</span></span></div></div>
+          <div><div class="info-row"><span class="ik">Catégorie</span><span class="iv"><span class="badge ${e.categorie==='etudiant'?'bv':'bb'}">${e.categorie==='etudiant'?'Étudiant':'Agent'}</span></span></div>
+          <div class="info-row"><span class="ik">Depuis</span><span class="iv">${e.date||'—'}</span></div>
+          <div class="info-row"><span class="ik">Absences</span><span class="iv">${conges.filter(c2=>c2.empId===e.id).length} demande(s)</span></div>
+          <div class="info-row"><span class="ik">Contrats</span><span class="iv">${contrats.filter(c2=>c2.empId===e.id).length} contrat(s)</span></div></div>
+        </div>
+      </div>
+
+      <div class="fiche-section ${ficheTab==='contact'?'on':''}">
+        <div class="info-grid">
+          <div>
+            <div style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:8px">Contacts professionnels</div>
+            <div class="info-row"><span class="ik"><i class="ti ti-mail" style="color:var(--blue)"></i> Mail pro</span><span class="iv"><a href="mailto:${e.emailPro}" style="color:var(--blue)">${e.emailPro||'—'}</a></span></div>
+            <div class="info-row"><span class="ik"><i class="ti ti-phone"></i> Téléphone</span><span class="iv"><a href="tel:${e.tel}" style="color:var(--blue)">${e.tel||'—'}</a></span></div>
+          </div>
+          <div>
+            <div style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:8px">Contacts personnels</div>
+            <div class="info-row"><span class="ik"><i class="ti ti-mail" style="color:var(--pink)"></i> Mail perso</span><span class="iv"><a href="mailto:${e.emailPerso}" style="color:var(--pink);font-size:11px">${e.emailPerso||'—'}</a></span></div>
+            <div class="info-row"><span class="ik"><i class="ti ti-home"></i> Adresse</span><span class="iv" style="font-size:11px;text-align:right">${e.adresse?e.adresse+', '+e.cp+' '+e.ville:'—'}</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fiche-section ${ficheTab==='absences'?'on':''}">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+          <div style="font-size:13px;font-weight:700">${absEmp.length} absence(s) enregistrée(s)</div>
+          <button class="btn btn-b btn-sm" onclick="openNewCongeForAgent(${e.id})"><i class="ti ti-plus"></i> Ajouter</button>
+        </div>
+        <table><thead><tr><th>Type</th><th>Début</th><th>Fin</th><th>Jours</th><th>Statut</th></tr></thead>
+        <tbody>${absHtml}</tbody></table>
+      </div>
+
+      <div class="fiche-section ${ficheTab==='dossier'?'on':''}">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px">
+          <span style="font-size:12px;font-weight:700;color:var(--muted)">Année :</span>
+          <div class="doc-years">
+            ${years.map(y=>`<button class="doc-year-tab ${ficheYear===y?'on':''}" onclick="ficheYear='${y}';renderFiche()">${y}</button>`).join('')}
+          </div>
+        </div>
+        <div style="font-size:12px;color:var(--muted);margin-bottom:10px">Cliquez sur un document pour marquer comme fourni :</div>
+        <div class="doc-types">${docsHtml}</div>
+        <div style="background:var(--surface);border-radius:8px;padding:12px;font-size:12px;color:var(--muted)">
+          <i class="ti ti-info-circle"></i> Pour joindre de vrais fichiers PDF, utilisez un service de stockage (Google Drive, SharePoint) et collez le lien dans les observations.
+        </div>
+      </div>
+    </div>`;
+}
+function toggleDoc(id,year,type){
+  const e=agents.find(x=>x.id===id);
+  if(!e.docs)e.docs={};
+  if(!e.docs[year])e.docs[year]={};
+  if(e.docs[year][type]){delete e.docs[year][type]}
+  else{e.docs[year][type]=new Date().toLocaleDateString('fr-FR')}
+  save(); renderFiche();
+}
+
+// ── ANNUAIRE
+function renderAnnuaire(){
+  const cards=agents.filter(e=>e.statut==='actif').map((e,i)=>{
+    const c=color(i);
+    return `<div class="ann-card">
+      <div class="ann-av" style="background:${c}">${initials(e)}</div>
+      <div class="ann-info" style="min-width:0;flex:1">
+        <div class="an">${e.nom}</div>
+        <div class="ap">${e.affectation||e.dept}</div>
+        <div style="margin-top:2px"><span style="background:${e.categorie==='etudiant'?'var(--violet-p)':'var(--teal-p)'};color:${e.categorie==='etudiant'?'var(--violet)':'var(--teal)'};padding:1px 6px;border-radius:100px;font-size:9px;font-weight:700">${e.categorie==='etudiant'?'Étudiant':'Agent'}</span></div>
+        <div class="ann-contact">
+          ${e.emailPro?`<a href="mailto:${e.emailPro}"><i class="ti ti-mail" style="color:var(--blue)"></i>${e.emailPro}</a>`:''}
+          ${e.emailPerso?`<a href="mailto:${e.emailPerso}"><i class="ti ti-mail" style="color:var(--pink)"></i>${e.emailPerso}</a>`:''}
+          ${e.tel?`<a href="tel:${e.tel}"><i class="ti ti-phone"></i>${e.tel}</a>`:''}
+          ${e.ville?`<span style="display:flex;align-items:center;gap:4px"><i class="ti ti-map-pin" style="font-size:11px;color:var(--muted)"></i><span style="color:var(--muted)">${e.cp} ${e.ville}</span></span>`:''}
+        </div>
+      </div>
+      <button class="btn btn-gh btn-sm" style="align-self:flex-start;flex-shrink:0" onclick="openFiche(${e.id})"><i class="ti ti-id-badge"></i></button>
+    </div>`;
+  }).join('');
+  return `<div class="ph">
+    <div><div class="pt"><i class="ti ti-address-book" style="color:var(--green)"></i>Annuaire</div><div class="ps">${agents.filter(e=>e.statut==='actif').length} personnes · Mails pro &amp; perso · Téléphones</div></div>
+    <input class="si" placeholder="🔍 Nom, service, email..." oninput="filterGrid(this,'ann-grid')">
   </div>
-  <div class="abs-legend">${legend}</div>
-  <div class="card"><div class="ch"><div class="ct"><i class="ti ti-calendar"></i> Calendrier — ${monthName}</div></div>
-  <div style="padding:12px"><div class="cal-grid">${calCells}</div></div></div>
-  <div class="card" style="overflow:visible"><div class="ch"><div class="ct"><i class="ti ti-list"></i>Liste des absences</div>
-  <input class="si" placeholder="🔍 Rechercher..." oninput="filterAbsList(this)"></div>
-  <div style="padding:12px" id="abs-list">${absRows||'<p style="text-align:center;color:var(--muted);padding:24px">Aucune absence enregistrée</p>'}</div>
-  </div>`;
+  <div class="ann-grid" id="ann-grid">${cards||'<p style="color:var(--muted);padding:24px">Aucun résultat</p>'}</div>`;
 }
 
-function filterAbsList(inp){
-  const v=inp.value.toLowerCase();
-  document.querySelectorAll('#abs-list .abs-item').forEach(el=>{el.style.display=el.textContent.toLowerCase().includes(v)?'':'none'});
-}
-
-function openGCalMain(){
-  window.open('https://calendar.google.com/calendar/u/0/r','_blank');
-}
-function openGCal(id){
-  const c=conges.find(x=>x.id===id);
-  const e=getEmp(c.empId);
-  const t=ABS_TYPES[c.type]||{label:c.type};
-  const title=encodeURIComponent(`[CROUS] ${t.label} — ${e.prenom} ${e.nom}`);
-  const details=encodeURIComponent(`Agent : ${e.prenom} ${e.nom}\nDépartement : ${e.dept}\nType : ${t.label}\nDurée : ${c.nb} jours${c.motif?'\nMotif : '+c.motif:''}`);
-  const d1=c.debut.replace(/-/g,'');
-  const d2=new Date(new Date(c.fin).getTime()+86400000).toISOString().split('T')[0].replace(/-/g,'');
-  window.open(`https://calendar.google.com/calendar/u/0/r/eventedit?text=${title}&dates=${d1}/${d2}&details=${details}`,'_blank');
-}
-
-function openMailAbsence(id){
-  const c=conges.find(x=>x.id===id);
-  const e=getEmp(c.empId);
-  const t=ABS_TYPES[c.type]||{label:c.type};
-  const subj=`[RH CROUS] ${t.label} — ${e.prenom} ${e.nom}`;
-  const body=`Bonjour,\n\nJe vous informe de l'absence suivante :\n\n• Agent : ${e.prenom} ${e.nom}\n• Département : ${e.dept}\n• Type : ${t.label}\n• Début : ${c.debut}\n• Fin : ${c.fin}\n• Durée : ${c.nb} jour(s)${c.motif?'\n• Motif : '+c.motif:''}\n\nCordialement,\n${currentUser.prenom} ${currentUser.nom}\nUCA & Cafétérias — CROUS de Lille`;
-  document.getElementById('mail-to').value='rh@crous-lille.fr';
-  document.getElementById('mail-subj').value=subj;
-  document.getElementById('mail-body').value=body;
-  document.getElementById('mail-preview').innerHTML=`<b>Absence concernée :</b> ${e.prenom} ${e.nom} · <span style="background:${(ABS_TYPES[c.type]||{bg:'#f8fafc'}).bg};color:${(ABS_TYPES[c.type]||{color:'#64748b'}).color};padding:1px 7px;border-radius:100px;font-size:10px;font-weight:700">${t.label}</span> · ${c.debut} → ${c.fin} · ${c.nb}j`;
-  openModal('mmail');
-}
-function openMailRHGeneral(){
-  const absActives=congesActifs();
-  const lines=absActives.map(c=>{const e=getEmp(c.empId);const t=ABS_TYPES[c.type]||{label:c.type};return `• ${e.prenom} ${e.nom} (${e.dept}) — ${t.label} jusqu'au ${c.fin}`;}).join('\n');
-  const body=`Bonjour,\n\nVoici le récapitulatif des absences en cours ce jour (${new Date().toLocaleDateString('fr-FR')}) :\n\n${lines||'Aucune absence en cours.'}\n\nCordialement,\n${currentUser.prenom} ${currentUser.nom}\nUCA & Cafétérias — CROUS de Lille`;
-  document.getElementById('mail-to').value='rh@crous-lille.fr';
-  document.getElementById('mail-subj').value=`[RH CROUS] Récapitulatif absences — ${new Date().toLocaleDateString('fr-FR')}`;
-  document.getElementById('mail-body').value=body;
-  document.getElementById('mail-preview').innerHTML=`<b>${absActives.length} absence(s) en cours aujourd'hui</b>`;
-  openModal('mmail');
-}
-function sendMail(){
-  const to=document.getElementById('mail-to').value;
-  const subj=encodeURIComponent(document.getElementById('mail-subj').value);
-  const body=encodeURIComponent(document.getElementById('mail-body').value);
-  window.location.href=`mailto:${to}?subject=${subj}&body=${body}`;
-  closeModal('mmail');
-}
-
-// ── PRESENCE MODULE
-function renderPresence(){
-  const moisNom=new Date(presenceAnnee,presenceMois,1).toLocaleDateString('fr-FR',{month:'long',year:'numeric'});
-  const absMonth=conges.filter(c=>c.statut==='approuvé'&&(c.debut.startsWith(`${presenceAnnee}-${String(presenceMois+1).padStart(2,'0')}`)||c.fin.startsWith(`${presenceAnnee}-${String(presenceMois+1).padStart(2,'0')}`)));
-  const totalJoursAbs=absMonth.reduce((s,c)=>s+c.nb,0);
-  const actifs=emps.filter(e=>e.statut==='actif').length;
-
-  const rows=emps.filter(e=>e.statut==='actif').map(e=>{
-    const absEmp=absMonth.filter(c=>c.empId===e.id);
-    const totalAbs=absEmp.reduce((s,c)=>s+c.nb,0);
-    const joursOuvres=22;
-    const joursPresents=Math.max(0,joursOuvres-totalAbs);
-    const types=absEmp.map(c=>{const t=ABS_TYPES[c.type]||{label:c.type,color:'#64748b',bg:'#f8fafc'};return `<span style="background:${t.bg};color:${t.color};padding:1px 6px;border-radius:100px;font-size:10px;font-weight:700">${t.label} (${c.nb}j)</span>`;}).join(' ');
+// ── ABSENCES
+function renderAbsences(){
+  const today=new Date().toISOString().split('T')[0];
+  const now=new Date();
+  const y=now.getFullYear(),m=now.getMonth();
+  const firstDay=new Date(y,m,1).getDay();
+  const daysInMonth=new Date(y,m+1,0).getDate();
+  const monthName=now.toLocaleDateString('fr-FR',{month:'long',year:'numeric'});
+  const dayNames=['Lun','Mar','Mer','Jeu','Ven','Sam','Dim'];
+  let calCells=dayNames.map(d=>`<div style="text-align:center;font-size:10px;font-weight:700;color:var(--muted);padding:4px">${d}</div>`).join('');
+  const startOffset=(firstDay+6)%7;
+  for(let i=0;i<startOffset;i++) calCells+=`<div></div>`;
+  for(let d=1;d<=daysInMonth;d++){
+    const ds=`${y}-${String(m+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+    const isToday=ds===today;
+    const dayConges=conges.filter(c=>c.statut==='approuvé'&&c.debut<=ds&&c.fin>=ds);
+    const evts=dayConges.slice(0,2).map(c=>{const e=getAgent(c.empId);const t=ABS_TYPES[c.type]||{label:c.type,color:'#64748b',bg:'#f1f5f9'};return `<div style="background:${t.bg};color:${t.color};font-size:9px;font-weight:700;padding:1px 3px;border-radius:3px;margin-bottom:1px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${e.nom} — ${t.label}">${e.nom.split(' ')[0]}</div>`;}). join('');
+    calCells+=`<div style="background:${isToday?'var(--blue-p2)':'#fff'};border:1px solid ${isToday?'var(--blue)':'var(--border)'};border-radius:6px;min-height:60px;padding:4px 5px">
+      <div style="font-size:11px;font-weight:700;color:${isToday?'var(--blue)':'var(--muted)'};margin-bottom:2px">${d}</div>
+      ${evts}
+    </div>`;
+  }
+  const absRows=conges.filter(c=>c.statut!=='refusé').map(c=>{
+    const e=getAgent(c.empId);
+    const t=ABS_TYPES[c.type]||{label:c.type,color:'#64748b',bg:'#f8fafc'};
+    const ci=color(agents.findIndex(x=>x.id===c.empId));
+    const b=c.statut==='approuvé'?'bg':'ba';
     return `<tr>
-      <td><b>${e.prenom} ${e.nom}</b><br><span style="font-size:10px;color:var(--muted)">${e.dept}</span></td>
-      <td style="text-align:center"><b style="color:var(--green)">${joursPresents}</b></td>
-      <td style="text-align:center"><b style="color:${totalAbs>0?'var(--red)':'var(--muted)'}">${totalAbs}</b></td>
-      <td>${types||'<span style="color:var(--muted);font-size:11px">Présent(e)</span>'}</td>
+      <td><div style="display:flex;align-items:center;gap:8px"><div style="width:30px;height:30px;border-radius:50%;background:${ci};display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;flex-shrink:0">${initials(e)}</div><div><b>${e.nom}</b><div style="font-size:10px;color:var(--muted)">${e.affectation||e.dept}</div></div></div></td>
+      <td><span style="background:${t.bg};color:${t.color};padding:2px 7px;border-radius:100px;font-size:10px;font-weight:700">${t.label}</span></td>
+      <td>${c.debut}</td><td>${c.fin}</td><td><b>${c.nb}</b>j</td>
+      <td><span class="badge ${b}">${c.statut}</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-gh btn-sm" onclick="openMailAbsence(${c.id})" title="Mail RH"><i class="ti ti-mail"></i></button>
+        <button class="btn btn-gh btn-sm" onclick="openGCal(${c.id})" title="Google Calendar"><i class="ti ti-brand-google"></i></button>
+        ${c.statut==='en attente'?`<button class="btn btn-g btn-sm" onclick="updateConge(${c.id},'approuvé')"><i class="ti ti-check"></i></button><button class="btn btn-r btn-sm" onclick="updateConge(${c.id},'refusé')"><i class="ti ti-x"></i></button>`:''}
+      </td>
     </tr>`;
   }).join('');
-
-  return `<div class="presence-header">
-    <div>
-      <div class="presence-title"><i class="ti ti-clipboard-check"></i> Logiciel PRESENCE</div>
-      <div class="presence-sub">Rapport de présence mensuel — ${moisNom}</div>
-    </div>
-    <div class="presence-actions">
-      <button class="btn-presence" onclick="openMailPresence()"><i class="ti ti-mail"></i> Transmettre au RH</button>
-      <button class="btn-presence primary" onclick="exportPresence()"><i class="ti ti-download"></i> Exporter CSV</button>
+  return `<div class="ph">
+    <div><div class="pt"><i class="ti ti-calendar-off" style="color:var(--red)"></i>Absences &amp; Congés</div><div class="ps">${conges.filter(c=>c.statut==='approuvé'&&c.debut<=today&&c.fin>=today).length} absent(s) aujourd'hui</div></div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn btn-b" onclick="openNewConge()"><i class="ti ti-plus"></i> Nouvelle absence</button>
+      <button class="btn btn-gh" onclick="window.open('https://calendar.google.com/calendar/u/0/r','_blank')"><i class="ti ti-brand-google"></i> Google Calendar</button>
+      <button class="btn" style="background:var(--orange-p);color:var(--orange);border:1px solid #ffd4b0" onclick="openMailRHGeneral()"><i class="ti ti-mail"></i> Mail RH groupé</button>
     </div>
   </div>
-  <div class="month-selector">
-    <label style="font-size:12px;font-weight:600;color:var(--muted)">Mois :</label>
-    <select onchange="changePresenceMois(this.value)">
-      ${Array.from({length:12},(_,i)=>{const d=new Date(presenceAnnee,i,1);return `<option value="${i}" ${i===presenceMois?'selected':''}>${d.toLocaleDateString('fr-FR',{month:'long',year:'numeric'})}</option>`}).join('')}
-    </select>
-  </div>
-  <div class="presence-grid">
-    <div class="presc"><div class="pv" style="color:var(--blue)">${actifs}</div><div class="pl">Agents actifs</div></div>
-    <div class="presc"><div class="pv" style="color:var(--green)">${actifs*22-totalJoursAbs}</div><div class="pl">Jours de présence</div></div>
-    <div class="presc"><div class="pv" style="color:var(--red)">${totalJoursAbs}</div><div class="pl">Jours d'absence</div></div>
-    <div class="presc"><div class="pv" style="color:var(--amber)">${absMonth.length}</div><div class="pl">Évènements</div></div>
-  </div>
-  <div class="presence-table">
-    <div class="pt-header">
-      <div class="pt-title"><i class="ti ti-table"></i> Récapitulatif individuel — ${moisNom}</div>
-    </div>
-    <table><thead><tr><th>Agent</th><th style="text-align:center">Jours présents</th><th style="text-align:center">Jours absents</th><th>Motifs</th></tr></thead><tbody>${rows}</tbody></table>
-  </div>`;
-}
-
-function changePresenceMois(v){presenceMois=parseInt(v);navigate('presence')}
-
-function openMailPresence(){
-  const moisNom=new Date(presenceAnnee,presenceMois,1).toLocaleDateString('fr-FR',{month:'long',year:'numeric'});
-  const absMonth=conges.filter(c=>c.statut==='approuvé'&&c.debut.startsWith(`${presenceAnnee}-${String(presenceMois+1).padStart(2,'0')}`));
-  const lines=emps.filter(e=>e.statut==='actif').map(e=>{
-    const absEmp=absMonth.filter(c=>c.empId===e.id);
-    const totalAbs=absEmp.reduce((s,c)=>s+c.nb,0);
-    return `${e.prenom} ${e.nom} (${e.dept}) — Présent : ${22-totalAbs}j / Absent : ${totalAbs}j`;
-  }).join('\n');
-  const body=`Bonjour,\n\nVeuillez trouver ci-dessous le rapport PRESENCE du mois de ${moisNom} :\n\n${lines}\n\nCordialement,\n${currentUser.prenom} ${currentUser.nom}\nUCA & Cafétérias — CROUS de Lille`;
-  document.getElementById('mail-to').value='rh@crous-lille.fr';
-  document.getElementById('mail-subj').value=`[PRESENCE] Rapport mensuel — ${moisNom}`;
-  document.getElementById('mail-body').value=body;
-  document.getElementById('mail-preview').innerHTML=`<b>Rapport PRESENCE — ${moisNom}</b> · ${emps.filter(e=>e.statut==='actif').length} agents`;
-  openModal('mmail');
-}
-
-function exportPresence(){
-  const moisNom=new Date(presenceAnnee,presenceMois,1).toLocaleDateString('fr-FR',{month:'long',year:'numeric'});
-  const absMonth=conges.filter(c=>c.statut==='approuvé'&&c.debut.startsWith(`${presenceAnnee}-${String(presenceMois+1).padStart(2,'0')}`));
-  let csv='Nom;Prénom;Département;Jours présents;Jours absents;Motifs\n';
-  emps.filter(e=>e.statut==='actif').forEach(e=>{
-    const absEmp=absMonth.filter(c=>c.empId===e.id);
-    const totalAbs=absEmp.reduce((s,c)=>s+c.nb,0);
-    const motifs=absEmp.map(c=>(ABS_TYPES[c.type]||{label:c.type}).label+' ('+c.nb+'j)').join(' | ');
-    csv+=`${e.nom};${e.prenom};${e.dept};${22-totalAbs};${totalAbs};${motifs||'Présent'}\n`;
-  });
-  const blob=new Blob(['\uFEFF'+csv],{type:'text/csv;charset=utf-8'});
-  const url=URL.createObjectURL(blob);
-  const a=document.createElement('a');
-  a.href=url;a.download=`PRESENCE_${moisNom.replace(' ','_')}.csv`;a.click();
-  URL.revokeObjectURL(url);
+  <div class="card"><div class="ch"><div class="ct"><i class="ti ti-calendar"></i> Calendrier — ${monthName}</div></div>
+  <div style="padding:10px"><div style="display:grid;grid-template-columns:repeat(7,1fr);gap:3px">${calCells}</div></div></div>
+  <div class="card"><div class="ch"><div class="ct"><i class="ti ti-list"></i> Liste des absences</div>
+  <input class="si" placeholder="🔍 Rechercher..." oninput="filterTbl(this,'abs-tbl')"></div>
+  <div style="overflow-x:auto"><table id="abs-tbl"><thead><tr><th>Agent</th><th>Type</th><th>Début</th><th>Fin</th><th>Jours</th><th>Statut</th><th>Actions</th></tr></thead><tbody>${absRows||'<tr><td colspan="7" style="text-align:center;color:var(--muted);padding:24px">Aucune absence</td></tr>'}</tbody></table></div></div>`;
 }
 
 // ── MES CONGES
 function renderMesConges(){
-  const myEmp=emps.find(e=>e.prenom===currentUser.prenom)||null;
+  const myEmp=agents.find(e=>e.nom.toLowerCase().includes(currentUser.nom.toLowerCase()))||null;
   const myC=myEmp?conges.filter(c=>c.empId===myEmp.id):[];
-  const rows=myC.length?myC.map(c=>{
-    const b=c.statut==='approuvé'?'bg':c.statut==='refusé'?'br':'ba';
-    const t=ABS_TYPES[c.type]||{label:c.type,color:'#64748b',bg:'#f8fafc'};
-    return `<tr><td><span style="background:${t.bg};color:${t.color};padding:1px 7px;border-radius:100px;font-size:10px;font-weight:700">${t.label}</span></td><td>${c.debut}</td><td>${c.fin}</td><td>${c.nb}j</td><td style="font-size:10px;color:var(--muted)">${c.motif||'—'}</td><td><span class="badge ${b}">${c.statut}</span></td></tr>`;
-  }).join(''):`<tr><td colspan="6" style="text-align:center;color:var(--muted);padding:28px">Aucune demande</td></tr>`;
+  const rows=myC.length?myC.map(c=>{const t=ABS_TYPES[c.type]||{label:c.type,color:'#64748b',bg:'#f8fafc'};const b=c.statut==='approuvé'?'bg':c.statut==='refusé'?'br':'ba';return `<tr><td><span style="background:${t.bg};color:${t.color};padding:1px 7px;border-radius:100px;font-size:10px;font-weight:700">${t.label}</span></td><td>${c.debut}</td><td>${c.fin}</td><td>${c.nb}j</td><td><span class="badge ${b}">${c.statut}</span></td></tr>`;}). join(''):`<tr><td colspan="5" style="text-align:center;color:var(--muted);padding:24px">Aucune demande</td></tr>`;
   return `<div class="ph">
     <div><div class="pt"><i class="ti ti-beach" style="color:var(--teal)"></i>Mes absences &amp; congés</div></div>
-    <button class="btn btn-b" onclick="openNewConge()"><i class="ti ti-plus"></i>Nouvelle demande</button>
+    <button class="btn btn-b" onclick="openNewConge()"><i class="ti ti-plus"></i> Nouvelle demande</button>
   </div>
-  <div class="csol">
-    <div class="cscard" style="background:var(--blue-p2)"><div class="csv" style="color:var(--blue)">25</div><div class="csl" style="color:var(--blue)">Congés annuels</div></div>
-    <div class="cscard" style="background:var(--green-p)"><div class="csv" style="color:var(--green)">8</div><div class="csl" style="color:var(--green)">RTT</div></div>
-    <div class="cscard" style="background:var(--amber-p)"><div class="csv" style="color:var(--amber)">3</div><div class="csl" style="color:var(--amber)">Pris ce mois</div></div>
-    <div class="cscard" style="background:var(--violet-p)"><div class="csv" style="color:var(--violet)">${myC.filter(c=>c.statut==='en attente').length}</div><div class="csl" style="color:var(--violet)">En attente</div></div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:10px;margin-bottom:14px">
+    <div style="background:var(--blue-p2);border-radius:10px;padding:14px;text-align:center"><div style="font-size:24px;font-weight:800;color:var(--blue)">25</div><div style="font-size:11px;color:var(--muted)">Congés annuels</div></div>
+    <div style="background:var(--green-p);border-radius:10px;padding:14px;text-align:center"><div style="font-size:24px;font-weight:800;color:var(--green)">8</div><div style="font-size:11px;color:var(--muted)">RTT</div></div>
+    <div style="background:var(--amber-p);border-radius:10px;padding:14px;text-align:center"><div style="font-size:24px;font-weight:800;color:var(--amber)">3</div><div style="font-size:11px;color:var(--muted)">Pris ce mois</div></div>
+    <div style="background:var(--violet-p);border-radius:10px;padding:14px;text-align:center"><div style="font-size:24px;font-weight:800;color:var(--violet)">${myC.filter(c=>c.statut==='en attente').length}</div><div style="font-size:11px;color:var(--muted)">En attente</div></div>
   </div>
   <div class="card"><div class="ch"><div class="ct">Historique</div></div>
-  <table><thead><tr><th>Type</th><th>Début</th><th>Fin</th><th>Jours</th><th>Motif</th><th>Statut</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+  <table><thead><tr><th>Type</th><th>Début</th><th>Fin</th><th>Jours</th><th>Statut</th></tr></thead><tbody>${rows}</tbody></table></div>`;
 }
 
-// ── EMPLOYES
-function renderEmps(){
-  const rows=emps.map(e=>`<tr>
-    <td><b>${e.prenom} ${e.nom}</b><br><span style="font-size:10px;color:var(--muted)">${e.email}</span></td>
-    <td>${e.poste}</td><td>${e.dept}</td><td>${e.tel}</td>
-    <td><span class="badge ${e.statut==='actif'?'bg':'bgr'}">${e.statut}</span></td>
-    <td>${e.date}</td>
-    <td>${currentUser.role==='admin'?`<button class="btn btn-gh btn-sm" onclick="openEditEmp(${e.id})"><i class="ti ti-edit"></i></button> <button class="btn btn-r btn-sm" onclick="delEmp(${e.id})"><i class="ti ti-trash"></i></button>`:'—'}</td>
-  </tr>`).join('');
-  return `<div class="ph">
-    <div><div class="pt"><i class="ti ti-users" style="color:var(--teal)"></i>Employés</div><div class="ps">${emps.length} · ${emps.filter(e=>e.statut==='actif').length} actifs</div></div>
-    ${currentUser.role==='admin'?`<button class="btn btn-b" onclick="openNewEmp()"><i class="ti ti-plus"></i>Nouvel employé</button>`:''}
-  </div>
-  <div class="card"><div class="ch"><div class="ct"><i class="ti ti-list"></i>Liste</div>
-  <input class="si" placeholder="🔍 Rechercher..." oninput="filterTbl(this,'etbl')"></div>
-  <table id="etbl"><thead><tr><th>Nom</th><th>Poste</th><th>Département</th><th>Téléphone</th><th>Statut</th><th>Entrée</th><th>Actions</th></tr></thead><tbody>${rows}</tbody></table></div>`;
-}
-
-
+// ── SUIVI HEURES
 function renderHeures(){
-  const SUIVI_URL='https://secretariatuca-afk.github.io/suivi-heures/';
-  const GCAL_URL='https://calendar.google.com/calendar/u/0/r';
-  return `<div class="ph">
-    <div><div class="pt"><i class="ti ti-clock" style="color:var(--teal)"></i>Suivi des heures</div>
-    <div class="ps">Gestion des heures · Fiches agents · Demandes · Plannings</div></div>
+  const SUIVI='https://secretariatuca-afk.github.io/suivi-heures/';
+  const GCAL='https://calendar.google.com/calendar/u/0/r';
+  return `<div class="ph"><div><div class="pt"><i class="ti ti-clock" style="color:var(--teal)"></i>Suivi des heures</div><div class="ps">Application dédiée · Fiches agents · Demandes</div></div></div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-bottom:18px">
+    <div onclick="window.open('${SUIVI}','_blank')" style="background:var(--blue);border-radius:12px;padding:18px;cursor:pointer" onmouseover="this.style.opacity='.9'" onmouseout="this.style.opacity='1'">
+      <i class="ti ti-external-link" style="font-size:22px;color:#fff;display:block;margin-bottom:8px"></i>
+      <div style="font-weight:800;font-size:13px;color:#fff">Application complète</div>
+      <div style="font-size:11px;color:rgba(255,255,255,.65);margin-top:4px">Demandes · Validations · Soldes</div>
+    </div>
+    <div onclick="window.open('${SUIVI}','_blank')" style="background:var(--teal-p);border:1.5px solid #b2e4de;border-radius:12px;padding:18px;cursor:pointer">
+      <i class="ti ti-users" style="font-size:22px;color:var(--teal);display:block;margin-bottom:8px"></i>
+      <div style="font-weight:800;font-size:13px;color:#054340">Fiches agents</div>
+      <div style="font-size:11px;color:var(--muted);margin-top:4px">Profils · Historique heures</div>
+    </div>
+    <div onclick="window.open('${SUIVI}','_blank')" style="background:var(--amber-p);border:1.5px solid #f5dfa0;border-radius:12px;padding:18px;cursor:pointer">
+      <i class="ti ti-file-plus" style="font-size:22px;color:var(--amber);display:block;margin-bottom:8px"></i>
+      <div style="font-weight:800;font-size:13px;color:#5a3600">Nouvelle demande</div>
+      <div style="font-size:11px;color:var(--muted);margin-top:4px">Heures prises / supplémentaires</div>
+    </div>
+    <div onclick="window.open('${SUIVI}','_blank')" style="background:var(--green-p);border:1.5px solid #a8e8cc;border-radius:12px;padding:18px;cursor:pointer">
+      <i class="ti ti-coin" style="font-size:22px;color:var(--green);display:block;margin-bottom:8px"></i>
+      <div style="font-weight:800;font-size:13px;color:#0a3d20">Soldes</div>
+      <div style="font-size:11px;color:var(--muted);margin-top:4px">Consultation · Ajustements</div>
+    </div>
+    <div onclick="window.open('${GCAL}','_blank')" style="background:var(--orange-p);border:1.5px solid #ffd4b0;border-radius:12px;padding:18px;cursor:pointer">
+      <i class="ti ti-brand-google" style="font-size:22px;color:var(--orange);display:block;margin-bottom:8px"></i>
+      <div style="font-weight:800;font-size:13px;color:#6b2e00">Google Calendar</div>
+      <div style="font-size:11px;color:var(--muted);margin-top:4px">Planning · Absences visuelles</div>
+    </div>
+    <div onclick="window.open('${SUIVI}','_blank')" style="background:var(--violet-p);border:1.5px solid #cfc6f5;border-radius:12px;padding:18px;cursor:pointer">
+      <i class="ti ti-check" style="font-size:22px;color:var(--violet);display:block;margin-bottom:8px"></i>
+      <div style="font-weight:800;font-size:13px;color:#2d1a7a">Validation</div>
+      <div style="font-size:11px;color:var(--muted);margin-top:4px">Valider/refuser les demandes</div>
+    </div>
   </div>
-
-  <!-- ACCES RAPIDES -->
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:20px">
-
-    <div onclick="window.open('${SUIVI_URL}','_blank')" style="background:var(--blue);border-radius:14px;padding:20px;cursor:pointer;transition:opacity .15s" onmouseover="this.style.opacity='.9'" onmouseout="this.style.opacity='1'">
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
-        <div style="width:40px;height:40px;background:rgba(255,255,255,.15);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px"><i class="ti ti-external-link" style="color:#fff"></i></div>
-        <div style="color:#fff;font-weight:800;font-size:14px">Ouvrir l'application</div>
-      </div>
-      <div style="color:rgba(255,255,255,.7);font-size:12px;line-height:1.5">Accéder au logiciel complet de suivi des heures · Demandes · Validations</div>
-      <div style="margin-top:12px;background:rgba(255,255,255,.15);border-radius:7px;padding:6px 10px;font-size:11px;color:#fff;font-weight:700;display:inline-flex;align-items:center;gap:5px"><i class="ti ti-arrow-right"></i> suivi-heures →</div>
-    </div>
-
-    <div onclick="window.open('${SUIVI_URL}','_blank')" style="background:var(--teal-p);border:1.5px solid #b2e4de;border-radius:14px;padding:20px;cursor:pointer" onmouseover="this.style.background='#c8f0eb'" onmouseout="this.style.background='var(--teal-p)'">
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
-        <div style="width:40px;height:40px;background:#b2e8e4;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px"><i class="ti ti-users" style="color:var(--teal)"></i></div>
-        <div style="color:#054340;font-weight:800;font-size:14px">Fiches agents</div>
-      </div>
-      <div style="color:var(--muted);font-size:12px;line-height:1.5">Consulter et gérer les fiches personnelles de chaque agent</div>
-      <div style="margin-top:12px;background:#b2e8e4;border-radius:7px;padding:6px 10px;font-size:11px;color:var(--teal);font-weight:700;display:inline-flex;align-items:center;gap:5px"><i class="ti ti-id-badge"></i> Voir les fiches</div>
-    </div>
-
-    <div onclick="window.open('${SUIVI_URL}','_blank')" style="background:var(--amber-p);border:1.5px solid #f5dfa0;border-radius:14px;padding:20px;cursor:pointer" onmouseover="this.style.background='#f5e6c0'" onmouseout="this.style.background='var(--amber-p)'">
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
-        <div style="width:40px;height:40px;background:#f5dfa0;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px"><i class="ti ti-file-text" style="color:var(--amber)"></i></div>
-        <div style="color:#5a3600;font-weight:800;font-size:14px">Nouvelle demande</div>
-      </div>
-      <div style="color:var(--muted);font-size:12px;line-height:1.5">Saisir heures prises ou supplémentaires · Demande de modification</div>
-      <div style="margin-top:12px;background:#f5dfa0;border-radius:7px;padding:6px 10px;font-size:11px;color:var(--amber);font-weight:700;display:inline-flex;align-items:center;gap:5px"><i class="ti ti-plus"></i> Créer demande</div>
-    </div>
-
-    <div onclick="window.open('${SUIVI_URL}','_blank')" style="background:var(--violet-p);border:1.5px solid #cfc6f5;border-radius:14px;padding:20px;cursor:pointer" onmouseover="this.style.background='#ddd6f8'" onmouseout="this.style.background='var(--violet-p)'">
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
-        <div style="width:40px;height:40px;background:#cfc6f5;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px"><i class="ti ti-check" style="color:var(--violet)"></i></div>
-        <div style="color:#2d1a7a;font-weight:800;font-size:14px">Validation</div>
-      </div>
-      <div style="color:var(--muted);font-size:12px;line-height:1.5">Valider ou refuser les demandes des agents · Suivi global</div>
-      <div style="margin-top:12px;background:#cfc6f5;border-radius:7px;padding:6px 10px;font-size:11px;color:var(--violet);font-weight:700;display:inline-flex;align-items:center;gap:5px"><i class="ti ti-shield-check"></i> Gérer</div>
-    </div>
-
-    <div onclick="window.open('${GCAL_URL}','_blank')" style="background:var(--orange-p);border:1.5px solid #ffd4b0;border-radius:14px;padding:20px;cursor:pointer" onmouseover="this.style.background='#ffe4cc'" onmouseout="this.style.background='var(--orange-p)'">
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
-        <div style="width:40px;height:40px;background:#ffd4b0;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px"><i class="ti ti-brand-google" style="color:var(--orange)"></i></div>
-        <div style="color:#6b2e00;font-weight:800;font-size:14px">Google Calendar</div>
-      </div>
-      <div style="color:var(--muted);font-size:12px;line-height:1.5">Visualiser le planning · Absences · Congés sur le calendrier partagé</div>
-      <div style="margin-top:12px;background:#ffd4b0;border-radius:7px;padding:6px 10px;font-size:11px;color:var(--orange);font-weight:700;display:inline-flex;align-items:center;gap:5px"><i class="ti ti-calendar"></i> Ouvrir Calendar</div>
-    </div>
-
-    <div onclick="window.open('${SUIVI_URL}','_blank')" style="background:var(--green-p);border:1.5px solid #a8e8cc;border-radius:14px;padding:20px;cursor:pointer" onmouseover="this.style.background='#c0f0d8'" onmouseout="this.style.background='var(--green-p)'">
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
-        <div style="width:40px;height:40px;background:#a8e8cc;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px"><i class="ti ti-coin" style="color:var(--green)"></i></div>
-        <div style="color:#0a3d20;font-weight:800;font-size:14px">Soldes des agents</div>
-      </div>
-      <div style="color:var(--muted);font-size:12px;line-height:1.5">Consulter les soldes d'heures · Ajustements · Historique</div>
-      <div style="margin-top:12px;background:#a8e8cc;border-radius:7px;padding:6px 10px;font-size:11px;color:var(--green);font-weight:700;display:inline-flex;align-items:center;gap:5px"><i class="ti ti-chart-bar"></i> Voir soldes</div>
-    </div>
-
-  </div>
-
-  <!-- LISTE AGENTS RAPIDE -->
   <div class="card">
-    <div class="ch">
-      <div class="ct"><i class="ti ti-users" style="color:var(--blue)"></i>Agents — Accès rapide fiche individuelle</div>
-      <input class="si" placeholder="🔍 Rechercher un agent..." oninput="filterAgentCards(this)">
-    </div>
-    <div style="padding:12px;display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px" id="agent-cards">
-      ${emps.filter(e=>e.statut==='actif').map((e,i)=>{
-        const col=['#003189','#0e7a70','#a0327a','#b97000','#5a3abf','#e1000f','#c25400'];
-        const c=col[i%col.length];
-        const absEmp=conges.filter(c2=>c2.empId===e.id&&c2.statut==='approuvé'&&c2.debut<=new Date().toISOString().split('T')[0]&&c2.fin>=new Date().toISOString().split('T')[0]);
+    <div class="ch"><div class="ct"><i class="ti ti-users" style="color:var(--blue)"></i>Accès rapide — Fiche agent</div>
+    <input class="si" placeholder="🔍 Rechercher..." oninput="filterGrid(this,'heures-agents')"></div>
+    <div style="padding:12px;display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px" id="heures-agents">
+      ${agents.filter(e=>e.statut==='actif').map((e,i)=>{
+        const today2=new Date().toISOString().split('T')[0];
+        const absEmp=conges.filter(c=>c.empId===e.id&&c.statut==='approuvé'&&c.debut<=today2&&c.fin>=today2);
         const absent=absEmp.length>0;
         const t=absent?(ABS_TYPES[absEmp[0].type]||{label:absEmp[0].type,color:'#e1000f',bg:'#fde8ea'}):null;
-        return `<div onclick="window.open('${SUIVI_URL}','_blank')" style="background:#fff;border:1.5px solid ${absent?'#f9c0c5':e.dept==='Restauration'?'#b2e8e4':'var(--border)'};border-radius:10px;padding:12px 14px;cursor:pointer;display:flex;align-items:center;gap:10px;transition:box-shadow .15s" onmouseover="this.style.boxShadow='0 3px 12px rgba(0,0,0,.1)'" onmouseout="this.style.boxShadow='none'">
-          <div style="width:38px;height:38px;border-radius:50%;background:${c};display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff;flex-shrink:0">${e.prenom[0]}${e.nom[0]}</div>
+        return `<div onclick="window.open('${SUIVI}','_blank')" style="background:#fff;border:1.5px solid ${absent?'#f9c0c5':'var(--border)'};border-radius:9px;padding:10px 12px;cursor:pointer;display:flex;align-items:center;gap:9px" onmouseover="this.style.boxShadow='0 2px 10px rgba(0,0,0,.08)'" onmouseout="this.style.boxShadow='none'">
+          <div style="width:34px;height:34px;border-radius:50%;background:${color(i)};display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;flex-shrink:0">${initials(e)}</div>
           <div style="min-width:0;flex:1">
-            <div style="font-size:12px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${e.prenom} ${e.nom}</div>
+            <div style="font-size:12px;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${e.nom}</div>
             <div style="font-size:10px;color:var(--muted)">${e.dept}</div>
-            ${absent?`<div style="background:${t.bg};color:${t.color};padding:1px 6px;border-radius:100px;font-size:9px;font-weight:700;margin-top:3px;display:inline-block">${t.label}</div>`:''}
+            ${absent?`<div style="background:${t.bg};color:${t.color};padding:1px 5px;border-radius:100px;font-size:9px;font-weight:700;margin-top:2px;display:inline-block">${t.label}</div>`:''}
           </div>
-          <i class="ti ti-chevron-right" style="font-size:14px;color:var(--muted);flex-shrink:0"></i>
+          <i class="ti ti-chevron-right" style="font-size:13px;color:var(--muted);flex-shrink:0"></i>
         </div>`;
       }).join('')}
     </div>
   </div>
+  <div class="card"><div class="ch"><div class="ct"><i class="ti ti-layout-dashboard"></i> Application intégrée</div>
+  <button class="btn btn-gh btn-sm" onclick="window.open('${SUIVI}','_blank')"><i class="ti ti-external-link"></i> Plein écran</button></div>
+  <iframe src="${SUIVI}" style="width:100%;height:550px;border:none;display:block" loading="lazy"></iframe></div>`;
+}
 
-  <!-- FRAME INTEGREE -->
-  <div class="card" style="margin-top:4px">
-    <div class="ch">
-      <div class="ct"><i class="ti ti-layout-dashboard" style="color:var(--blue)"></i>Application Suivi Heures — intégrée</div>
-      <div style="display:flex;gap:8px">
-        <button class="btn btn-b btn-sm" onclick="document.getElementById('suivi-frame').src='${SUIVI_URL}'"><i class="ti ti-refresh"></i> Recharger</button>
-        <button class="btn btn-gh btn-sm" onclick="window.open('${SUIVI_URL}','_blank')"><i class="ti ti-external-link"></i> Plein écran</button>
-      </div>
+// ── PRESENCE
+function renderPresence(){
+  const moisNom=new Date(presenceAnnee,presenceMois,1).toLocaleDateString('fr-FR',{month:'long',year:'numeric'});
+  const moisKey=`${presenceAnnee}-${String(presenceMois+1).padStart(2,'0')}`;
+  const absMonth=conges.filter(c=>c.statut==='approuvé'&&(c.debut.startsWith(moisKey)||c.fin.startsWith(moisKey)));
+  const totalJoursAbs=absMonth.reduce((s,c)=>s+c.nb,0);
+  const actifs=agents.filter(e=>e.statut==='actif').length;
+  const rows=agents.filter(e=>e.statut==='actif').map(e=>{
+    const absEmp=absMonth.filter(c=>c.empId===e.id);
+    const totalAbs=absEmp.reduce((s,c)=>s+c.nb,0);
+    const types=absEmp.map(c=>{const t=ABS_TYPES[c.type]||{label:c.type,color:'#64748b',bg:'#f8fafc'};return `<span style="background:${t.bg};color:${t.color};padding:1px 6px;border-radius:100px;font-size:10px;font-weight:700">${t.label} (${c.nb}j)</span>`;}). join(' ');
+    return `<tr><td><b>${e.nom}</b><div style="font-size:10px;color:var(--muted)">${e.dept}</div></td><td style="text-align:center"><b style="color:var(--green)">${22-totalAbs}</b></td><td style="text-align:center"><b style="color:${totalAbs>0?'var(--red)':'var(--muted)'}">${totalAbs}</b></td><td>${types||'<span style="color:var(--muted);font-size:11px">Présent(e)</span>'}</td></tr>`;
+  }).join('');
+  return `<div style="background:linear-gradient(135deg,var(--blue-dark),var(--blue));color:#fff;border-radius:12px;padding:18px 22px;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px">
+    <div><div style="font-size:15px;font-weight:800"><i class="ti ti-clipboard-check"></i> Logiciel PRESENCE</div><div style="font-size:12px;opacity:.7;margin-top:2px">Rapport de présence — ${moisNom}</div></div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button onclick="openMailPresence()" style="background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.3);padding:7px 12px;border-radius:7px;font-size:12px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:5px;font-family:inherit"><i class="ti ti-mail"></i> Transmettre RH</button>
+      <button onclick="exportPresence()" style="background:#fff;color:var(--blue);border:none;padding:7px 12px;border-radius:7px;font-size:12px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:5px;font-family:inherit"><i class="ti ti-download"></i> Export CSV</button>
     </div>
-    <div style="padding:0">
-      <iframe id="suivi-frame" src="${SUIVI_URL}" style="width:100%;height:600px;border:none;display:block" loading="lazy" title="Suivi des heures CROUS"></iframe>
-    </div>
+  </div>
+  <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px">
+    <span style="font-size:12px;font-weight:600;color:var(--muted)">Mois :</span>
+    <select onchange="presenceMois=parseInt(this.value);navigate('presence')" style="padding:6px 10px;border:1px solid var(--border);border-radius:7px;font-size:12px;font-family:inherit;outline:none">
+      ${Array.from({length:12},(_,i)=>{const d=new Date(presenceAnnee,i,1);return `<option value="${i}" ${i===presenceMois?'selected':''}>${d.toLocaleDateString('fr-FR',{month:'long',year:'numeric'})}</option>`}).join('')}
+    </select>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-bottom:14px">
+    <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px"><div style="font-size:22px;font-weight:800;color:var(--blue)">${actifs}</div><div style="font-size:11px;color:var(--muted)">Agents actifs</div></div>
+    <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px"><div style="font-size:22px;font-weight:800;color:var(--green)">${actifs*22-totalJoursAbs}</div><div style="font-size:11px;color:var(--muted)">Jours présence</div></div>
+    <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px"><div style="font-size:22px;font-weight:800;color:var(--red)">${totalJoursAbs}</div><div style="font-size:11px;color:var(--muted)">Jours absence</div></div>
+    <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px"><div style="font-size:22px;font-weight:800;color:var(--amber)">${absMonth.length}</div><div style="font-size:11px;color:var(--muted)">Évènements</div></div>
+  </div>
+  <div class="card">
+    <div class="ch"><div class="ct"><i class="ti ti-table"></i> Récapitulatif — ${moisNom}</div></div>
+    <table><thead><tr><th>Agent</th><th style="text-align:center">Présents</th><th style="text-align:center">Absents</th><th>Motifs</th></tr></thead><tbody>${rows}</tbody></table>
   </div>`;
 }
-function filterAgentCards(inp){
-  const v=inp.value.toLowerCase();
-  document.querySelectorAll('#agent-cards > div').forEach(c=>{c.style.display=c.textContent.toLowerCase().includes(v)?'':'none'});
-}
 
+// ── CONTRATS
 function renderContrats(){
   const rows=contrats.map(c=>{
-    const e=getEmp(c.empId);
+    const e=getAgent(c.empId);
     const tb=c.type==='CDI'?'bb':c.type==='CDD'?'ba':'bv';
     const sb=c.statut==='actif'?'bg':c.statut==='expiré'?'br':'bgr';
-    return `<tr><td><b>${e.prenom} ${e.nom}</b></td><td><span class="badge ${tb}">${c.type}</span></td><td>${c.debut}</td><td>${c.fin||'—'}</td><td><b>${c.salaire.toLocaleString('fr-FR')} €</b></td><td><span class="badge ${sb}">${c.statut}</span></td>${currentUser.role==='admin'?`<td><button class="btn btn-r btn-sm" onclick="delContrat(${c.id})"><i class="ti ti-trash"></i></button></td>`:''}</tr>`;
+    return `<tr><td><b>${e.nom}</b></td><td><span class="badge ${tb}">${c.type}</span></td><td>${c.debut}</td><td>${c.fin||'—'}</td><td><b>${c.salaire.toLocaleString('fr-FR')} €</b></td><td><span class="badge ${sb}">${c.statut}</span></td></tr>`;
   }).join('');
   return `<div class="ph">
-    <div><div class="pt"><i class="ti ti-file-text" style="color:var(--violet)"></i>Contrats</div><div class="ps">${contrats.length} contrats · ${contrats.filter(c=>c.statut==='actif').length} actifs</div></div>
-    ${currentUser.role==='admin'?`<button class="btn btn-b" onclick="openNewContrat()"><i class="ti ti-plus"></i>Nouveau contrat</button>`:''}
+    <div><div class="pt"><i class="ti ti-file-text" style="color:var(--violet)"></i>Contrats</div><div class="ps">${contrats.length} contrats</div></div>
+    ${currentUser.role==='admin'?`<button class="btn btn-b" onclick="openNewContrat()"><i class="ti ti-plus"></i>Nouveau</button>`:''}
   </div>
-  <div class="card"><div class="ch"><div class="ct"><i class="ti ti-list"></i>Liste</div></div>
-  <table><thead><tr><th>Employé</th><th>Type</th><th>Début</th><th>Fin</th><th>Salaire</th><th>Statut</th>${currentUser.role==='admin'?'<th></th>':''}</tr></thead><tbody>${rows}</tbody></table></div>`;
+  <div class="card"><table><thead><tr><th>Agent</th><th>Type</th><th>Début</th><th>Fin</th><th>Salaire</th><th>Statut</th></tr></thead><tbody>${rows||'<tr><td colspan="6" style="text-align:center;color:var(--muted);padding:24px">Aucun contrat</td></tr>'}</tbody></table></div>`;
 }
-function renderAnnuaire(){
-  const cards=emps.filter(e=>e.statut==='actif').map((e,i)=>`
-    <div class="acard">
-      <div class="aav" style="background:${COLORS[i%COLORS.length]}">${e.prenom[0]}${e.nom[0]}</div>
-      <div style="font-size:12px;font-weight:700;margin-bottom:2px">${e.prenom} ${e.nom}</div>
-      <div style="font-size:11px;color:var(--muted)">${e.poste}</div>
-      <div style="font-size:11px;color:var(--blue);font-weight:600;margin-top:3px">${e.dept}</div>
-      <div style="font-size:10px;color:var(--muted);margin-top:5px">${e.email}<br>${e.tel}</div>
-    </div>`).join('');
-  return `<div class="ph">
-    <div><div class="pt"><i class="ti ti-address-book" style="color:var(--green)"></i>Annuaire</div><div class="ps">${emps.filter(e=>e.statut==='actif').length} agents actifs</div></div>
-    <input class="si" placeholder="Rechercher..." oninput="filterCards(this)">
-  </div>
-  <div class="agrid" id="agrid">${cards}</div>`;
-}
+
+// ── NOTIFS
 function renderNotifs(){
-  const items=notifs.map(n=>{
-    const icons={conge:'ti-calendar-off',alerte:'ti-alert-triangle',employe:'ti-user-plus'};
-    const bg={conge:'var(--amber-p)',alerte:'var(--red-p)',employe:'var(--green-p)'};
-    const ic={conge:'var(--amber)',alerte:'var(--red)',employe:'var(--green)'};
-    return `<div class="ni ${n.lu?'':'unread'}">
-      <div class="nico" style="background:${bg[n.type]||'var(--blue-p2)'}"><i class="ti ${icons[n.type]||'ti-bell'}" style="color:${ic[n.type]||'var(--blue)'}"></i></div>
-      <div><div class="nt">${n.titre}</div><div style="font-size:11px;color:var(--muted)">${n.desc}</div></div>
+  const items=notifs.map(n=>{const icons={conge:'ti-calendar-off',alerte:'ti-alert-triangle',employe:'ti-user-plus'};const bg={conge:'var(--amber-p)',alerte:'var(--red-p)',employe:'var(--green-p)'};const ic={conge:'var(--amber)',alerte:'var(--red)',employe:'var(--green)'};
+    return `<div style="background:#fff;border:1.5px solid ${n.lu?'var(--border)':'var(--blue-p)'};border-radius:10px;padding:12px 14px;display:flex;align-items:flex-start;gap:10px;margin-bottom:8px;background:${n.lu?'#fff':'var(--blue-p2)'}">
+      <div style="width:32px;height:32px;border-radius:50%;background:${bg[n.type]||'var(--blue-p2)'};display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0"><i class="ti ${icons[n.type]||'ti-bell'}" style="color:${ic[n.type]||'var(--blue)'}"></i></div>
+      <div><div style="font-size:12px;font-weight:700;margin-bottom:2px">${n.titre}</div><div style="font-size:11px;color:var(--muted)">${n.desc}</div></div>
       <div style="font-size:10px;color:var(--muted);margin-left:auto;white-space:nowrap">${n.date}</div>
     </div>`;
   }).join('');
-  return `<div class="ph"><div><div class="pt"><i class="ti ti-bell" style="color:var(--pink)"></i>Notifications</div></div></div>
-  <div class="nlist">${items||'<p style="color:var(--muted);text-align:center;padding:32px">Aucune notification</p>'}</div>`;
+  return `<div class="ph"><div><div class="pt"><i class="ti ti-bell" style="color:var(--pink)"></i>Notifications</div></div></div>${items||'<p style="text-align:center;color:var(--muted);padding:32px">Aucune notification</p>'}`;
 }
+
+// ── PROFIL
 function renderProfil(){
   const u=currentUser;
   return `<div class="ph"><div><div class="pt"><i class="ti ti-user-circle" style="color:var(--blue)"></i>Mon profil</div></div></div>
-  <div class="phero"><div class="pav">${u.av}</div>
-    <div><div style="font-size:16px;font-weight:800">${u.prenom} ${u.nom}</div>
-    <div style="font-size:12px;opacity:.7;margin-top:2px">${u.poste} · ${u.dept}</div>
-    <div style="margin-top:8px"><span class="badge bb">${ROLE_LABELS[u.role]}</span></div></div>
+  <div style="background:var(--blue);color:#fff;border-radius:12px;padding:20px;display:flex;align-items:center;gap:14px;margin-bottom:14px">
+    <div style="width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;flex-shrink:0">${u.av}</div>
+    <div><div style="font-size:16px;font-weight:800">${u.prenom} ${u.nom}</div><div style="font-size:12px;opacity:.7">${ROLE_LABELS[u.role]}</div></div>
   </div>
-  <div class="pgrid">
-    <div class="ic"><div class="ic-label">Informations personnelles</div>
-      <div class="ir"><span class="ik">Prénom</span><span class="iv">${u.prenom}</span></div>
-      <div class="ir"><span class="ik">Nom</span><span class="iv">${u.nom}</span></div>
-      <div class="ir"><span class="ik">Email</span><span class="iv">${u.email}</span></div>
-      <div class="ir"><span class="ik">Poste</span><span class="iv">${u.poste}</span></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+    <div class="card" style="padding:14px"><div style="font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;margin-bottom:10px">Informations</div>
+      <div class="info-row"><span class="ik">Email</span><span class="iv">${u.email}</span></div>
+      <div class="info-row"><span class="ik">Rôle</span><span class="iv"><span class="badge bb">${ROLE_LABELS[u.role]}</span></span></div>
     </div>
-    <div class="ic"><div class="ic-label">Organisation</div>
-      <div class="ir"><span class="ik">Établissement</span><span class="iv">CROUS de Lille</span></div>
-      <div class="ir"><span class="ik">Unité</span><span class="iv">UCA &amp; Cafétérias</span></div>
-      <div class="ir"><span class="ik">Adresse</span><span class="iv">Bd Paul Langevin, 59650</span></div>
-      <div class="ir"><span class="ik">Rôle</span><span class="iv">${ROLE_LABELS[u.role]}</span></div>
+    <div class="card" style="padding:14px"><div style="font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;margin-bottom:10px">Organisation</div>
+      <div class="info-row"><span class="ik">Établissement</span><span class="iv">CROUS de Lille</span></div>
+      <div class="info-row"><span class="ik">Unité</span><span class="iv">UCA &amp; Cafétérias</span></div>
     </div>
   </div>`;
 }
+
+// ── MODAL HELPERS
 function openModal(id){document.getElementById(id).style.display='flex'}
 function closeModal(id){document.getElementById(id).style.display='none'}
-['memp','mconge','mcontrat','mmail'].forEach(id=>{
-  document.getElementById(id).addEventListener('click',function(e){if(e.target===this)closeModal(id)});
-});
-function openNewEmp(){
-  editEmpId=null;
-  document.getElementById('memp-title').textContent='Nouvel employé';
-  ['ep','en','ee','et','epo'].forEach(id=>document.getElementById(id).value='');
-  document.getElementById('es').value='actif';
-  document.getElementById('edate').value=new Date().toISOString().split('T')[0];
+
+function openNewAgent(cat){
+  editAgentId=null;
+  document.getElementById('memp-title').textContent='Nouvel '+(cat==='etudiant'?'étudiant':'agent');
+  ['ep-nom','ep-prenom','ep-emailpro','ep-emailperso','ep-tel','ep-adresse','ep-cp','ep-ville'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('ep-cat').value=cat||'agent';
+  document.getElementById('ep-statut').value='actif';
   openModal('memp');
 }
-function openEditEmp(id){
-  editEmpId=id;const e=emps.find(x=>x.id===id);
-  document.getElementById('memp-title').textContent="Modifier l'employé";
-  document.getElementById('ep').value=e.prenom;document.getElementById('en').value=e.nom;
-  document.getElementById('ee').value=e.email;document.getElementById('et').value=e.tel;
-  document.getElementById('epo').value=e.poste;document.getElementById('ed').value=e.dept;
-  document.getElementById('es').value=e.statut;document.getElementById('edate').value=e.date;
+function openEditAgent(id){
+  editAgentId=id;const e=agents.find(x=>x.id===id);
+  document.getElementById('memp-title').textContent='Modifier';
+  document.getElementById('ep-nom').value=e.nom;
+  document.getElementById('ep-prenom').value=e.prenom||'';
+  document.getElementById('ep-cat').value=e.categorie||'agent';
+  document.getElementById('ep-dept').value=e.affectation||e.dept;
+  document.getElementById('ep-emailpro').value=e.emailPro||'';
+  document.getElementById('ep-emailperso').value=e.emailPerso||'';
+  document.getElementById('ep-tel').value=e.tel||'';
+  document.getElementById('ep-adresse').value=e.adresse||'';
+  document.getElementById('ep-cp').value=e.cp||'';
+  document.getElementById('ep-ville').value=e.ville||'';
+  document.getElementById('ep-statut').value=e.statut||'actif';
   openModal('memp');
 }
-function saveEmp(){
-  const data={prenom:document.getElementById('ep').value.trim(),nom:document.getElementById('en').value.trim(),
-    email:document.getElementById('ee').value.trim(),tel:document.getElementById('et').value.trim(),
-    poste:document.getElementById('epo').value.trim(),dept:document.getElementById('ed').value,
-    statut:document.getElementById('es').value,date:document.getElementById('edate').value};
-  if(!data.prenom||!data.nom){alert('Prénom et nom requis');return}
-  if(editEmpId){Object.assign(emps.find(e=>e.id===editEmpId),data)}
-  else{data.id=Date.now();emps.push(data)}
-  save();closeModal('memp');navigate('employes');
+function saveAgent(){
+  const nom=document.getElementById('ep-nom').value.trim();
+  if(!nom){alert('Nom requis');return}
+  const data={nom,prenom:document.getElementById('ep-prenom').value.trim(),categorie:document.getElementById('ep-cat').value,
+    affectation:document.getElementById('ep-dept').value,dept:document.getElementById('ep-dept').value,
+    emailPro:document.getElementById('ep-emailpro').value.trim(),emailPerso:document.getElementById('ep-emailperso').value.trim(),
+    tel:document.getElementById('ep-tel').value.trim(),adresse:document.getElementById('ep-adresse').value.trim(),
+    cp:document.getElementById('ep-cp').value.trim(),ville:document.getElementById('ep-ville').value.trim(),
+    statut:document.getElementById('ep-statut').value,date:new Date().toISOString().split('T')[0]};
+  if(editAgentId){Object.assign(agents.find(e=>e.id===editAgentId),data)}
+  else{data.id=Date.now();data.docs={};agents.push(data)}
+  save();closeModal('memp');navigate(currentPage);
 }
-function delEmp(id){if(!confirm('Supprimer ?'))return;emps=emps.filter(e=>e.id!==id);save();navigate('employes')}
+function delAgent(id){if(!confirm('Supprimer cet agent ?'))return;agents=agents.filter(e=>e.id!==id);save();navigate('agents')}
+
 function openNewConge(){
-  const today=new Date().toISOString().split('T')[0];
-  const sel=document.getElementById('cempsel');
-  sel.innerHTML=emps.filter(e=>e.statut==='actif').map(e=>`<option value="${e.id}">${e.prenom} ${e.nom}</option>`).join('');
-  document.getElementById('cdeb').value=today;document.getElementById('cfin').value=today;
-  document.getElementById('cmotif').value='';openModal('mconge');
+  const d=new Date().toISOString().split('T')[0];
+  const empOpts=agents.filter(e=>e.statut==='actif').map(e=>`<option value="${e.id}">${e.nom}</option>`).join('');
+  showSimpleModal('Nouvelle absence','<div class="fg"><label>Agent</label><select id="nc-emp">'+(empOpts||'<option>—</option>')+'</select></div><div class="fg"><label>Type</label><select id="nc-type"><option value="annuel">Congé annuel</option><option value="maladie">Maladie</option><option value="rtt">RTT</option><option value="maternité">Maternité</option><option value="paternité">Paternité</option><option value="mariage">Mariage</option><option value="formation">Formation</option><option value="exceptionnel">Exceptionnel</option><option value="sans-solde">Sans solde</option></select></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px"><div class="fg"><label>Début</label><input type="date" id="nc-deb" value="'+d+'"></div><div class="fg"><label>Fin</label><input type="date" id="nc-fin" value="'+d+'"></div></div><div class="fg"><label>Motif</label><input id="nc-motif" placeholder="Optionnel..."></div>',saveConge2);
 }
-function saveConge(){
-  const debut=document.getElementById('cdeb').value,fin=document.getElementById('cfin').value;
+function openNewCongeForAgent(empId){
+  openNewConge(); setTimeout(()=>{const s=document.getElementById('nc-emp');if(s)s.value=empId},100);
+}
+function saveConge2(){
+  const debut=document.getElementById('nc-deb').value;const fin=document.getElementById('nc-fin').value;
   if(!debut||!fin){alert('Dates requises');return}
   const nb=Math.max(1,Math.round((new Date(fin)-new Date(debut))/(86400000))+1);
-  const empId=parseInt(document.getElementById('cempsel').value)||emps.find(e=>e.prenom===currentUser.prenom)?.id||0;
-  const type=document.getElementById('ctype').value;
-  conges.push({id:Date.now(),empId,type,debut,fin,motif:document.getElementById('cmotif').value,statut:'en attente',nb});
-  const e=getEmp(empId);const t=ABS_TYPES[type]||{label:type};
-  notifs.unshift({id:Date.now(),titre:`Nouvelle demande — ${t.label}`,desc:`${e.prenom} ${e.nom} · ${nb} jours`,type:'conge',lu:false,date:"À l'instant"});
-  save();closeModal('mconge');navigate('absences');
+  const empId=parseInt(document.getElementById('nc-emp').value);
+  const type=document.getElementById('nc-type').value;
+  conges.push({id:Date.now(),empId,type,debut,fin,motif:document.getElementById('nc-motif').value,statut:'en attente',nb});
+  const e=getAgent(empId);const t=ABS_TYPES[type]||{label:type};
+  notifs.unshift({id:Date.now(),titre:`Demande — ${t.label}`,desc:`${e.nom} · ${nb} jours`,type:'conge',lu:false,date:"À l'instant"});
+  save();closeSimpleModal();navigate('absences');
 }
 function updateConge(id,statut){const c=conges.find(x=>x.id===id);if(c)c.statut=statut;save();navigate(currentPage)}
+
 function openNewContrat(){
-  document.getElementById('cemp').innerHTML=emps.map(e=>`<option value="${e.id}">${e.prenom} ${e.nom}</option>`).join('');
-  document.getElementById('cdeb2').value=new Date().toISOString().split('T')[0];
-  document.getElementById('cfin2').value='';document.getElementById('csal').value='';
-  openModal('mcontrat');
+  const empOpts=agents.map(e=>`<option value="${e.id}">${e.nom}</option>`).join('');
+  showSimpleModal('Nouveau contrat','<div class="fg"><label>Agent</label><select id="cc-emp">'+empOpts+'</select></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px"><div class="fg"><label>Type</label><select id="cc-type"><option>CDI</option><option>CDD</option><option>Vacataire</option></select></div><div class="fg"><label>Salaire brut (€)</label><input type="number" id="cc-sal" placeholder="1800"></div></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px"><div class="fg"><label>Début</label><input type="date" id="cc-deb" value="'+new Date().toISOString().split('T')[0]+'"></div><div class="fg"><label>Fin (optionnel)</label><input type="date" id="cc-fin"></div></div>',saveContrat2);
 }
-function saveContrat(){
-  const sal=parseInt(document.getElementById('csal').value),debut=document.getElementById('cdeb2').value;
+function saveContrat2(){
+  const sal=parseInt(document.getElementById('cc-sal').value);const debut=document.getElementById('cc-deb').value;
   if(!sal||!debut){alert('Données incomplètes');return}
-  contrats.push({id:Date.now(),empId:parseInt(document.getElementById('cemp').value),
-    type:document.getElementById('ctype2').value,salaire:sal,debut,fin:document.getElementById('cfin2').value,statut:'actif'});
-  save();closeModal('mcontrat');navigate('contrats');
+  contrats.push({id:Date.now(),empId:parseInt(document.getElementById('cc-emp').value),type:document.getElementById('cc-type').value,salaire:sal,debut,fin:document.getElementById('cc-fin').value,statut:'actif'});
+  save();closeSimpleModal();navigate('contrats');
 }
-function delContrat(id){if(!confirm('Supprimer ?'))return;contrats=contrats.filter(c=>c.id!==id);save();navigate('contrats')}
+
+function openMailAbsence(id){
+  const c=conges.find(x=>x.id===id);const e=getAgent(c.empId);const t=ABS_TYPES[c.type]||{label:c.type};
+  const subj=encodeURIComponent(`[RH CROUS] ${t.label} — ${e.nom}`);
+  const body=encodeURIComponent(`Bonjour,
+
+Agent : ${e.nom}
+Service : ${e.dept}
+Type : ${t.label}
+Début : ${c.debut}
+Fin : ${c.fin}
+Durée : ${c.nb} jour(s)${c.motif?'
+Motif : '+c.motif:''}
+
+Cordialement,
+${currentUser.prenom} ${currentUser.nom}
+UCA & Cafétérias — CROUS de Lille`);
+  window.location.href=`mailto:rh@crous-lille.fr?subject=${subj}&body=${body}`;
+}
+function openMailRHGeneral(){
+  const today=new Date().toISOString().split('T')[0];
+  const abs=conges.filter(c=>c.statut==='approuvé'&&c.debut<=today&&c.fin>=today);
+  const lines=abs.map(c=>{const e=getAgent(c.empId);const t=ABS_TYPES[c.type]||{label:c.type};return `• ${e.nom} (${e.dept}) — ${t.label} jusqu'au ${c.fin}`;}). join('
+');
+  const subj=encodeURIComponent(`[RH CROUS] Absences — ${new Date().toLocaleDateString('fr-FR')}`);
+  const body=encodeURIComponent(`Bonjour,
+
+Absences en cours ce jour (${abs.length}) :
+
+${lines||'Aucune absence.'}
+
+Cordialement,
+${currentUser.prenom} ${currentUser.nom}
+UCA & Cafétérias — CROUS de Lille`);
+  window.location.href=`mailto:rh@crous-lille.fr?subject=${subj}&body=${body}`;
+}
+function openGCal(id){
+  const c=conges.find(x=>x.id===id);const e=getAgent(c.empId);const t=ABS_TYPES[c.type]||{label:c.type};
+  const title=encodeURIComponent(`[CROUS] ${t.label} — ${e.nom}`);
+  const d1=c.debut.replace(/-/g,'');const d2=new Date(new Date(c.fin).getTime()+86400000).toISOString().split('T')[0].replace(/-/g,'');
+  window.open(`https://calendar.google.com/calendar/u/0/r/eventedit?text=${title}&dates=${d1}/${d2}&details=${encodeURIComponent(`Agent : ${e.nom}
+Dép. : ${e.dept}
+Type : ${t.label}
+Durée : ${c.nb} jours`)},'_blank`);
+}
+function openMailPresence(){
+  const moisNom=new Date(presenceAnnee,presenceMois,1).toLocaleDateString('fr-FR',{month:'long',year:'numeric'});
+  const moisKey=`${presenceAnnee}-${String(presenceMois+1).padStart(2,'0')}`;
+  const absMonth=conges.filter(c=>c.statut==='approuvé'&&c.debut.startsWith(moisKey));
+  const lines=agents.filter(e=>e.statut==='actif').map(e=>{const abs=absMonth.filter(c=>c.empId===e.id).reduce((s,c)=>s+c.nb,0);return `${e.nom} (${e.dept}) — Présent : ${22-abs}j / Absent : ${abs}j`;}).join('
+');
+  const subj=encodeURIComponent(`[PRESENCE] Rapport ${moisNom}`);
+  const body=encodeURIComponent(`Bonjour,
+
+Rapport PRESENCE — ${moisNom} :
+
+${lines}
+
+Cordialement,
+${currentUser.prenom} ${currentUser.nom}`);
+  window.location.href=`mailto:rh@crous-lille.fr?subject=${subj}&body=${body}`;
+}
+function exportPresence(){
+  const moisNom=new Date(presenceAnnee,presenceMois,1).toLocaleDateString('fr-FR',{month:'long',year:'numeric'});
+  const moisKey=`${presenceAnnee}-${String(presenceMois+1).padStart(2,'0')}`;
+  const absMonth=conges.filter(c=>c.statut==='approuvé'&&c.debut.startsWith(moisKey));
+  let csv='Nom;Département;Présents;Absents;Motifs
+';
+  agents.filter(e=>e.statut==='actif').forEach(e=>{const abs=absMonth.filter(c=>c.empId===e.id);const tot=abs.reduce((s,c)=>s+c.nb,0);const m=abs.map(c=>(ABS_TYPES[c.type]||{label:c.type}).label+' ('+c.nb+'j)').join(' | ');csv+=`${e.nom};${e.dept};${22-tot};${tot};${m||'Présent'}
+`;});
+  const blob=new Blob(['﻿'+csv],{type:'text/csv;charset=utf-8'});
+  const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=`PRESENCE_${moisNom.replace(' ','_')}.csv`;a.click();URL.revokeObjectURL(url);
+}
+
+// ── SIMPLE MODAL (inline)
+let _simpleCb=null;
+function showSimpleModal(title,body,cb){
+  _simpleCb=cb;
+  const w=document.createElement('div');
+  w.id='simple-modal-wrap';
+  w.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;z-index:250;padding:20px';
+  w.innerHTML=`<div style="background:#fff;border-radius:14px;padding:24px;width:100%;max-width:460px;max-height:90vh;overflow-y:auto"><div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px"><div style="font-size:15px;font-weight:800">${title}</div><button onclick="closeSimpleModal()" style="background:none;border:none;cursor:pointer;font-size:18px;color:var(--muted)"><i class="ti ti-x"></i></button></div>${body}<div style="display:flex;gap:8px;justify-content:flex-end;margin-top:16px;padding-top:14px;border-top:1px solid var(--border)"><button class="btn btn-gh" onclick="closeSimpleModal()">Annuler</button><button class="btn btn-b" onclick="_simpleCb&&_simpleCb()"><i class="ti ti-check"></i> Valider</button></div></div>`;
+  w.addEventListener('click',e=>{if(e.target===w)closeSimpleModal()});
+  document.body.appendChild(w);
+}
+function closeSimpleModal(){const w=document.getElementById('simple-modal-wrap');if(w)w.remove()}
+
+['memp'].forEach(id=>{document.getElementById(id).addEventListener('click',function(e){if(e.target===this)closeModal(id)});});
+document.getElementById('fiche-overlay').addEventListener('click',function(e){if(e.target===this)closeFiche()});
+
+// ── FILTERS
 function filterTbl(inp,id){const v=inp.value.toLowerCase();document.querySelectorAll('#'+id+' tbody tr').forEach(r=>{r.style.display=r.textContent.toLowerCase().includes(v)?'':'none'})}
-function filterCards(inp){const v=inp.value.toLowerCase();document.querySelectorAll('#agrid .acard').forEach(c=>{c.style.display=c.textContent.toLowerCase().includes(v)?'':'none'})}
+function filterGrid(inp,id){const v=inp.value.toLowerCase();document.querySelectorAll('#'+id+' > div').forEach(c=>{c.style.display=c.textContent.toLowerCase().includes(v)?'':'none'})}
 </script>
 </body>
 </html>
