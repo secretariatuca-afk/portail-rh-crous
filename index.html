@@ -10,386 +10,245 @@
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
   --blue:#003189;--blue-dark:#001f5e;--blue-mid:#1a50b0;
-  --blue-pastel:#dce8ff;--blue-pastel2:#eef3ff;
-  --red:#e1000f;--red-pastel:#fde8ea;
-  --green:#1a7a50;--green-pastel:#e2f5ed;
-  --amber:#b97000;--amber-pastel:#fff4d6;
-  --violet:#5a3abf;--violet-pastel:#ede8ff;
-  --teal:#0e7a70;--teal-pastel:#e0f5f3;
-  --pink:#a0327a;--pink-pastel:#fde8f4;
-  --text:#18202f;--muted:#64748b;--surface:#f8fafc;--border:#e2e8f0;--white:#fff;
-  --r:8px;--rm:12px;--rl:18px;
+  --blue-p:#dce8ff;--blue-p2:#eef3ff;
+  --red:#e1000f;--red-p:#fde8ea;
+  --green:#1a7a50;--green-p:#e2f5ed;
+  --amber:#b97000;--amber-p:#fff4d6;
+  --violet:#5a3abf;--violet-p:#ede8ff;
+  --teal:#0e7a70;--teal-p:#e0f5f3;
+  --pink:#a0327a;--pink-p:#fde8f4;
+  --text:#18202f;--muted:#64748b;--surface:#f8fafc;--border:#e2e8f0;
 }
-html{scroll-behavior:smooth}
-body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text);background:var(--surface);font-size:14px;line-height:1.6}
-
-/* ── LOGIN ── */
-#login-screen{position:fixed;inset:0;background:#f0f2f7;display:flex;align-items:center;justify-content:center;z-index:9999;background-image:radial-gradient(#c8d4f0 1px,transparent 1px);background-size:24px 24px}
-.login-card{background:#fff;border-radius:20px;padding:40px 36px;width:100%;max-width:400px;box-shadow:0 8px 40px rgba(0,49,137,.12)}
-.login-logo{width:52px;height:52px;background:var(--blue);border-radius:14px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:24px;color:#fff}
-.login-card h2{text-align:center;font-size:20px;font-weight:800;margin-bottom:6px;color:var(--text)}
-.login-card .login-sub{text-align:center;font-size:13px;color:var(--muted);margin-bottom:28px}
-.form-group{margin-bottom:16px}
-.form-group label{display:block;font-size:12px;font-weight:700;color:var(--muted);margin-bottom:6px;text-transform:uppercase;letter-spacing:.04em}
-.form-group input,.form-group select{width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:var(--r);font-size:14px;font-family:inherit;outline:none;transition:border-color .15s}
-.form-group input:focus,.form-group select:focus{border-color:var(--blue)}
-.login-error{background:var(--red-pastel);color:var(--red);font-size:12px;padding:8px 12px;border-radius:var(--r);margin-bottom:14px;display:none}
-.btn-login{width:100%;background:var(--blue);color:#fff;padding:12px;border-radius:var(--r);font-size:14px;font-weight:700;border:none;cursor:pointer;transition:background .15s;margin-top:4px}
-.btn-login:hover{background:var(--blue-mid)}
-.login-hint{text-align:center;font-size:11px;color:var(--muted);margin-top:14px}
-
-/* ── APP SHELL ── */
-#app{height:100vh;flex-direction:column}
-.topbar{background:var(--blue-dark);color:#fff;padding:6px 24px;display:flex;align-items:center;justify-content:space-between;font-size:11px}
-.topbar-left{opacity:.65;display:flex;align-items:center;gap:6px}
-.topbar-right{display:flex;gap:16px}
-.topbar-right a{color:rgba(255,255,255,.55);text-decoration:none;font-size:11px}
-nav{background:#fff;border-bottom:3px solid var(--blue);display:flex;align-items:stretch;justify-content:space-between;padding:0 24px;flex-shrink:0}
-.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;padding:11px 0}
-.logo-box{background:var(--blue);color:#fff;width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:17px}
-.logo-texts .main{font-size:13px;font-weight:700;color:var(--blue);line-height:1.2}
-.logo-texts .sub{font-size:10px;color:var(--muted)}
-.nav-links{display:flex;align-items:stretch}
-.nav-btn{padding:0 11px;font-size:12px;font-weight:600;color:var(--muted);display:flex;align-items:center;gap:5px;border-bottom:2px solid transparent;margin-bottom:-1px;background:none;border-top:none;border-left:none;border-right:none;cursor:pointer;transition:color .15s,border-color .15s;font-family:inherit}
-.nav-btn:hover,.nav-btn.active{color:var(--blue);border-bottom-color:var(--blue)}
-.nav-user{display:flex;align-items:center;gap:8px;padding:10px 0}
-.user-avatar{width:30px;height:30px;border-radius:50%;background:var(--blue-pastel);color:var(--blue);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700}
-.user-name{font-size:12px;font-weight:600;color:var(--text)}
-.user-role{font-size:10px;color:var(--muted)}
-.btn-logout{background:none;border:1.5px solid var(--border);border-radius:var(--r);padding:5px 10px;font-size:11px;font-weight:600;color:var(--muted);cursor:pointer;display:flex;align-items:center;gap:4px}
-.btn-logout:hover{border-color:var(--red);color:var(--red)}
-
-/* ── CONTENT ── */
-.content{flex:1;overflow-y:auto;padding:24px}
-.page{display:none}.page.active{display:block}
-
-/* ── CARDS / STATS ── */
-.stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:24px}
-.stat-card{background:#fff;border:1px solid var(--border);border-radius:var(--rm);padding:18px 16px}
-.stat-card .val{font-size:28px;font-weight:800;line-height:1;margin-bottom:3px}
-.stat-card .lbl{font-size:11px;color:var(--muted);font-weight:500}
-.stat-card .trend{font-size:11px;margin-top:6px;display:flex;align-items:center;gap:3px}
-
-/* ── TABLE ── */
-.card{background:#fff;border:1px solid var(--border);border-radius:var(--rm);overflow:hidden}
-.card-header{padding:14px 18px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
-.card-title{font-size:14px;font-weight:700;display:flex;align-items:center;gap:7px}
-.card-actions{display:flex;gap:8px;align-items:center}
-.search-input{padding:7px 12px;border:1.5px solid var(--border);border-radius:var(--r);font-size:12px;font-family:inherit;outline:none;width:200px}
-.search-input:focus{border-color:var(--blue)}
-.btn{padding:7px 14px;border-radius:var(--r);font-size:12px;font-weight:700;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:5px;font-family:inherit}
-.btn-blue{background:var(--blue);color:#fff}.btn-blue:hover{background:var(--blue-mid)}
-.btn-green{background:var(--green);color:#fff}
-.btn-red{background:var(--red);color:#fff}
-.btn-ghost{background:none;border:1.5px solid var(--border);color:var(--muted)}.btn-ghost:hover{border-color:var(--blue);color:var(--blue)}
-.btn-sm{padding:4px 10px;font-size:11px}
+html,body{height:100%;font-family:'Plus Jakarta Sans',system-ui,sans-serif;font-size:14px;background:var(--surface);color:var(--text)}
+/* LOGIN */
+.login-bg{min-height:100vh;background:#f0f2f7;background-image:radial-gradient(#c8d4f0 1px,transparent 1px);background-size:24px 24px;display:flex;align-items:center;justify-content:center;padding:20px}
+.login-card{background:#fff;border-radius:20px;padding:36px 32px;width:100%;max-width:380px;border:1px solid var(--border);box-shadow:0 8px 40px rgba(0,49,137,.1)}
+.login-logo{width:48px;height:48px;background:var(--blue);border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:22px;color:#fff}
+.login-card h2{text-align:center;font-size:18px;font-weight:800;margin-bottom:4px}
+.login-sub{text-align:center;font-size:12px;color:var(--muted);margin-bottom:24px}
+.fg{margin-bottom:14px}
+.fg label{display:block;font-size:11px;font-weight:700;color:var(--muted);margin-bottom:5px;text-transform:uppercase;letter-spacing:.04em}
+.fg input,.fg select,.fg textarea{width:100%;padding:9px 12px;border:1.5px solid var(--border);border-radius:7px;font-size:13px;font-family:inherit;outline:none;transition:border-color .15s}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--blue)}
+.err-box{background:var(--red-p);color:var(--red);font-size:12px;padding:8px 12px;border-radius:7px;margin-bottom:12px;display:none;align-items:center;gap:6px}
+.btn-login{width:100%;background:var(--blue);color:#fff;padding:11px;border-radius:7px;font-size:14px;font-weight:700;border:none;cursor:pointer}
+.hint{text-align:center;font-size:11px;color:var(--muted);margin-top:14px;line-height:1.8}
+/* APP */
+#app{display:none;flex-direction:column;min-height:100vh}
+.topbar{background:var(--blue-dark);color:#fff;padding:5px 24px;display:flex;align-items:center;justify-content:space-between;font-size:11px}
+.topbar span{opacity:.65}
+.app-nav{background:#fff;border-bottom:2px solid var(--blue);display:flex;align-items:stretch;justify-content:space-between;padding:0 24px;position:sticky;top:0;z-index:50}
+.nav-logo{display:flex;align-items:center;gap:9px;padding:10px 0}
+.logo-box{background:var(--blue);color:#fff;width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px}
+.logo-main{font-size:12px;font-weight:700;color:var(--blue)}
+.logo-sub{font-size:10px;color:var(--muted)}
+.nav-items{display:flex;align-items:stretch;flex-wrap:wrap}
+.nb{padding:0 10px;font-size:11px;font-weight:600;color:var(--muted);display:flex;align-items:center;gap:4px;border-bottom:2px solid transparent;margin-bottom:-2px;background:none;border-top:none;border-left:none;border-right:none;cursor:pointer;font-family:inherit;transition:color .15s}
+.nb:hover,.nb.on{color:var(--blue);border-bottom-color:var(--blue)}
+.nav-user{display:flex;align-items:center;gap:7px;padding:8px 0}
+.av{width:28px;height:28px;border-radius:50%;background:var(--blue-p);color:var(--blue);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0}
+.un{font-size:11px;font-weight:600}
+.ur{font-size:10px;color:var(--muted)}
+.btn-out{background:none;border:1px solid var(--border);border-radius:6px;padding:4px 8px;font-size:11px;font-weight:600;color:var(--muted);cursor:pointer;font-family:inherit}
+/* CONTENT */
+.content{flex:1;padding:22px 24px}
+.ph{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:18px;flex-wrap:wrap;gap:10px}
+.pt{font-size:18px;font-weight:800;display:flex;align-items:center;gap:7px}
+.ps{font-size:12px;color:var(--muted);margin-top:2px}
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-bottom:18px}
+.sc{background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px}
+.sc .v{font-size:26px;font-weight:800;line-height:1;margin-bottom:2px}
+.sc .l{font-size:11px;color:var(--muted)}
+/* CARD / TABLE */
+.card{background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:14px}
+.ch{padding:12px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.ct{font-size:13px;font-weight:700;display:flex;align-items:center;gap:6px}
+.si{padding:7px 10px;border:1px solid var(--border);border-radius:6px;font-size:12px;font-family:inherit;outline:none;width:180px}
 table{width:100%;border-collapse:collapse}
-th{background:var(--surface);padding:10px 14px;text-align:left;font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;border-bottom:1px solid var(--border)}
-td{padding:11px 14px;border-bottom:1px solid var(--border);font-size:13px;vertical-align:middle}
+th{background:var(--surface);padding:8px 12px;text-align:left;font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;border-bottom:1px solid var(--border)}
+td{padding:9px 12px;border-bottom:1px solid var(--border);font-size:12px;vertical-align:middle}
 tr:last-child td{border:none}
 tr:hover td{background:#fafbff}
-.badge{display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border-radius:100px;font-size:11px;font-weight:700}
-.badge-green{background:var(--green-pastel);color:var(--green)}
-.badge-red{background:var(--red-pastel);color:var(--red)}
-.badge-amber{background:var(--amber-pastel);color:var(--amber)}
-.badge-blue{background:var(--blue-pastel);color:var(--blue)}
-.badge-violet{background:var(--violet-pastel);color:var(--violet)}
-.badge-gray{background:var(--surface);color:var(--muted);border:1px solid var(--border)}
-
-/* ── MODAL ── */
-.modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:1000;display:none;align-items:center;justify-content:center;padding:20px}
-.modal-backdrop.open{display:flex}
-.modal{background:#fff;border-radius:var(--rl);padding:28px;width:100%;max-width:480px;max-height:90vh;overflow-y:auto}
-.modal-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
-.modal-title{font-size:16px;font-weight:800;color:var(--text)}
-.modal-close{background:none;border:none;cursor:pointer;color:var(--muted);font-size:20px;padding:2px}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.form-group{margin-bottom:14px}
-.form-group label{display:block;font-size:11px;font-weight:700;color:var(--muted);margin-bottom:5px;text-transform:uppercase;letter-spacing:.04em}
-.form-group input,.form-group select,.form-group textarea{width:100%;padding:9px 12px;border:1.5px solid var(--border);border-radius:var(--r);font-size:13px;font-family:inherit;outline:none;transition:border-color .15s}
-.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--blue)}
-.modal-footer{display:flex;gap:8px;justify-content:flex-end;margin-top:20px;padding-top:16px;border-top:1px solid var(--border)}
-
-/* ── PROFILE ── */
-.profile-hero{background:var(--blue);color:#fff;border-radius:var(--rl);padding:28px;display:flex;align-items:center;gap:20px;margin-bottom:16px}
-.profile-avatar{width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:800;flex-shrink:0}
-.profile-name{font-size:20px;font-weight:800}
-.profile-role{font-size:13px;opacity:.7;margin-top:3px}
-.profile-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.info-card{background:#fff;border:1px solid var(--border);border-radius:var(--rm);padding:16px}
-.info-card .ic-label{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:10px;display:flex;align-items:center;gap:6px}
-.info-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid var(--border);font-size:12px}
-.info-row:last-child{border:none}
-.info-row .ik{color:var(--muted)}
-.info-row .iv{font-weight:600;color:var(--text)}
-
-/* ── SOLDE CONGES ── */
-.conge-soldes{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-bottom:20px}
-.solde-card{border-radius:var(--rm);padding:16px;text-align:center}
-.solde-card .sc-val{font-size:32px;font-weight:800;line-height:1}
-.solde-card .sc-lbl{font-size:11px;font-weight:600;margin-top:4px;opacity:.75}
-
-/* ── ANNUAIRE ── */
-.annuaire-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
-.contact-card{background:#fff;border:1px solid var(--border);border-radius:var(--rm);padding:16px;text-align:center}
-.contact-avatar{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;margin:0 auto 10px;color:#fff}
-.contact-name{font-size:13px;font-weight:700;margin-bottom:3px}
-.contact-poste{font-size:11px;color:var(--muted)}
-.contact-dept{font-size:11px;color:var(--blue);font-weight:600;margin-top:4px}
-
-/* ── NOTIFS ── */
-.notif-list{display:flex;flex-direction:column;gap:8px}
-.notif-item{background:#fff;border:1px solid var(--border);border-radius:var(--rm);padding:14px 16px;display:flex;align-items:flex-start;gap:12px}
-.notif-item.unread{border-color:var(--blue-pastel);background:var(--blue-pastel2)}
-.notif-icon{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
-.notif-body .nt{font-size:13px;font-weight:600;margin-bottom:2px}
-.notif-body .nd{font-size:12px;color:var(--muted)}
-.notif-time{font-size:11px;color:var(--muted);margin-left:auto;white-space:nowrap}
-
-/* ── PAGE HEADER ── */
-.page-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:10px}
-.page-title{font-size:20px;font-weight:800;color:var(--text);display:flex;align-items:center;gap:8px}
-.page-sub{font-size:13px;color:var(--muted);margin-top:2px}
-.empty-state{text-align:center;padding:48px 20px;color:var(--muted)}
-.empty-state i{font-size:40px;opacity:.3;display:block;margin-bottom:10px}
-
-@media(max-width:768px){
-  .topbar{display:none}.form-row{grid-template-columns:1fr}
-  .nav-links{display:none}.profile-grid{grid-template-columns:1fr}
-}
+.badge{display:inline-flex;align-items:center;padding:2px 8px;border-radius:100px;font-size:10px;font-weight:700}
+.bg{background:var(--green-p);color:var(--green)}
+.br{background:var(--red-p);color:var(--red)}
+.ba{background:var(--amber-p);color:var(--amber)}
+.bb{background:var(--blue-p);color:var(--blue)}
+.bv{background:var(--violet-p);color:var(--violet)}
+.bgr{background:var(--surface);color:var(--muted);border:1px solid var(--border)}
+/* BUTTONS */
+.btn{padding:6px 12px;border-radius:7px;font-size:12px;font-weight:700;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:5px;font-family:inherit}
+.btn-b{background:var(--blue);color:#fff}
+.btn-g{background:var(--green);color:#fff}
+.btn-r{background:var(--red);color:#fff}
+.btn-gh{background:none;border:1px solid var(--border);color:var(--muted)}
+.btn-sm{padding:3px 8px;font-size:11px}
+/* MODAL */
+.modal-wrap{position:fixed;inset:0;background:rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;z-index:200;padding:20px}
+.modal{background:#fff;border-radius:14px;padding:24px;width:100%;max-width:440px;max-height:90vh;overflow-y:auto}
+.mh{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+.mt{font-size:15px;font-weight:800}
+.mx{background:none;border:none;cursor:pointer;color:var(--muted);font-size:18px;padding:2px}
+.fr{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mf{display:flex;gap:8px;justify-content:flex-end;margin-top:16px;padding-top:14px;border-top:1px solid var(--border)}
+/* PROFILE */
+.phero{background:var(--blue);color:#fff;border-radius:12px;padding:22px;display:flex;align-items:center;gap:16px;margin-bottom:14px}
+.pav{width:56px;height:56px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800;flex-shrink:0}
+.pname{font-size:17px;font-weight:800}
+.prole{font-size:12px;opacity:.7;margin-top:2px}
+.pgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ic{background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px}
+.ic-label{font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:8px}
+.ir{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--border);font-size:12px}
+.ir:last-child{border:none}
+.ik{color:var(--muted)}.iv{font-weight:600}
+/* CONGES */
+.csol{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:10px;margin-bottom:16px}
+.cscard{border-radius:10px;padding:14px;text-align:center}
+.csv{font-size:28px;font-weight:800;line-height:1}
+.csl{font-size:11px;font-weight:600;margin-top:3px;opacity:.75}
+/* ANNUAIRE */
+.agrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}
+.acard{background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center}
+.aav{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;margin:0 auto 8px;color:#fff}
+.an{font-size:12px;font-weight:700;margin-bottom:2px}
+.ap{font-size:11px;color:var(--muted)}
+.ad{font-size:11px;color:var(--blue);font-weight:600;margin-top:3px}
+/* NOTIFS */
+.nlist{display:flex;flex-direction:column;gap:8px}
+.ni{background:#fff;border:1px solid var(--border);border-radius:10px;padding:12px 14px;display:flex;align-items:flex-start;gap:10px}
+.ni.unread{border-color:var(--blue-p);background:var(--blue-p2)}
+.nico{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.nt{font-size:12px;font-weight:700;margin-bottom:2px}
+.nd{font-size:11px;color:var(--muted)}
+.ntm{font-size:10px;color:var(--muted);margin-left:auto;white-space:nowrap}
+@media(max-width:600px){.fr{grid-template-columns:1fr}.pgrid{grid-template-columns:1fr}.nav-items{display:none}.topbar{display:none}}
 </style>
 </head>
 <body>
 
-<!-- ══ LOGIN ══ -->
+<!-- LOGIN -->
 <div id="login-screen">
-  <div class="login-card">
-    <div class="login-logo"><i class="ti ti-users"></i></div>
-    <h2>Portail RH</h2>
-    <p class="login-sub">CROUS de Lille · Unité Centrale d'Assemblage et Cafétérias</p>
-    <div class="login-error" id="login-error"><i class="ti ti-alert-circle"></i> Identifiants incorrects</div>
-    <div class="form-group">
-      <label>Adresse e-mail</label>
-      <input type="email" id="login-email" placeholder="prenom.nom@crous-lille.fr" value="">
+  <div class="login-bg">
+    <div class="login-card">
+      <div class="login-logo"><i class="ti ti-users"></i></div>
+      <h2>Portail RH</h2>
+      <p class="login-sub">CROUS de Lille · Unité Centrale d'Assemblage et Cafétérias</p>
+      <div class="err-box" id="lerr"><i class="ti ti-alert-circle"></i> Identifiants incorrects</div>
+      <div class="fg"><label>Adresse e-mail</label><input id="lemail" type="email" placeholder="prenom.nom@crous-lille.fr"></div>
+      <div class="fg"><label>Mot de passe</label><input id="lpwd" type="password" placeholder="••••••••"></div>
+      <button class="btn-login" onclick="doLogin()">Se connecter</button>
+      <p class="hint">Comptes disponibles :<br>
+        <b>admin@crous-lille.fr</b> / admin123<br>
+        <b>manager@crous-lille.fr</b> / manager123<br>
+        <b>agent@crous-lille.fr</b> / agent123
+      </p>
     </div>
-    <div class="form-group">
-      <label>Mot de passe</label>
-      <input type="password" id="login-pwd" placeholder="••••••••" onkeydown="if(event.key==='Enter')doLogin()">
-    </div>
-    <button class="btn-login" onclick="doLogin()">Se connecter</button>
-    <p class="login-hint">Comptes de démonstration :<br>
-      <b>admin@crous-lille.fr</b> / <b>admin123</b> (Admin)<br>
-      <b>manager@crous-lille.fr</b> / <b>manager123</b> (Responsable)<br>
-      <b>agent@crous-lille.fr</b> / <b>agent123</b> (Employé)
-    </p>
   </div>
 </div>
 
-<!-- ══ APP ══ -->
+<!-- APP -->
 <div id="app">
   <div class="topbar">
-    <div class="topbar-left"><i class="ti ti-building-community"></i> Crous de Lille Nord Pas-de-Calais</div>
-    <div class="topbar-right">
-      <a href="https://www.crous-lille.fr" target="_blank">crous-lille.fr</a>
-      <a href="#">Accessibilité</a>
-    </div>
+    <span>Crous de Lille Nord Pas-de-Calais</span>
+    <span>Boulevard Paul Langevin · 59650 Villeneuve d'Ascq</span>
   </div>
-  <nav>
-    <a class="nav-logo" href="#">
+  <nav class="app-nav">
+    <div class="nav-logo">
       <div class="logo-box"><i class="ti ti-users"></i></div>
-      <div class="logo-texts">
-        <div class="main">Portail RH · CROUS de Lille</div>
-        <div class="sub">Unité Centrale d'Assemblage et Cafétérias</div>
-      </div>
-    </a>
-    <div class="nav-links" id="nav-links"></div>
+      <div><div class="logo-main">Portail RH · CROUS de Lille</div><div class="logo-sub">Unité Centrale d'Assemblage et Cafétérias</div></div>
+    </div>
+    <div class="nav-items" id="nav-items"></div>
     <div class="nav-user">
-      <div class="user-avatar" id="user-avatar"></div>
-      <div>
-        <div class="user-name" id="user-name"></div>
-        <div class="user-role" id="user-role-label"></div>
-      </div>
-      <button class="btn-logout" onclick="doLogout()"><i class="ti ti-logout"></i> Déconnexion</button>
+      <div class="av" id="uav"></div>
+      <div><div class="un" id="uname"></div><div class="ur" id="urole"></div></div>
+      <button class="btn-out" onclick="doLogout()"><i class="ti ti-logout"></i> Déconnexion</button>
     </div>
   </nav>
-  <div class="content" id="main-content"></div>
+  <div class="content" id="content"></div>
 </div>
 
-<!-- ══ MODALS ══ -->
-<div class="modal-backdrop" id="modal-emp">
+<!-- MODAL EMPLOYÉ -->
+<div class="modal-wrap" id="memp" style="display:none">
   <div class="modal">
-    <div class="modal-header">
-      <div class="modal-title" id="modal-emp-title">Nouvel employé</div>
-      <button class="modal-close" onclick="closeModal('modal-emp')"><i class="ti ti-x"></i></button>
+    <div class="mh"><div class="mt" id="memp-title">Nouvel employé</div><button class="mx" onclick="closeModal('memp')"><i class="ti ti-x"></i></button></div>
+    <div class="fr">
+      <div class="fg"><label>Prénom</label><input id="ep"></div>
+      <div class="fg"><label>Nom</label><input id="en"></div>
     </div>
-    <div class="form-row">
-      <div class="form-group"><label>Prénom</label><input id="emp-prenom" placeholder="Prénom"></div>
-      <div class="form-group"><label>Nom</label><input id="emp-nom" placeholder="Nom"></div>
+    <div class="fr">
+      <div class="fg"><label>Email</label><input id="ee" type="email"></div>
+      <div class="fg"><label>Téléphone</label><input id="et"></div>
     </div>
-    <div class="form-row">
-      <div class="form-group"><label>Email</label><input id="emp-email" placeholder="email@crous-lille.fr"></div>
-      <div class="form-group"><label>Téléphone</label><input id="emp-tel" placeholder="06 00 00 00 00"></div>
-    </div>
-    <div class="form-row">
-      <div class="form-group"><label>Poste</label><input id="emp-poste" placeholder="Ex: Cuisinier"></div>
-      <div class="form-group"><label>Département</label>
-        <select id="emp-dept">
-          <option>Restauration</option><option>Cafétéria</option><option>Production</option>
-          <option>Logistique</option><option>Administration</option><option>RH</option>
-        </select>
+    <div class="fr">
+      <div class="fg"><label>Poste</label><input id="epo"></div>
+      <div class="fg"><label>Département</label>
+        <select id="ed"><option>Restauration</option><option>Cafétéria</option><option>Production</option><option>Logistique</option><option>Administration</option><option>RH</option></select>
       </div>
     </div>
-    <div class="form-row">
-      <div class="form-group"><label>Statut</label>
-        <select id="emp-statut"><option value="actif">Actif</option><option value="inactif">Inactif</option></select>
-      </div>
-      <div class="form-group"><label>Date d'entrée</label><input type="date" id="emp-date"></div>
+    <div class="fr">
+      <div class="fg"><label>Statut</label><select id="es"><option value="actif">Actif</option><option value="inactif">Inactif</option></select></div>
+      <div class="fg"><label>Date d'entrée</label><input type="date" id="edate"></div>
     </div>
-    <div class="modal-footer">
-      <button class="btn btn-ghost" onclick="closeModal('modal-emp')">Annuler</button>
-      <button class="btn btn-blue" onclick="saveEmployee()"><i class="ti ti-check"></i> Enregistrer</button>
+    <div class="mf">
+      <button class="btn btn-gh" onclick="closeModal('memp')">Annuler</button>
+      <button class="btn btn-b" onclick="saveEmp()"><i class="ti ti-check"></i> Enregistrer</button>
     </div>
   </div>
 </div>
 
-<div class="modal-backdrop" id="modal-conge">
+<!-- MODAL CONGÉ -->
+<div class="modal-wrap" id="mconge" style="display:none">
   <div class="modal">
-    <div class="modal-header">
-      <div class="modal-title">Demande de congé</div>
-      <button class="modal-close" onclick="closeModal('modal-conge')"><i class="ti ti-x"></i></button>
+    <div class="mh"><div class="mt">Demande de congé</div><button class="mx" onclick="closeModal('mconge')"><i class="ti ti-x"></i></button></div>
+    <div class="fg"><label>Type</label>
+      <select id="ctype"><option value="annuel">Congé annuel</option><option value="maladie">Maladie</option><option value="rtt">RTT</option><option value="exceptionnel">Exceptionnel</option></select>
     </div>
-    <div class="form-group"><label>Type de congé</label>
-      <select id="conge-type">
-        <option value="annuel">Congé annuel</option>
-        <option value="maladie">Congé maladie</option>
-        <option value="rtt">RTT</option>
-        <option value="exceptionnel">Congé exceptionnel</option>
-      </select>
+    <div class="fr">
+      <div class="fg"><label>Début</label><input type="date" id="cdeb"></div>
+      <div class="fg"><label>Fin</label><input type="date" id="cfin"></div>
     </div>
-    <div class="form-row">
-      <div class="form-group"><label>Date de début</label><input type="date" id="conge-debut"></div>
-      <div class="form-group"><label>Date de fin</label><input type="date" id="conge-fin"></div>
-    </div>
-    <div class="form-group"><label>Motif (optionnel)</label>
-      <textarea id="conge-motif" rows="3" placeholder="Précisez si nécessaire..."></textarea>
-    </div>
-    <div class="modal-footer">
-      <button class="btn btn-ghost" onclick="closeModal('modal-conge')">Annuler</button>
-      <button class="btn btn-blue" onclick="saveConge()"><i class="ti ti-send"></i> Envoyer la demande</button>
+    <div class="fg"><label>Motif (optionnel)</label><input id="cmotif" placeholder="Précisez si nécessaire..."></div>
+    <div class="mf">
+      <button class="btn btn-gh" onclick="closeModal('mconge')">Annuler</button>
+      <button class="btn btn-b" onclick="saveConge()"><i class="ti ti-send"></i> Envoyer</button>
     </div>
   </div>
 </div>
 
-<div class="modal-backdrop" id="modal-contrat">
+<!-- MODAL CONTRAT -->
+<div class="modal-wrap" id="mcontrat" style="display:none">
   <div class="modal">
-    <div class="modal-header">
-      <div class="modal-title" id="modal-contrat-title">Nouveau contrat</div>
-      <button class="modal-close" onclick="closeModal('modal-contrat')"><i class="ti ti-x"></i></button>
+    <div class="mh"><div class="mt">Nouveau contrat</div><button class="mx" onclick="closeModal('mcontrat')"><i class="ti ti-x"></i></button></div>
+    <div class="fg"><label>Employé</label><select id="cemp"></select></div>
+    <div class="fr">
+      <div class="fg"><label>Type</label><select id="ctype2"><option>CDI</option><option>CDD</option><option>Vacataire</option></select></div>
+      <div class="fg"><label>Salaire brut (€)</label><input type="number" id="csal" placeholder="1800"></div>
     </div>
-    <div class="form-group"><label>Employé</label>
-      <select id="contrat-emp"></select>
+    <div class="fr">
+      <div class="fg"><label>Début</label><input type="date" id="cdeb2"></div>
+      <div class="fg"><label>Fin (optionnel)</label><input type="date" id="cfin2"></div>
     </div>
-    <div class="form-row">
-      <div class="form-group"><label>Type</label>
-        <select id="contrat-type">
-          <option value="CDI">CDI</option><option value="CDD">CDD</option><option value="Vacataire">Vacataire</option>
-        </select>
-      </div>
-      <div class="form-group"><label>Salaire brut (€)</label><input type="number" id="contrat-salaire" placeholder="Ex: 1800"></div>
-    </div>
-    <div class="form-row">
-      <div class="form-group"><label>Date de début</label><input type="date" id="contrat-debut"></div>
-      <div class="form-group"><label>Date de fin</label><input type="date" id="contrat-fin" placeholder="Laisser vide si CDI"></div>
-    </div>
-    <div class="modal-footer">
-      <button class="btn btn-ghost" onclick="closeModal('modal-contrat')">Annuler</button>
-      <button class="btn btn-blue" onclick="saveContrat()"><i class="ti ti-check"></i> Enregistrer</button>
+    <div class="mf">
+      <button class="btn btn-gh" onclick="closeModal('mcontrat')">Annuler</button>
+      <button class="btn btn-b" onclick="saveContrat()"><i class="ti ti-check"></i> Enregistrer</button>
     </div>
   </div>
 </div>
 
 <script>
-// ══════════════════════════════
-// DATA
-// ══════════════════════════════
-const USERS = [
-  {id:1,email:'admin@crous-lille.fr',pwd:'admin123',role:'admin',nom:'Dupont',prenom:'Marie',poste:'Gestionnaire RH',dept:'RH',avatar:'MD'},
-  {id:2,email:'manager@crous-lille.fr',pwd:'manager123',role:'manager',nom:'Bernard',prenom:'Thomas',poste:'Responsable Restauration',dept:'Restauration',avatar:'TB'},
-  {id:3,email:'agent@crous-lille.fr',pwd:'agent123',role:'employee',nom:'Saliba',prenom:'Somiya',poste:'Assistante RH',dept:'RH',avatar:'SS'},
+const USERS=[
+  {id:1,email:'admin@crous-lille.fr',pwd:'admin123',role:'admin',nom:'Dupont',prenom:'Marie',poste:'Gestionnaire RH',dept:'RH',av:'MD'},
+  {id:2,email:'manager@crous-lille.fr',pwd:'manager123',role:'manager',nom:'Bernard',prenom:'Thomas',poste:'Responsable Restauration',dept:'Restauration',av:'TB'},
+  {id:3,email:'agent@crous-lille.fr',pwd:'agent123',role:'employee',nom:'Saliba',prenom:'Somiya',poste:'Assistante RH',dept:'RH',av:'SS'},
 ];
-
-function ls(k,def){try{return JSON.parse(localStorage.getItem('rh_'+k))||def}catch{return def}
-function lsSet(k,v){localStorage.setItem('rh_'+k,JSON.stringify(v))}
-
-let employees = ls('employees',[
-  {id:1,prenom:'Jean',nom:'Martin',email:'j.martin@crous-lille.fr',tel:'06 12 34 56 78',poste:'Chef cuisinier',dept:'Restauration',statut:'actif',date:'2019-03-01'},
-  {id:2,prenom:'Amina',nom:'Benali',email:'a.benali@crous-lille.fr',tel:'06 23 45 67 89',poste:'Cuisinière',dept:'Restauration',statut:'actif',date:'2021-06-15'},
-  {id:3,prenom:'Paul',nom:'Leroy',email:'p.leroy@crous-lille.fr',tel:'06 34 56 78 90',poste:'Barista',dept:'Cafétéria',statut:'actif',date:'2022-01-10'},
-  {id:4,prenom:'Lucie',nom:'Dupuis',email:'l.dupuis@crous-lille.fr',tel:'06 45 67 89 01',poste:'Hôtesse de caisse',dept:'Cafétéria',statut:'actif',date:'2020-09-01'},
-  {id:5,prenom:'Omar',nom:'Khalid',email:'o.khalid@crous-lille.fr',tel:'06 56 78 90 12',poste:'Magasinier',dept:'Logistique',statut:'inactif',date:'2018-11-20'},
-  {id:6,prenom:'Sophie',nom:'Mercier',email:'s.mercier@crous-lille.fr',tel:'06 67 89 01 23',poste:'Assistante administrative',dept:'Administration',statut:'actif',date:'2023-02-14'},
-]);
-let contrats = ls('contrats',[
-  {id:1,empId:1,type:'CDI',salaire:2200,debut:'2019-03-01',fin:'',statut:'actif'},
-  {id:2,empId:2,type:'CDD',salaire:1800,debut:'2021-06-15',fin:'2024-06-14',statut:'actif'},
-  {id:3,empId:3,type:'CDI',salaire:1600,debut:'2022-01-10',fin:'',statut:'actif'},
-  {id:4,empId:4,type:'Vacataire',salaire:1400,debut:'2020-09-01',fin:'2024-08-31',statut:'actif'},
-  {id:5,empId:5,type:'CDD',salaire:1700,debut:'2018-11-20',fin:'2023-11-19',statut:'expiré'},
-]);
-let conges = ls('conges',[
-  {id:1,empId:3,type:'annuel',debut:'2024-07-01',fin:'2024-07-14',motif:'Vacances été',statut:'approuvé',nbJours:10},
-  {id:2,empId:1,type:'rtt',debut:'2024-06-10',fin:'2024-06-11',motif:'',statut:'approuvé',nbJours:2},
-  {id:3,empId:2,type:'maladie',debut:'2024-05-20',fin:'2024-05-22',motif:'Arrêt médical',statut:'approuvé',nbJours:3},
-  {id:4,empId:4,type:'annuel',debut:'2024-08-05',fin:'2024-08-09',motif:'',statut:'en attente',nbJours:5},
-]);
-let notifs = ls('notifs',[
-  {id:1,titre:'Demande de congé soumise',desc:'Lucie Dupuis a soumis une demande de congé du 5 au 9 août.',type:'conge',lu:false,date:'il y a 2h'},
-  {id:2,titre:'Contrat expiré',desc:'Le CDD de Omar Khalid a expiré le 19 novembre 2023.',type:'alerte',lu:false,date:'il y a 1 jour'},
-  {id:3,titre:'Nouveau employé',desc:'Sophie Mercier a rejoint l'équipe Administration.',type:'employe',lu:true,date:'il y a 3 jours'},
-]);
-
-let currentUser = null;
-let editEmpId = null;
-
-// ══════════════════════════════
-// AUTH
-// ══════════════════════════════
-function doLogin(){
-  const email = document.getElementById('login-email').value.trim();
-  const pwd = document.getElementById('login-pwd').value;
-  const user = USERS.find(u => u.email===email && u.pwd===pwd);
-  if(!user){
-    const err = document.getElementById('login-error');
-    err.style.display='flex'; err.style.alignItems='center'; err.style.gap='6px';
-    return;
-  }
-  currentUser = user;
-  document.getElementById('login-screen').style.display='none';
-  const app = document.getElementById('app');
-  app.style.display='flex';
-  document.getElementById('user-avatar').textContent=user.avatar;
-  document.getElementById('user-name').textContent=user.prenom+' '+user.nom;
-  const roleLabel = {admin:'Administrateur',manager:'Responsable',employee:'Agent'};
-  document.getElementById('user-role-label').textContent=roleLabel[user.role];
-  buildNav();
-  navigate('dashboard');
-}
-
-function doLogout(){
-  currentUser=null;
-  document.getElementById('login-screen').style.display='flex';
-  document.getElementById('app').style.display='none';
-  document.getElementById('login-email').value='';
-  document.getElementById('login-pwd').value='';
-}
-
-// ══════════════════════════════
-// NAV
-// ══════════════════════════════
-const NAV_ITEMS = [
+const ROLE_LABELS={admin:'Administrateur',manager:'Responsable',employee:'Agent'};
+const COLORS=['#003189','#0e7a70','#a0327a','#b97000','#5a3abf','#e1000f'];
+const NAV=[
   {id:'dashboard',label:'Tableau de bord',icon:'ti-chart-bar',roles:['admin']},
-  {id:'employees',label:'Employés',icon:'ti-users',roles:['admin','manager']},
-  {id:'conges-admin',label:'Demandes de congés',icon:'ti-calendar-off',roles:['admin','manager']},
+  {id:'employes',label:'Employés',icon:'ti-users',roles:['admin','manager']},
+  {id:'conges-admin',label:'Demandes congés',icon:'ti-calendar-off',roles:['admin','manager']},
   {id:'mes-conges',label:'Mes congés',icon:'ti-beach',roles:['admin','manager','employee']},
   {id:'contrats',label:'Contrats',icon:'ti-file-text',roles:['admin','manager','employee']},
   {id:'annuaire',label:'Annuaire',icon:'ti-address-book',roles:['admin','manager','employee']},
@@ -397,377 +256,333 @@ const NAV_ITEMS = [
   {id:'profil',label:'Mon profil',icon:'ti-user-circle',roles:['admin','manager','employee']},
 ];
 
+function ls(k,d){try{return JSON.parse(localStorage.getItem('rh_'+k))||d}catch{return d}}
+function lss(k,v){try{localStorage.setItem('rh_'+k,JSON.stringify(v))}catch{}}
+
+let emps=ls('emps',[
+  {id:1,prenom:'Jean',nom:'Martin',email:'j.martin@crous-lille.fr',tel:'06 12 34 56 78',poste:'Chef cuisinier',dept:'Restauration',statut:'actif',date:'2019-03-01'},
+  {id:2,prenom:'Amina',nom:'Benali',email:'a.benali@crous-lille.fr',tel:'06 23 45 67 89',poste:'Cuisinière',dept:'Restauration',statut:'actif',date:'2021-06-15'},
+  {id:3,prenom:'Paul',nom:'Leroy',email:'p.leroy@crous-lille.fr',tel:'06 34 56 78 90',poste:'Barista',dept:'Cafétéria',statut:'actif',date:'2022-01-10'},
+  {id:4,prenom:'Lucie',nom:'Dupuis',email:'l.dupuis@crous-lille.fr',tel:'06 45 67 89 01',poste:'Hôtesse de caisse',dept:'Cafétéria',statut:'actif',date:'2020-09-01'},
+  {id:5,prenom:'Omar',nom:'Khalid',email:'o.khalid@crous-lille.fr',tel:'06 56 78 90 12',poste:'Magasinier',dept:'Logistique',statut:'inactif',date:'2018-11-20'},
+  {id:6,prenom:'Sophie',nom:'Mercier',email:'s.mercier@crous-lille.fr',tel:'06 67 89 01 23',poste:'Assistante administrative',dept:'Administration',statut:'actif',date:'2023-02-14'},
+]);
+let contrats=ls('contrats',[
+  {id:1,empId:1,type:'CDI',salaire:2200,debut:'2019-03-01',fin:'',statut:'actif'},
+  {id:2,empId:2,type:'CDD',salaire:1800,debut:'2021-06-15',fin:'2025-06-14',statut:'actif'},
+  {id:3,empId:3,type:'CDI',salaire:1600,debut:'2022-01-10',fin:'',statut:'actif'},
+  {id:4,empId:4,type:'Vacataire',salaire:1400,debut:'2020-09-01',fin:'2025-08-31',statut:'actif'},
+  {id:5,empId:5,type:'CDD',salaire:1700,debut:'2018-11-20',fin:'2023-11-19',statut:'expiré'},
+]);
+let conges=ls('conges',[
+  {id:1,empId:3,type:'annuel',debut:'2024-07-01',fin:'2024-07-14',motif:'Vacances',statut:'approuvé',nb:10},
+  {id:2,empId:1,type:'rtt',debut:'2024-06-10',fin:'2024-06-11',motif:'',statut:'approuvé',nb:2},
+  {id:3,empId:2,type:'maladie',debut:'2024-05-20',fin:'2024-05-22',motif:'Arrêt médical',statut:'approuvé',nb:3},
+  {id:4,empId:4,type:'annuel',debut:'2024-08-05',fin:'2024-08-09',motif:'',statut:'en attente',nb:5},
+]);
+let notifs=ls('notifs',[
+  {id:1,titre:'Demande de congé soumise',desc:'Lucie Dupuis — 5 au 9 août.',type:'conge',lu:false,date:'il y a 2h'},
+  {id:2,titre:'Contrat expiré',desc:'CDD Omar Khalid — 19 nov. 2023.',type:'alerte',lu:false,date:'il y a 1 jour'},
+  {id:3,titre:'Nouvel employé',desc:'Sophie Mercier a rejoint Administration.',type:'employe',lu:true,date:'il y a 3 jours'},
+]);
+
+let currentUser=null, currentPage='dashboard', editEmpId=null;
+
+function save(){lss('emps',emps);lss('contrats',contrats);lss('conges',conges);lss('notifs',notifs)}
+function getEmp(id){return emps.find(e=>e.id===id)||{prenom:'?',nom:''}}
+
+function doLogin(){
+  const email=document.getElementById('lemail').value.trim();
+  const pwd=document.getElementById('lpwd').value;
+  const found=USERS.find(u=>u.email===email&&u.pwd===pwd);
+  const errEl=document.getElementById('lerr');
+  if(!found){errEl.style.display='flex';return}
+  errEl.style.display='none';
+  currentUser=found;
+  document.getElementById('login-screen').style.display='none';
+  document.getElementById('app').style.display='flex';
+  document.getElementById('uav').textContent=found.av;
+  document.getElementById('uname').textContent=found.prenom+' '+found.nom;
+  document.getElementById('urole').textContent=ROLE_LABELS[found.role];
+  buildNav();
+  navigate('dashboard');
+}
+
+document.getElementById('lpwd').addEventListener('keydown',function(e){if(e.key==='Enter')doLogin()});
+document.getElementById('lemail').addEventListener('keydown',function(e){if(e.key==='Enter')doLogin()});
+
+function doLogout(){
+  currentUser=null;
+  document.getElementById('app').style.display='none';
+  document.getElementById('login-screen').style.display='block';
+  document.getElementById('lemail').value='';
+  document.getElementById('lpwd').value='';
+}
+
 function buildNav(){
-  const el = document.getElementById('nav-links');
-  el.innerHTML = NAV_ITEMS
-    .filter(n => n.roles.includes(currentUser.role))
-    .map(n=>`<button class="nav-btn" data-page="${n.id}" onclick="navigate('${n.id}')"><i class="ti ${n.icon}"></i>${n.label}</button>`)
-    .join('');
+  const el=document.getElementById('nav-items');
+  el.innerHTML=NAV.filter(n=>n.roles.includes(currentUser.role)).map(n=>`
+    <button class="nb" data-page="${n.id}" onclick="navigate('${n.id}')">
+      <i class="ti ${n.icon}"></i>${n.label}
+    </button>`).join('');
 }
 
-function navigate(page){
-  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.toggle('active',b.dataset.page===page));
-  document.getElementById('main-content').innerHTML = renderPage(page);
+function navigate(pg){
+  currentPage=pg;
+  document.querySelectorAll('.nb').forEach(b=>b.classList.toggle('on',b.dataset.page===pg));
+  if(pg==='notifs'){notifs.forEach(n=>n.lu=true);save()}
+  document.getElementById('content').innerHTML=renderPage(pg);
 }
 
-// ══════════════════════════════
-// PAGES
-// ══════════════════════════════
-function renderPage(page){
-  const pages = {
-    dashboard: renderDashboard,
-    employees: renderEmployees,
-    'conges-admin': renderCongesAdmin,
-    'mes-conges': renderMesConges,
-    contrats: renderContrats,
-    annuaire: renderAnnuaire,
-    notifs: renderNotifs,
-    profil: renderProfil,
-  };
-  return (pages[page]||renderDashboard)();
+function renderPage(pg){
+  if(pg==='dashboard')return renderDash();
+  if(pg==='employes')return renderEmps();
+  if(pg==='conges-admin')return renderCongesAdmin();
+  if(pg==='mes-conges')return renderMesConges();
+  if(pg==='contrats')return renderContrats();
+  if(pg==='annuaire')return renderAnnuaire();
+  if(pg==='notifs')return renderNotifs();
+  if(pg==='profil')return renderProfil();
+  return '';
 }
 
-function renderDashboard(){
-  const actifs = employees.filter(e=>e.statut==='actif').length;
-  const pending = conges.filter(c=>c.statut==='en attente').length;
-  const cdiCount = contrats.filter(c=>c.type==='CDI').length;
-  const expiring = contrats.filter(c=>c.fin && new Date(c.fin)<new Date(Date.now()+30*86400000) && c.statut==='actif').length;
-  return `
-  <div class="page-header">
-    <div><div class="page-title"><i class="ti ti-chart-bar" style="color:var(--blue)"></i>Tableau de bord</div>
-    <div class="page-sub">Vue d'ensemble RH — CROUS de Lille · UCA</div></div>
+function renderDash(){
+  const actifs=emps.filter(e=>e.statut==='actif').length;
+  const pending=conges.filter(c=>c.statut==='en attente').length;
+  const cdis=contrats.filter(c=>c.type==='CDI').length;
+  const exp=contrats.filter(c=>c.fin&&new Date(c.fin)<new Date(Date.now()+30*86400000)&&c.statut==='actif').length;
+  return `<div class="ph"><div><div class="pt"><i class="ti ti-chart-bar" style="color:var(--blue)"></i>Tableau de bord</div><div class="ps">CROUS de Lille · UCA</div></div></div>
+  <div class="stats">
+    <div class="sc"><div class="v" style="color:var(--blue)">${actifs}</div><div class="l">Employés actifs</div></div>
+    <div class="sc"><div class="v" style="color:var(--amber)">${pending}</div><div class="l">Congés en attente</div></div>
+    <div class="sc"><div class="v" style="color:var(--green)">${cdis}</div><div class="l">CDI actifs</div></div>
+    <div class="sc"><div class="v" style="color:var(--red)">${exp}</div><div class="l">Contrats expirant</div></div>
+    <div class="sc"><div class="v" style="color:var(--violet)">${notifs.filter(n=>!n.lu).length}</div><div class="l">Notifications</div></div>
   </div>
-  <div class="stats-row">
-    <div class="stat-card"><div class="val" style="color:var(--blue)">${actifs}</div><div class="lbl">Employés actifs</div><div class="trend" style="color:var(--green)"><i class="ti ti-trending-up"></i> +2 ce mois</div></div>
-    <div class="stat-card"><div class="val" style="color:var(--amber)">${pending}</div><div class="lbl">Congés en attente</div><div class="trend" style="color:var(--amber)"><i class="ti ti-clock"></i> À traiter</div></div>
-    <div class="stat-card"><div class="val" style="color:var(--green)">${cdiCount}</div><div class="lbl">CDI actifs</div><div class="trend" style="color:var(--muted)"><i class="ti ti-file-text"></i> sur ${contrats.length} contrats</div></div>
-    <div class="stat-card"><div class="val" style="color:var(--red)">${expiring}</div><div class="lbl">Contrats expirant</div><div class="trend" style="color:var(--red)"><i class="ti ti-alert-triangle"></i> Dans 30 jours</div></div>
-    <div class="stat-card"><div class="val" style="color:var(--violet)">${notifs.filter(n=>!n.lu).length}</div><div class="lbl">Notifications</div><div class="trend" style="color:var(--muted)"><i class="ti ti-bell"></i> Non lues</div></div>
-  </div>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:4px">
-    <div class="card">
-      <div class="card-header"><div class="card-title"><i class="ti ti-users" style="color:var(--blue)"></i>Employés récents</div></div>
-      <table><thead><tr><th>Nom</th><th>Poste</th><th>Dept.</th><th>Statut</th></tr></thead><tbody>
-      ${employees.slice(-4).reverse().map(e=>`<tr>
-        <td><b>${e.prenom} ${e.nom}</b></td>
-        <td style="color:var(--muted)">${e.poste}</td>
-        <td>${e.dept}</td>
-        <td><span class="badge ${e.statut==='actif'?'badge-green':'badge-gray'}">${e.statut}</span></td>
-      </tr>`).join('')}
-      </tbody></table>
-    </div>
-    <div class="card">
-      <div class="card-header"><div class="card-title"><i class="ti ti-calendar-off" style="color:var(--amber)"></i>Dernières demandes</div></div>
-      <table><thead><tr><th>Agent</th><th>Type</th><th>Jours</th><th>Statut</th></tr></thead><tbody>
-      ${conges.slice(-4).reverse().map(c=>{
-        const emp = employees.find(e=>e.id===c.empId)||{};
-        const badge = c.statut==='approuvé'?'badge-green':c.statut==='refusé'?'badge-red':'badge-amber';
-        return `<tr><td><b>${emp.prenom||'?'} ${emp.nom||''}</b></td><td style="color:var(--muted)">${c.type}</td><td>${c.nbJours}j</td><td><span class="badge ${badge}">${c.statut}</span></td></tr>`;
-      }).join('')}
-      </tbody></table>
-    </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+    <div class="card"><div class="ch"><div class="ct"><i class="ti ti-users" style="color:var(--blue)"></i>Employés récents</div></div>
+    <table><thead><tr><th>Nom</th><th>Poste</th><th>Statut</th></tr></thead><tbody>
+    ${emps.slice(-4).reverse().map(e=>`<tr><td><b>${e.prenom} ${e.nom}</b></td><td style="color:var(--muted)">${e.poste}</td><td><span class="badge ${e.statut==='actif'?'bg':'bgr'}">${e.statut}</span></td></tr>`).join('')}
+    </tbody></table></div>
+    <div class="card"><div class="ch"><div class="ct"><i class="ti ti-calendar-off" style="color:var(--amber)"></i>Dernières demandes</div></div>
+    <table><thead><tr><th>Agent</th><th>Type</th><th>Statut</th></tr></thead><tbody>
+    ${conges.slice(-4).reverse().map(c=>{const e=getEmp(c.empId);const b=c.statut==='approuvé'?'bg':c.statut==='refusé'?'br':'ba';return `<tr><td><b>${e.prenom} ${e.nom}</b></td><td style="color:var(--muted)">${c.type}</td><td><span class="badge ${b}">${c.statut}</span></td></tr>`;}).join('')}
+    </tbody></table></div>
   </div>`;
 }
 
-function renderEmployees(){
-  const rows = employees.map(e=>`<tr>
-    <td><b>${e.prenom} ${e.nom}</b><br><span style="font-size:11px;color:var(--muted)">${e.email}</span></td>
+function renderEmps(){
+  const rows=emps.map(e=>`<tr>
+    <td><b>${e.prenom} ${e.nom}</b><br><span style="font-size:10px;color:var(--muted)">${e.email}</span></td>
     <td>${e.poste}</td><td>${e.dept}</td><td>${e.tel}</td>
-    <td><span class="badge ${e.statut==='actif'?'badge-green':'badge-gray'}">${e.statut}</span></td>
+    <td><span class="badge ${e.statut==='actif'?'bg':'bgr'}">${e.statut}</span></td>
     <td>${e.date}</td>
-    <td>
-      ${currentUser.role==='admin'?`<button class="btn btn-ghost btn-sm" onclick="openEditEmp(${e.id})"><i class="ti ti-edit"></i></button>
-      <button class="btn btn-red btn-sm" onclick="deleteEmp(${e.id})"><i class="ti ti-trash"></i></button>`:'<span style="color:var(--muted);font-size:11px">Lecture seule</span>'}
-    </td>
+    <td>${currentUser.role==='admin'?`<button class="btn btn-gh btn-sm" onclick="openEditEmp(${e.id})"><i class="ti ti-edit"></i></button>
+      <button class="btn btn-r btn-sm" onclick="delEmp(${e.id})"><i class="ti ti-trash"></i></button>`:'—'}</td>
   </tr>`).join('');
-  return `
-  <div class="page-header">
-    <div><div class="page-title"><i class="ti ti-users" style="color:var(--teal)"></i>Gestion des employés</div>
-    <div class="page-sub">${employees.length} employés · ${employees.filter(e=>e.statut==='actif').length} actifs</div></div>
-    ${currentUser.role==='admin'?`<button class="btn btn-blue" onclick="openNewEmp()"><i class="ti ti-plus"></i> Nouvel employé</button>`:''}
+  return `<div class="ph">
+    <div><div class="pt"><i class="ti ti-users" style="color:var(--teal)"></i>Employés</div><div class="ps">${emps.length} employés · ${emps.filter(e=>e.statut==='actif').length} actifs</div></div>
+    ${currentUser.role==='admin'?`<button class="btn btn-b" onclick="openNewEmp()"><i class="ti ti-plus"></i>Nouvel employé</button>`:''}
   </div>
-  <div class="card">
-    <div class="card-header">
-      <div class="card-title"><i class="ti ti-list"></i> Liste des employés</div>
-      <input class="search-input" placeholder="🔍 Rechercher..." oninput="filterTable(this,'emp-table')">
-    </div>
-    <table id="emp-table"><thead><tr><th>Nom / Email</th><th>Poste</th><th>Département</th><th>Téléphone</th><th>Statut</th><th>Entrée</th><th>Actions</th></tr></thead>
-    <tbody>${rows}</tbody></table>
-  </div>`;
+  <div class="card"><div class="ch"><div class="ct"><i class="ti ti-list"></i>Liste</div>
+  <input class="si" placeholder="🔍 Rechercher..." oninput="filterTbl(this,'etbl')"></div>
+  <table id="etbl"><thead><tr><th>Nom</th><th>Poste</th><th>Département</th><th>Téléphone</th><th>Statut</th><th>Entrée</th><th>Actions</th></tr></thead><tbody>${rows}</tbody></table></div>`;
 }
 
 function renderCongesAdmin(){
-  const rows = conges.map(c=>{
-    const emp = employees.find(e=>e.id===c.empId)||{};
-    const badge = c.statut==='approuvé'?'badge-green':c.statut==='refusé'?'badge-red':'badge-amber';
-    const actions = c.statut==='en attente'?
-      `<button class="btn btn-green btn-sm" onclick="updateConge(${c.id},'approuvé')"><i class="ti ti-check"></i> Approuver</button>
-       <button class="btn btn-red btn-sm" onclick="updateConge(${c.id},'refusé')"><i class="ti ti-x"></i> Refuser</button>`
-      :`<span class="badge ${badge}">${c.statut}</span>`;
-    return `<tr><td><b>${emp.prenom||'?'} ${emp.nom||''}</b></td>
-      <td>${c.type}</td><td>${c.debut}</td><td>${c.fin}</td><td>${c.nbJours}j</td>
-      <td style="font-size:11px;color:var(--muted);max-width:120px">${c.motif||'—'}</td>
-      <td style="white-space:nowrap">${actions}</td></tr>`;
+  const rows=conges.map(c=>{
+    const e=getEmp(c.empId);
+    const b=c.statut==='approuvé'?'bg':c.statut==='refusé'?'br':'ba';
+    const actions=c.statut==='en attente'?
+      `<button class="btn btn-g btn-sm" onclick="updateConge(${c.id},'approuvé')"><i class="ti ti-check"></i>Approuver</button>
+       <button class="btn btn-r btn-sm" onclick="updateConge(${c.id},'refusé')"><i class="ti ti-x"></i>Refuser</button>`
+      :`<span class="badge ${b}">${c.statut}</span>`;
+    return `<tr><td><b>${e.prenom} ${e.nom}</b></td><td>${c.type}</td><td>${c.debut}</td><td>${c.fin}</td><td>${c.nb}j</td><td style="font-size:10px;color:var(--muted)">${c.motif||'—'}</td><td style="white-space:nowrap">${actions}</td></tr>`;
   }).join('');
-  return `
-  <div class="page-header">
-    <div><div class="page-title"><i class="ti ti-calendar-off" style="color:var(--amber)"></i>Demandes de congés</div>
-    <div class="page-sub">${conges.filter(c=>c.statut==='en attente').length} en attente d'approbation</div></div>
-  </div>
-  <div class="card">
-    <div class="card-header"><div class="card-title"><i class="ti ti-list"></i> Toutes les demandes</div></div>
-    <table><thead><tr><th>Agent</th><th>Type</th><th>Début</th><th>Fin</th><th>Jours</th><th>Motif</th><th>Actions</th></tr></thead>
-    <tbody>${rows}</tbody></table>
-  </div>`;
+  return `<div class="ph"><div><div class="pt"><i class="ti ti-calendar-off" style="color:var(--amber)"></i>Demandes de congés</div><div class="ps">${conges.filter(c=>c.statut==='en attente').length} en attente</div></div></div>
+  <div class="card"><div class="ch"><div class="ct"><i class="ti ti-list"></i>Toutes les demandes</div></div>
+  <table><thead><tr><th>Agent</th><th>Type</th><th>Début</th><th>Fin</th><th>Jours</th><th>Motif</th><th>Actions</th></tr></thead><tbody>${rows}</tbody></table></div>`;
 }
 
 function renderMesConges(){
-  const myConges = conges.filter(c=>{
-    const emp = employees.find(e=>e.email===currentUser.email||e.prenom===currentUser.prenom);
-    return emp && c.empId===emp.id;
-  });
-  const rows = myConges.length ? myConges.map(c=>{
-    const badge = c.statut==='approuvé'?'badge-green':c.statut==='refusé'?'badge-red':'badge-amber';
-    return `<tr><td>${c.type}</td><td>${c.debut}</td><td>${c.fin}</td><td>${c.nbJours}j</td>
-      <td style="font-size:11px;color:var(--muted)">${c.motif||'—'}</td>
-      <td><span class="badge ${badge}">${c.statut}</span></td></tr>`;
-  }).join('') : `<tr><td colspan="6" style="text-align:center;color:var(--muted);padding:32px">Aucune demande de congé</td></tr>`;
-  return `
-  <div class="page-header">
-    <div><div class="page-title"><i class="ti ti-beach" style="color:var(--teal)"></i>Mes congés</div>
-    <div class="page-sub">Gérez vos demandes de congés</div></div>
-    <button class="btn btn-blue" onclick="openModal('modal-conge')"><i class="ti ti-plus"></i> Nouvelle demande</button>
+  const myEmp=emps.find(e=>e.prenom===currentUser.prenom)||null;
+  const myC=myEmp?conges.filter(c=>c.empId===myEmp.id):[];
+  const rows=myC.length?myC.map(c=>{
+    const b=c.statut==='approuvé'?'bg':c.statut==='refusé'?'br':'ba';
+    return `<tr><td>${c.type}</td><td>${c.debut}</td><td>${c.fin}</td><td>${c.nb}j</td><td style="font-size:10px;color:var(--muted)">${c.motif||'—'}</td><td><span class="badge ${b}">${c.statut}</span></td></tr>`;
+  }).join(''):`<tr><td colspan="6" style="text-align:center;color:var(--muted);padding:28px">Aucune demande</td></tr>`;
+  return `<div class="ph">
+    <div><div class="pt"><i class="ti ti-beach" style="color:var(--teal)"></i>Mes congés</div></div>
+    <button class="btn btn-b" onclick="openModal('mconge');initCongeModal()"><i class="ti ti-plus"></i>Nouvelle demande</button>
   </div>
-  <div class="conge-soldes">
-    <div class="solde-card" style="background:var(--blue-pastel2)"><div class="sc-val" style="color:var(--blue)">25</div><div class="sc-lbl" style="color:var(--blue)">Congés annuels</div></div>
-    <div class="solde-card" style="background:var(--green-pastel)"><div class="sc-val" style="color:var(--green)">8</div><div class="sc-lbl" style="color:var(--green)">RTT disponibles</div></div>
-    <div class="solde-card" style="background:var(--amber-pastel)"><div class="sc-val" style="color:var(--amber)">3</div><div class="sc-lbl" style="color:var(--amber)">Congés pris ce mois</div></div>
-    <div class="solde-card" style="background:var(--violet-pastel)"><div class="sc-val" style="color:var(--violet)">${myConges.filter(c=>c.statut==='en attente').length}</div><div class="sc-lbl" style="color:var(--violet)">En attente</div></div>
+  <div class="csol">
+    <div class="cscard" style="background:var(--blue-p2)"><div class="csv" style="color:var(--blue)">25</div><div class="csl" style="color:var(--blue)">Congés annuels</div></div>
+    <div class="cscard" style="background:var(--green-p)"><div class="csv" style="color:var(--green)">8</div><div class="csl" style="color:var(--green)">RTT</div></div>
+    <div class="cscard" style="background:var(--amber-p)"><div class="csv" style="color:var(--amber)">3</div><div class="csl" style="color:var(--amber)">Pris ce mois</div></div>
+    <div class="cscard" style="background:var(--violet-p)"><div class="csv" style="color:var(--violet)">${myC.filter(c=>c.statut==='en attente').length}</div><div class="csl" style="color:var(--violet)">En attente</div></div>
   </div>
-  <div class="card">
-    <div class="card-header"><div class="card-title"><i class="ti ti-list"></i> Historique</div></div>
-    <table><thead><tr><th>Type</th><th>Début</th><th>Fin</th><th>Jours</th><th>Motif</th><th>Statut</th></tr></thead>
-    <tbody>${rows}</tbody></table>
-  </div>`;
+  <div class="card"><div class="ch"><div class="ct">Historique</div></div>
+  <table><thead><tr><th>Type</th><th>Début</th><th>Fin</th><th>Jours</th><th>Motif</th><th>Statut</th></tr></thead><tbody>${rows}</tbody></table></div>`;
 }
 
 function renderContrats(){
-  const rows = contrats.map(c=>{
-    const emp = employees.find(e=>e.id===c.empId)||{};
-    const typeBadge = c.type==='CDI'?'badge-blue':c.type==='CDD'?'badge-amber':'badge-violet';
-    const statBadge = c.statut==='actif'?'badge-green':c.statut==='expiré'?'badge-red':'badge-gray';
-    return `<tr><td><b>${emp.prenom||'?'} ${emp.nom||''}</b></td>
-      <td><span class="badge ${typeBadge}">${c.type}</span></td>
-      <td>${c.debut}</td><td>${c.fin||'—'}</td>
-      <td><b>${c.salaire.toLocaleString('fr-FR')} €</b></td>
-      <td><span class="badge ${statBadge}">${c.statut}</span></td>
-      ${currentUser.role==='admin'?`<td><button class="btn btn-red btn-sm" onclick="deleteContrat(${c.id})"><i class="ti ti-trash"></i></button></td>`:''}
-    </tr>`;
+  const rows=contrats.map(c=>{
+    const e=getEmp(c.empId);
+    const tb=c.type==='CDI'?'bb':c.type==='CDD'?'ba':'bv';
+    const sb=c.statut==='actif'?'bg':c.statut==='expiré'?'br':'bgr';
+    return `<tr><td><b>${e.prenom} ${e.nom}</b></td><td><span class="badge ${tb}">${c.type}</span></td><td>${c.debut}</td><td>${c.fin||'—'}</td><td><b>${c.salaire.toLocaleString('fr-FR')} €</b></td><td><span class="badge ${sb}">${c.statut}</span></td>${currentUser.role==='admin'?`<td><button class="btn btn-r btn-sm" onclick="delContrat(${c.id})"><i class="ti ti-trash"></i></button></td>`:''}</tr>`;
   }).join('');
-  return `
-  <div class="page-header">
-    <div><div class="page-title"><i class="ti ti-file-text" style="color:var(--red)"></i>Contrats</div>
-    <div class="page-sub">${contrats.length} contrats · ${contrats.filter(c=>c.statut==='actif').length} actifs</div></div>
-    ${currentUser.role==='admin'?`<button class="btn btn-blue" onclick="openNewContrat()"><i class="ti ti-plus"></i> Nouveau contrat</button>`:''}
+  return `<div class="ph">
+    <div><div class="pt"><i class="ti ti-file-text" style="color:var(--red)"></i>Contrats</div><div class="ps">${contrats.length} contrats · ${contrats.filter(c=>c.statut==='actif').length} actifs</div></div>
+    ${currentUser.role==='admin'?`<button class="btn btn-b" onclick="openNewContrat()"><i class="ti ti-plus"></i>Nouveau contrat</button>`:''}
   </div>
-  <div class="card">
-    <div class="card-header"><div class="card-title"><i class="ti ti-list"></i> Liste des contrats</div></div>
-    <table><thead><tr><th>Employé</th><th>Type</th><th>Début</th><th>Fin</th><th>Salaire brut</th><th>Statut</th>${currentUser.role==='admin'?'<th>Actions</th>':''}
-    </tr></thead><tbody>${rows}</tbody></table>
-  </div>`;
+  <div class="card"><div class="ch"><div class="ct"><i class="ti ti-list"></i>Liste</div></div>
+  <table><thead><tr><th>Employé</th><th>Type</th><th>Début</th><th>Fin</th><th>Salaire</th><th>Statut</th>${currentUser.role==='admin'?'<th></th>':''}</tr></thead><tbody>${rows}</tbody></table></div>`;
 }
 
 function renderAnnuaire(){
-  const colors = ['#003189','#0e7a70','#a0327a','#b97000','#5a3abf','#e1000f'];
-  const cards = employees.filter(e=>e.statut==='actif').map((e,i)=>{
-    const initials = e.prenom[0]+e.nom[0];
-    return `<div class="contact-card">
-      <div class="contact-avatar" style="background:${colors[i%colors.length]}">${initials}</div>
-      <div class="contact-name">${e.prenom} ${e.nom}</div>
-      <div class="contact-poste">${e.poste}</div>
-      <div class="contact-dept">${e.dept}</div>
-      <div style="margin-top:8px;font-size:11px;color:var(--muted)">${e.email}</div>
-      <div style="font-size:11px;color:var(--muted)">${e.tel}</div>
-    </div>`;
-  }).join('');
-  return `
-  <div class="page-header">
-    <div><div class="page-title"><i class="ti ti-address-book" style="color:var(--violet)"></i>Annuaire du personnel</div>
-    <div class="page-sub">${employees.filter(e=>e.statut==='actif').length} agents actifs</div></div>
-    <input class="search-input" placeholder="🔍 Rechercher un agent..." oninput="filterCards(this)">
+  const cards=emps.filter(e=>e.statut==='actif').map((e,i)=>`
+    <div class="acard">
+      <div class="aav" style="background:${COLORS[i%COLORS.length]}">${e.prenom[0]}${e.nom[0]}</div>
+      <div class="an">${e.prenom} ${e.nom}</div>
+      <div class="ap">${e.poste}</div>
+      <div class="ad">${e.dept}</div>
+      <div style="font-size:10px;color:var(--muted);margin-top:5px">${e.email}<br>${e.tel}</div>
+    </div>`).join('');
+  return `<div class="ph">
+    <div><div class="pt"><i class="ti ti-address-book" style="color:var(--violet)"></i>Annuaire</div><div class="ps">${emps.filter(e=>e.statut==='actif').length} agents actifs</div></div>
+    <input class="si" placeholder="🔍 Rechercher..." oninput="filterCards(this)">
   </div>
-  <div class="annuaire-grid" id="annuaire-grid">${cards}</div>`;
+  <div class="agrid" id="agrid">${cards}</div>`;
 }
 
 function renderNotifs(){
-  lsSet('notifs',notifs);
-  const items = notifs.map(n=>{
-    const icons = {conge:'ti-calendar-off',alerte:'ti-alert-triangle',employe:'ti-user-plus'};
-    const colors = {conge:'var(--amber-pastel)',alerte:'var(--red-pastel)',employe:'var(--green-pastel)'};
-    const iconColors = {conge:'var(--amber)',alerte:'var(--red)',employe:'var(--green)'};
-    return `<div class="notif-item ${n.lu?'':'unread'}">
-      <div class="notif-icon" style="background:${colors[n.type]||'var(--blue-pastel)'}">
-        <i class="ti ${icons[n.type]||'ti-bell'}" style="color:${iconColors[n.type]||'var(--blue)'}"></i>
-      </div>
-      <div class="notif-body">
-        <div class="nt">${n.titre}</div>
-        <div class="nd">${n.desc}</div>
-      </div>
-      <div class="notif-time">${n.date}</div>
+  const items=notifs.map(n=>{
+    const icons={conge:'ti-calendar-off',alerte:'ti-alert-triangle',employe:'ti-user-plus'};
+    const bg={conge:'var(--amber-p)',alerte:'var(--red-p)',employe:'var(--green-p)'};
+    const ic={conge:'var(--amber)',alerte:'var(--red)',employe:'var(--green)'};
+    return `<div class="ni ${n.lu?'':'unread'}">
+      <div class="nico" style="background:${bg[n.type]||'var(--blue-p2)'}"><i class="ti ${icons[n.type]||'ti-bell'}" style="color:${ic[n.type]||'var(--blue)'}"></i></div>
+      <div><div class="nt">${n.titre}</div><div class="nd">${n.desc}</div></div>
+      <div class="ntm">${n.date}</div>
     </div>`;
   }).join('');
-  notifs.forEach(n=>n.lu=true);
-  return `
-  <div class="page-header">
-    <div><div class="page-title"><i class="ti ti-bell" style="color:var(--pink)"></i>Notifications</div>
-    <div class="page-sub">${notifs.filter(n=>!n.lu).length} non lues</div></div>
-  </div>
-  <div class="notif-list">${items||'<div class="empty-state"><i class="ti ti-bell-off"></i>Aucune notification</div>'}</div>`;
+  return `<div class="ph"><div><div class="pt"><i class="ti ti-bell" style="color:var(--pink)"></i>Notifications</div></div></div>
+  <div class="nlist">${items||'<p style="color:var(--muted);text-align:center;padding:32px">Aucune notification</p>'}</div>`;
 }
 
 function renderProfil(){
-  const u = currentUser;
-  return `
-  <div class="page-header">
-    <div><div class="page-title"><i class="ti ti-user-circle" style="color:var(--blue)"></i>Mon profil</div></div>
+  const u=currentUser;
+  return `<div class="ph"><div><div class="pt"><i class="ti ti-user-circle" style="color:var(--blue)"></i>Mon profil</div></div></div>
+  <div class="phero">
+    <div class="pav">${u.av}</div>
+    <div><div class="pname">${u.prenom} ${u.nom}</div><div class="prole">${u.poste} · ${u.dept}</div>
+    <div style="margin-top:8px"><span class="badge bb">${ROLE_LABELS[u.role]}</span></div></div>
   </div>
-  <div class="profile-hero">
-    <div class="profile-avatar">${u.avatar}</div>
-    <div>
-      <div class="profile-name">${u.prenom} ${u.nom}</div>
-      <div class="profile-role">${u.poste} · ${u.dept}</div>
-      <div style="margin-top:8px"><span class="badge badge-blue">${'admin':'Administrateur','manager':'Responsable','employee':'Agent'}[u.role]}</span></div>
+  <div class="pgrid">
+    <div class="ic"><div class="ic-label">Informations personnelles</div>
+      <div class="ir"><span class="ik">Prénom</span><span class="iv">${u.prenom}</span></div>
+      <div class="ir"><span class="ik">Nom</span><span class="iv">${u.nom}</span></div>
+      <div class="ir"><span class="ik">Email</span><span class="iv">${u.email}</span></div>
+      <div class="ir"><span class="ik">Poste</span><span class="iv">${u.poste}</span></div>
     </div>
-  </div>
-  <div class="profile-grid">
-    <div class="info-card">
-      <div class="ic-label"><i class="ti ti-id-badge"></i> Informations personnelles</div>
-      <div class="info-row"><span class="ik">Prénom</span><span class="iv">${u.prenom}</span></div>
-      <div class="info-row"><span class="ik">Nom</span><span class="iv">${u.nom}</span></div>
-      <div class="info-row"><span class="ik">Email</span><span class="iv">${u.email}</span></div>
-      <div class="info-row"><span class="ik">Poste</span><span class="iv">${u.poste}</span></div>
-      <div class="info-row"><span class="ik">Département</span><span class="iv">${u.dept}</span></div>
-    </div>
-    <div class="info-card">
-      <div class="ic-label"><i class="ti ti-building"></i> Organisation</div>
-      <div class="info-row"><span class="ik">Établissement</span><span class="iv">CROUS de Lille</span></div>
-      <div class="info-row"><span class="ik">Unité</span><span class="iv">UCA & Cafétérias</span></div>
-      <div class="info-row"><span class="ik">Adresse</span><span class="iv">Bd Paul Langevin, 59650</span></div>
-      <div class="info-row"><span class="ik">Rôle système</span><span class="iv">${'admin':'Administrateur','manager':'Responsable','employee':'Agent'}[u.role]}</span></div>
+    <div class="ic"><div class="ic-label">Organisation</div>
+      <div class="ir"><span class="ik">Établissement</span><span class="iv">CROUS de Lille</span></div>
+      <div class="ir"><span class="ik">Unité</span><span class="iv">UCA &amp; Cafétérias</span></div>
+      <div class="ir"><span class="ik">Adresse</span><span class="iv">Bd Paul Langevin, 59650</span></div>
+      <div class="ir"><span class="ik">Rôle</span><span class="iv">${ROLE_LABELS[u.role]}</span></div>
     </div>
   </div>`;
 }
 
-// ══════════════════════════════
-// ACTIONS
-// ══════════════════════════════
-function filterTable(input, tableId){
-  const val = input.value.toLowerCase();
-  document.querySelectorAll(`#${tableId} tbody tr`).forEach(row=>{
-    row.style.display = row.textContent.toLowerCase().includes(val)?'':'none';
-  });
-}
-function filterCards(input){
-  const val = input.value.toLowerCase();
-  document.querySelectorAll('#annuaire-grid .contact-card').forEach(card=>{
-    card.style.display = card.textContent.toLowerCase().includes(val)?'':'none';
-  });
-}
-function openModal(id){document.getElementById(id).classList.add('open')}
-function closeModal(id){document.getElementById(id).classList.remove('open')}
+function openModal(id){document.getElementById(id).style.display='flex'}
+function closeModal(id){document.getElementById(id).style.display='none'}
 
 function openNewEmp(){
   editEmpId=null;
-  document.getElementById('modal-emp-title').textContent='Nouvel employé';
-  ['emp-prenom','emp-nom','emp-email','emp-tel','emp-poste'].forEach(id=>document.getElementById(id).value='');
-  document.getElementById('emp-statut').value='actif';
-  document.getElementById('emp-date').value=new Date().toISOString().split('T')[0];
-  openModal('modal-emp');
+  document.getElementById('memp-title').textContent='Nouvel employé';
+  ['ep','en','ee','et','epo'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('es').value='actif';
+  document.getElementById('edate').value=new Date().toISOString().split('T')[0];
+  openModal('memp');
 }
 function openEditEmp(id){
   editEmpId=id;
-  const e=employees.find(x=>x.id===id);
-  document.getElementById('modal-emp-title').textContent='Modifier l'employé';
-  document.getElementById('emp-prenom').value=e.prenom;
-  document.getElementById('emp-nom').value=e.nom;
-  document.getElementById('emp-email').value=e.email;
-  document.getElementById('emp-tel').value=e.tel;
-  document.getElementById('emp-poste').value=e.poste;
-  document.getElementById('emp-dept').value=e.dept;
-  document.getElementById('emp-statut').value=e.statut;
-  document.getElementById('emp-date').value=e.date;
-  openModal('modal-emp');
+  const e=emps.find(x=>x.id===id);
+  document.getElementById('memp-title').textContent="Modifier l'employé";
+  document.getElementById('ep').value=e.prenom;
+  document.getElementById('en').value=e.nom;
+  document.getElementById('ee').value=e.email;
+  document.getElementById('et').value=e.tel;
+  document.getElementById('epo').value=e.poste;
+  document.getElementById('ed').value=e.dept;
+  document.getElementById('es').value=e.statut;
+  document.getElementById('edate').value=e.date;
+  openModal('memp');
 }
-function saveEmployee(){
-  const data={prenom:document.getElementById('emp-prenom').value,nom:document.getElementById('emp-nom').value,
-    email:document.getElementById('emp-email').value,tel:document.getElementById('emp-tel').value,
-    poste:document.getElementById('emp-poste').value,dept:document.getElementById('emp-dept').value,
-    statut:document.getElementById('emp-statut').value,date:document.getElementById('emp-date').value};
-  if(!data.prenom||!data.nom)return alert('Prénom et nom requis');
-  if(editEmpId){Object.assign(employees.find(e=>e.id===editEmpId),data);}
-  else{data.id=Date.now();employees.push(data);}
-  lsSet('employees',employees);
-  closeModal('modal-emp');
-  navigate('employees');
+function saveEmp(){
+  const data={prenom:document.getElementById('ep').value.trim(),nom:document.getElementById('en').value.trim(),
+    email:document.getElementById('ee').value.trim(),tel:document.getElementById('et').value.trim(),
+    poste:document.getElementById('epo').value.trim(),dept:document.getElementById('ed').value,
+    statut:document.getElementById('es').value,date:document.getElementById('edate').value};
+  if(!data.prenom||!data.nom){alert('Prénom et nom requis');return}
+  if(editEmpId){Object.assign(emps.find(e=>e.id===editEmpId),data)}
+  else{data.id=Date.now();emps.push(data)}
+  save();closeModal('memp');navigate('employes');
 }
-function deleteEmp(id){
-  if(!confirm('Supprimer cet employé ?'))return;
-  employees=employees.filter(e=>e.id!==id);
-  lsSet('employees',employees);
-  navigate('employees');
-}
-function updateConge(id,statut){
-  const c=conges.find(x=>x.id===id);
-  if(c)c.statut=statut;
-  lsSet('conges',conges);
-  navigate('conges-admin');
+function delEmp(id){if(!confirm('Supprimer cet employé ?'))return;emps=emps.filter(e=>e.id!==id);save();navigate('employes')}
+
+function initCongeModal(){
+  const today=new Date().toISOString().split('T')[0];
+  document.getElementById('cdeb').value=today;
+  document.getElementById('cfin').value=today;
+  document.getElementById('cmotif').value='';
 }
 function saveConge(){
-  const debut=document.getElementById('conge-debut').value;
-  const fin=document.getElementById('conge-fin').value;
-  if(!debut||!fin)return alert('Dates requises');
-  const d1=new Date(debut),d2=new Date(fin);
-  const jours=Math.round((d2-d1)/(86400000))+1;
-  const emp=employees.find(e=>e.prenom===currentUser.prenom)||employees[0];
-  conges.push({id:Date.now(),empId:emp?emp.id:0,type:document.getElementById('conge-type').value,
-    debut,fin,motif:document.getElementById('conge-motif').value,statut:'en attente',nbJours:jours});
-  lsSet('conges',conges);
+  const debut=document.getElementById('cdeb').value;
+  const fin=document.getElementById('cfin').value;
+  if(!debut||!fin){alert('Dates requises');return}
+  const nb=Math.max(1,Math.round((new Date(fin)-new Date(debut))/(86400000))+1);
+  const emp=emps.find(e=>e.prenom===currentUser.prenom);
+  conges.push({id:Date.now(),empId:emp?emp.id:0,type:document.getElementById('ctype').value,
+    debut,fin,motif:document.getElementById('cmotif').value,statut:'en attente',nb});
   notifs.unshift({id:Date.now(),titre:'Nouvelle demande de congé',
-    desc:`${currentUser.prenom} ${currentUser.nom} a soumis une demande de congé (${jours} jours).`,
-    type:'conge',lu:false,date:'À l'instant'});
-  lsSet('notifs',notifs);
-  closeModal('modal-conge');
-  navigate('mes-conges');
+    desc:`${currentUser.prenom} ${currentUser.nom} — ${nb} jours.`,type:'conge',lu:false,date:"À l'instant"});
+  save();closeModal('mconge');navigate('mes-conges');
 }
+function updateConge(id,statut){const c=conges.find(x=>x.id===id);if(c)c.statut=statut;save();navigate('conges-admin')}
+
 function openNewContrat(){
-  const sel=document.getElementById('contrat-emp');
-  sel.innerHTML=employees.map(e=>`<option value="${e.id}">${e.prenom} ${e.nom}</option>`).join('');
-  document.getElementById('contrat-debut').value=new Date().toISOString().split('T')[0];
-  document.getElementById('contrat-fin').value='';
-  document.getElementById('contrat-salaire').value='';
-  openModal('modal-contrat');
+  const sel=document.getElementById('cemp');
+  sel.innerHTML=emps.map(e=>`<option value="${e.id}">${e.prenom} ${e.nom}</option>`).join('');
+  document.getElementById('cdeb2').value=new Date().toISOString().split('T')[0];
+  document.getElementById('cfin2').value='';
+  document.getElementById('csal').value='';
+  openModal('mcontrat');
 }
 function saveContrat(){
-  const empId=parseInt(document.getElementById('contrat-emp').value);
-  const debut=document.getElementById('contrat-debut').value;
-  const salaire=parseInt(document.getElementById('contrat-salaire').value);
-  if(!debut||!salaire)return alert('Données incomplètes');
-  contrats.push({id:Date.now(),empId,type:document.getElementById('contrat-type').value,
-    salaire,debut,fin:document.getElementById('contrat-fin').value,statut:'actif'});
-  lsSet('contrats',contrats);
-  closeModal('modal-contrat');
-  navigate('contrats');
+  const sal=parseInt(document.getElementById('csal').value);
+  const debut=document.getElementById('cdeb2').value;
+  if(!sal||!debut){alert('Données incomplètes');return}
+  contrats.push({id:Date.now(),empId:parseInt(document.getElementById('cemp').value),
+    type:document.getElementById('ctype2').value,salaire:sal,debut,
+    fin:document.getElementById('cfin2').value,statut:'actif'});
+  save();closeModal('mcontrat');navigate('contrats');
 }
-function deleteContrat(id){
-  if(!confirm('Supprimer ce contrat ?'))return;
-  contrats=contrats.filter(c=>c.id!==id);
-  lsSet('contrats',contrats);
-  navigate('contrats');
+function delContrat(id){if(!confirm('Supprimer ce contrat ?'))return;contrats=contrats.filter(c=>c.id!==id);save();navigate('contrats')}
+
+function filterTbl(inp,id){
+  const v=inp.value.toLowerCase();
+  document.querySelectorAll('#'+id+' tbody tr').forEach(r=>{r.style.display=r.textContent.toLowerCase().includes(v)?'':'none'});
+}
+function filterCards(inp){
+  const v=inp.value.toLowerCase();
+  document.querySelectorAll('#agrid .acard').forEach(c=>{c.style.display=c.textContent.toLowerCase().includes(v)?'':'none'});
 }
 
-// Close modal on backdrop click
-document.querySelectorAll('.modal-backdrop').forEach(m=>{
-  m.addEventListener('click',e=>{if(e.target===m)m.classList.remove('open')});
+// Close modals on backdrop click
+['memp','mconge','mcontrat'].forEach(id=>{
+  document.getElementById(id).addEventListener('click',function(e){if(e.target===this)closeModal(id)});
 });
 </script>
 </body>
