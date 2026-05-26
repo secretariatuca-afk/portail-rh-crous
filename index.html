@@ -674,15 +674,10 @@ function goHome(){CU=null;showScreen('home')}
 function goLogin(){showScreen('login');setTimeout(function(){var el=document.getElementById('l-email');if(el)el.focus()},80)}
 
 // ══ INIT — garantit l'affichage de la page d'accueil au chargement
-document.addEventListener('DOMContentLoaded', function(){
-  showScreen('home');
-  var btn = document.getElementById('l-submit');
-  if(btn) btn.addEventListener('click', doLogin);
-  var pwd = document.getElementById('l-pwd');
-  if(pwd) pwd.addEventListener('keydown', function(e){if(e.key==='Enter')doLogin()});
-  var em = document.getElementById('l-email');
-  if(em) em.addEventListener('keydown', function(e){if(e.key==='Enter')doLogin()});
-});
+// Init direct — compatible artifact + navigateur
+showScreen('home');
+document.getElementById('l-pwd').addEventListener('keydown', function(e){if(e.key==='Enter')doLogin()});
+document.getElementById('l-email').addEventListener('keydown', function(e){if(e.key==='Enter')doLogin()});
 
 function doLogin(){
   var email = document.getElementById('l-email').value.trim();
@@ -1345,6 +1340,4 @@ var prMois = new Date().getMonth();
 </script>
 </body>
 </html>
-
-
 
