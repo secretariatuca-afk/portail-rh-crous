@@ -922,6 +922,28 @@ tr:hover td{background:#fafbff}
   </div>
 </div>
 
+<!-- MODAL IMPORT GOOGLE CALENDAR -->
+<div class="modal-bg" id="m-gcal" style="display:none" onclick="if(event.target===this)closeM('m-gcal')">
+  <div class="modal" style="max-width:640px">
+    <div class="mh"><div class="mt"><i class="ti ti-brand-google"></i> Importer depuis Google Calendar</div><button class="mx" onclick="closeM('m-gcal')"><i class="ti ti-x"></i></button></div>
+    <div id="gcal-step1">
+      <p style="font-size:12px;color:var(--mu);margin:0 0 10px">
+        Dans Google Calendar : <b>Paramètres</b> du calendrier source → <b>Intégrer le calendrier</b> → copiez l'<b>« Adresse publique au format iCal »</b> (URL se terminant par <code>.ics</code>). Le calendrier doit être public, sinon collez directement le contenu .ics téléchargé.
+      </p>
+      <div class="fg"><label>URL du calendrier (.ics)</label><input id="gcal-url" placeholder="https://calendar.google.com/calendar/ical/.../basic.ics"></div>
+      <div style="text-align:center;color:var(--mu);font-size:11px;margin:6px 0">— ou —</div>
+      <div class="fg"><label>Coller le contenu .ics</label><textarea id="gcal-raw" rows="5" style="width:100%;font-family:monospace;font-size:11px" placeholder="BEGIN:VCALENDAR..."></textarea></div>
+      <div id="gcal-err" style="color:var(--rd);font-size:12px;display:none;margin-bottom:8px"></div>
+      <div class="mf"><button class="btn btn-gh" onclick="closeM('m-gcal')">Annuler</button><button class="btn btn-b" onclick="fetchGCalEvents()"><i class="ti ti-download"></i> Analyser</button></div>
+    </div>
+    <div id="gcal-step2" style="display:none">
+      <p style="font-size:12px;color:var(--mu);margin:0 0 10px">Vérifiez et ajustez chaque ligne (agent, type, dates) avant l'import définitif. Rien n'est enregistré tant que vous n'avez pas cliqué sur « Importer ».</p>
+      <div style="max-height:360px;overflow:auto"><table style="width:100%;font-size:12px" id="gcal-preview-tbl"></table></div>
+      <div class="mf"><button class="btn btn-gh" onclick="document.getElementById('gcal-step1').style.display='';document.getElementById('gcal-step2').style.display='none'">Retour</button><button class="btn btn-b" onclick="confirmImportGCal()"><i class="ti ti-check"></i> Importer la sélection</button></div>
+    </div>
+  </div>
+</div>
+
 <!-- MODAL CONTRAT -->
 <div class="modal-bg" id="m-contrat" style="display:none" onclick="if(event.target===this)closeM('m-contrat')">
   <div class="modal">
@@ -1400,6 +1422,7 @@ function rAbsences(){
   h+='<div style="display:flex;gap:8px;flex-wrap:wrap">';
   h+='<button class="btn btn-b" onclick="openNewAbs()"><i class="ti ti-plus"></i> Nouvelle absence</button>';
   h+='<button class="btn btn-gh" onclick="openGCal2()"><i class="ti ti-brand-google"></i> Calendar</button>';
+  h+='<button class="btn" style="background:#dce8ff;color:var(--bl);border:1px solid #b6d1ff" onclick="openM(\'m-gcal\')"><i class="ti ti-cloud-download"></i> Importer Google Calendar</button>';
   h+='<button class="btn" style="background:var(--orp);color:var(--or);border:1px solid #ffd4b0" onclick="mailRH()"><i class="ti ti-mail"></i> Mail RH</button>';
   h+='</div></div>';
   h+='<div class="card"><div class="ch"><div class="ct"><i class="ti ti-calendar"></i> '+mn+'</div></div><div class="cal">';
@@ -1720,6 +1743,153 @@ function gcalAbs(id){
   var det=encodeURIComponent('Agent : '+e.nom+'\nDép. : '+(e.affectation||e.dept||'')+'\nType : '+t.label+'\nDurée : '+c.nb+' jours');
   window.open('https://calendar.google.com/calendar/u/0/r/eventedit?text='+title+'&dates='+d1+'/'+d2+'&details='+det,'_blank');
 }
+
+// ══ IMPORT GOOGLE CALENDAR → ABSENCES
+var GCAL_PREVIEW = [];
+
+function icsUnfold(text){
+  // RFC5545 : une ligne pliée commence par un espace ou une tabulation
+  return text.replace(/\r\n/g,'\n').split('\n').reduce(function(lines,line){
+    if((line[0]===' '||line[0]==='\t')&&lines.length){ lines[lines.length-1]+=line.slice(1); }
+    else lines.push(line);
+    return lines;
+  },[]);
+}
+
+function icsDateToISO(v){
+  // v ex: 20250715 ou 20250715T090000Z
+  var m=v.match(/^(\d{4})(\d{2})(\d{2})/);
+  if(!m) return null;
+  return m[1]+'-'+m[2]+'-'+m[3];
+}
+
+function parseICS(text){
+  var lines=icsUnfold(text);
+  var events=[],cur=null;
+  for(var i=0;i<lines.length;i++){
+    var l=lines[i];
+    if(l.indexOf('BEGIN:VEVENT')===0){ cur={}; continue; }
+    if(l.indexOf('END:VEVENT')===0){ if(cur) events.push(cur); cur=null; continue; }
+    if(!cur) continue;
+    var idx=l.indexOf(':'); if(idx<0) continue;
+    var key=l.slice(0,idx).split(';')[0];
+    var val=l.slice(idx+1);
+    if(key==='SUMMARY') cur.summary=val.replace(/\\,/g,',').replace(/\\n/gi,' ');
+    else if(key==='DESCRIPTION') cur.description=val.replace(/\\n/gi,' ').replace(/\\,/g,',');
+    else if(key==='DTSTART') cur.dtstart=val;
+    else if(key==='DTEND') cur.dtend=val;
+  }
+  return events.map(function(e){
+    var deb=icsDateToISO(e.dtstart||'');
+    var finRaw=icsDateToISO(e.dtend||e.dtstart||'');
+    var fin=finRaw;
+    // Google met souvent DTEND exclusif (jour suivant le dernier jour) pour les événements "journée entière"
+    if(finRaw && deb && finRaw!==deb){
+      var fd=new Date(finRaw+'T00:00:00'); fd.setDate(fd.getDate()-1);
+      fin=fd.toISOString().split('T')[0];
+      if(fin<deb) fin=deb;
+    }
+    return {summary:e.summary||'(sans titre)',description:e.description||'',deb:deb,fin:fin};
+  }).filter(function(e){return e.deb;});
+}
+
+function guessType(text){
+  var t=text.toLowerCase();
+  if(/maladie|arr[êe]t|sick/.test(t)) return 'maladie';
+  if(/rtt/.test(t)) return 'rtt';
+  if(/matern/.test(t)) return 'maternité';
+  if(/patern/.test(t)) return 'paternité';
+  if(/mariage/.test(t)) return 'mariage';
+  if(/formation/.test(t)) return 'formation';
+  if(/sans.?solde/.test(t)) return 'sans-solde';
+  if(/except/.test(t)) return 'exceptionnel';
+  if(/cong[ée]|vacances|annuel|cp\b/.test(t)) return 'annuel';
+  return 'exceptionnel';
+}
+
+function guessAgent(text){
+  var t=text.toLowerCase();
+  var best=null,bestScore=0;
+  agents.forEach(function(a){
+    var parts=[a.nom,a.prenom,a.nomUsage].filter(Boolean).join(' ').toLowerCase().split(/\s+/).filter(function(p){return p.length>2});
+    var score=0;
+    parts.forEach(function(p){ if(t.indexOf(p)!==-1) score++; });
+    if(score>bestScore){ bestScore=score; best=a; }
+  });
+  return bestScore>0?best.id:(agents[0]?agents[0].id:null);
+}
+
+function fetchGCalEvents(){
+  var url=document.getElementById('gcal-url').value.trim();
+  var raw=document.getElementById('gcal-raw').value.trim();
+  var errEl=document.getElementById('gcal-err');
+  errEl.style.display='none';
+  function handleText(text){
+    var evts=parseICS(text);
+    if(!evts.length){ errEl.textContent='Aucun événement exploitable trouvé dans ce calendrier (vérifiez le format .ics).'; errEl.style.display='block'; return; }
+    GCAL_PREVIEW=evts.map(function(e){return {summary:e.summary,deb:e.deb,fin:e.fin,empId:guessAgent(e.summary+' '+e.description),type:guessType(e.summary+' '+e.description),motif:(e.summary+(e.description?' — '+e.description:'')).slice(0,200),include:true};});
+    renderGCalPreview();
+    document.getElementById('gcal-step1').style.display='none';
+    document.getElementById('gcal-step2').style.display='';
+  }
+  if(raw){ handleText(raw); return; }
+  if(!url){ errEl.textContent='Indiquez une URL .ics ou collez le contenu du calendrier.'; errEl.style.display='block'; return; }
+  function tryFetch(u){ return fetch(u).then(function(r){ if(!r.ok) throw new Error('HTTP '+r.status); return r.text(); }); }
+  tryFetch(url).then(handleText).catch(function(){
+    // Repli : proxy CORS public (lecture seule, calendrier déjà public) — utile car calendar.google.com
+    // n'envoie pas d'en-têtes CORS permettant la lecture directe depuis un site statique GitHub Pages.
+    var proxied='https://corsproxy.io/?url='+encodeURIComponent(url);
+    tryFetch(proxied).then(handleText).catch(function(err){
+      errEl.innerHTML='Impossible de récupérer ce calendrier automatiquement (restriction CORS de Google, même via proxy de secours : '+err.message+').<br><b>Solution fiable :</b> ouvrez l\'URL .ics dans un nouvel onglet du navigateur, sélectionnez tout (Ctrl+A), copiez (Ctrl+C), puis collez dans le champ « Coller le contenu .ics » ci-dessus et cliquez à nouveau sur Analyser.';
+      errEl.style.display='block';
+    });
+  });
+}
+
+function renderGCalPreview(){
+  var typeOpts=Object.keys(ABS).map(function(k){return '<option value="'+k+'">'+ABS[k].label+'</option>'}).join('');
+  var agOpts=agents.map(function(a){return '<option value="'+a.id+'">'+a.nom+'</option>'}).join('');
+  var h='<thead><tr><th></th><th>Agent</th><th>Type</th><th>Début</th><th>Fin</th><th>Motif (issu de l\'événement)</th></tr></thead><tbody>';
+  GCAL_PREVIEW.forEach(function(e,i){
+    h+='<tr>'+
+      '<td><input type="checkbox" '+(e.include?'checked':'')+' onchange="GCAL_PREVIEW['+i+'].include=this.checked"></td>'+
+      '<td><select onchange="GCAL_PREVIEW['+i+'].empId=parseInt(this.value)">'+agOpts.replace('value="'+e.empId+'"','value="'+e.empId+'" selected')+'</select></td>'+
+      '<td><select onchange="GCAL_PREVIEW['+i+'].type=this.value">'+typeOpts.replace('value="'+e.type+'"','value="'+e.type+'" selected')+'</select></td>'+
+      '<td><input type="date" value="'+e.deb+'" style="width:110px" onchange="GCAL_PREVIEW['+i+'].deb=this.value"></td>'+
+      '<td><input type="date" value="'+e.fin+'" style="width:110px" onchange="GCAL_PREVIEW['+i+'].fin=this.value"></td>'+
+      '<td style="max-width:180px;font-size:11px;color:var(--mu)">'+e.motif.replace(/</g,'&lt;')+'</td>'+
+      '</tr>';
+  });
+  h+='</tbody>';
+  document.getElementById('gcal-preview-tbl').innerHTML=h;
+}
+
+function joursOuvres(deb,fin){
+  var d=new Date(deb+'T00:00:00'),f=new Date(fin+'T00:00:00'),n=0;
+  while(d<=f){ var wd=d.getDay(); if(wd!==0&&wd!==6) n++; d.setDate(d.getDate()+1); }
+  return n||1;
+}
+
+function confirmImportGCal(){
+  var maxId=conges.reduce(function(m,c){return Math.max(m,c.id)},0);
+  var added=0;
+  GCAL_PREVIEW.forEach(function(e){
+    if(!e.include) return;
+    if(!e.empId||!e.deb||!e.fin) return;
+    maxId++;
+    conges.push({id:maxId,empId:e.empId,type:e.type,deb:e.deb,fin:e.fin,motif:e.motif,stat:'en attente',nb:joursOuvres(e.deb,e.fin),source:'google-calendar'});
+    added++;
+  });
+  save();
+  closeM('m-gcal');
+  document.getElementById('gcal-step1').style.display='';
+  document.getElementById('gcal-step2').style.display='none';
+  document.getElementById('gcal-url').value='';
+  document.getElementById('gcal-raw').value='';
+  navigate('absences');
+  toast(added+' absence(s) importée(s) depuis Google Calendar — statut « en attente »','success');
+}
+
 function mailPresence(){
   var mn=new Date(PRES_AN,PRES_MOIS,1).toLocaleDateString('fr-FR',{month:'long',year:'numeric'});
   var mk=PRES_AN+'-'+String(PRES_MOIS+1).padStart(2,'0');
